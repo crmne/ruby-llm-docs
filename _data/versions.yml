@@ -1,0 +1,8 @@
+---
+current: ruby_llm_auto
+items:
+  - title: Latest (current)
+    url: /
+  - title: Changelog
+    url: https://github.com/crmne/ruby_llm/releases
+    external: true

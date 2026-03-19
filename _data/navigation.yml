@@ -1,0 +1,6 @@
+- title: Guide
+  url: /getting-started/
+  collections:
+    - introduction
+    - core_features
+    - advanced

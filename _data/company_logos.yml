@@ -1,0 +1,57 @@
+---
+- name: Team Vmist
+  src: "/assets/images/companies/survey-2026/team-vmist.png"
+- name: Build Canada (formerly Yuma.ai)
+  src: "/assets/images/companies/survey-2026/build-canada-formerly-yuma-ai.png"
+- name: Primevise
+  src: "/assets/images/companies/survey-2026/primevise.svg"
+- name: dScribe AI
+  src: "/assets/images/companies/survey-2026/dscribe-ai.png"
+- name: Ermeutika srl
+  src: "/assets/images/companies/survey-2026/ermeutika-srl.png"
+- name: BCA LTD
+  src: "/assets/images/companies/survey-2026/bca-ltd.svg"
+- name: Bunny Inc
+  src: "/assets/images/companies/survey-2026/bunny-inc.png"
+- name: LiteChat AI
+  src: "/assets/images/companies/survey-2026/litechat-ai.png"
+- name: Crevio, Inc.
+  src: "/assets/images/companies/survey-2026/crevio-inc.png"
+- name: Zipchat
+  src: "/assets/images/companies/survey-2026/zipchat.png"
+- name: Chatwoot
+  src: "/assets/images/companies/survey-2026/chatwoot.svg"
+- name: VoiceLog Ai
+  src: "/assets/images/companies/survey-2026/voicelog-ai.png"
+- name: SXN Labs
+  src: "/assets/images/companies/survey-2026/sxn-labs.svg"
+- name: GrantHero
+  src: "/assets/images/companies/survey-2026/granthero.png"
+- name: Corepilot
+  src: "/assets/images/companies/survey-2026/corepilot.svg"
+- name: Startup Jobs
+  src: "/assets/images/companies/survey-2026/startup-jobs.svg"
+- name: Cora
+  src: "/assets/images/companies/survey-2026/cora.png"
+- name: ReelMoney
+  src: "/assets/images/companies/survey-2026/reelmoney.png"
+- name: MadBomber Software
+  src: "/assets/images/companies/survey-2026/madbomber-software.svg"
+- name: Meet Lars
+  src: "/assets/images/companies/survey-2026/meet-lars.svg"
+- name: Craft Tattoo
+  src: "/assets/images/companies/survey-2026/craft-tattoo.svg"
+- name: Intuition Education
+  src: "/assets/images/companies/survey-2026/intuition-education.svg"
+- name: OpenRegulatory
+  src: "/assets/images/companies/survey-2026/openregulatory.png"
+- name: Akira
+  src: "/assets/images/companies/survey-2026/akira.svg"
+- name: MeinBildungsUrlaub
+  src: "/assets/images/companies/survey-2026/meinbildungsurlaub.svg"
+- name: Nodal Networks
+  src: "/assets/images/companies/survey-2026/nodal-networks.png"
+- name: Missive
+  src: "/assets/images/companies/survey-2026/missive.svg"
+- name: Hunter
+  src: "/assets/images/companies/survey-2026/hunter.svg"
