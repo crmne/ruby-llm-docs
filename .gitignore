@@ -12,3 +12,6 @@ log/
 .DS_Store
 test-results/
 playwright-report/
+.claude/
+moved-from-theme-repo/
+companies/
