@@ -2,7 +2,7 @@
 current: ruby_llm_auto
 items:
   - title: Latest (current)
-    url: /
+    url: index.html
   - title: Changelog
     url: https://github.com/crmne/ruby_llm/releases
     external: true

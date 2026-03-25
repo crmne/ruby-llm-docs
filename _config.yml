@@ -140,7 +140,7 @@ jekyll_vitepress:
     scroll_offset: 134
   edit_link:
     enabled: true
-    pattern: https://github.com/crmne/ruby_llm/edit/main/docs/:path
+    pattern: https://github.com/crmne/ruby-llm-docs/edit/main/:path
     text: Edit this page on GitHub
 plugins:
 - jekyll-redirect-from

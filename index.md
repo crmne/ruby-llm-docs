@@ -11,8 +11,8 @@ hero:
     light: /assets/images/logotype.svg
     dark: /assets/images/logotype_dark.svg
     alt: RubyLLM
-    width: 620
-    height: 188
+    width: 380
+    height: 116
   text: "Building AI apps got way too complicated.<br><a href='#demo' class='hero-resolve'>It doesn't have to be.</a>"
   actions:
     - theme: brand
@@ -31,7 +31,7 @@ hero:
 </div>
 
 <section id="demo" class="home-rail-section home-demo-section">
-  <h2 id="from-zero-to-chat-app" class="home-rail-heading">Go from zero to AI chat app in about a minute.</h2>
+  <h2 id="from-zero-to-chat-app" class="home-rail-heading home-rail-heading--major">Go from zero to AI chat app in about a minute.</h2>
   <div class="home-demo-video-frame" style="--home-demo-poster: url('{{ '/assets/images/home/demo-poster.jpg' | relative_url }}');">
     <video class="home-demo-video" muted loop playsinline controls preload="metadata" poster="{{ '/assets/images/home/demo-poster.jpg' | relative_url }}">
       <source src="https://talks.paolino.me/rucoco-2026/demo.mp4" type="video/mp4">
@@ -119,18 +119,84 @@ hero:
 </script>
 
 <section class="home-rail-section">
+  <h2 id="used-by-real-teams" class="home-rail-heading home-rail-heading--major">You're in good company.</h2>
+  <p class="home-section-lead home-centered">
+    Support bots. Internal copilots. Document pipelines. Customer-facing AI. All shipped with RubyLLM.
+  </p>
+
+  <div class="home-company-logos">
+    <div class="home-company-logo"><img src="https://chatwithwork.com/logotype.svg" alt="Chat with Work"></div>
+    {% for company in site.data.company_logos_featured %}
+      <div class="home-company-logo" data-company="{{ company.name | slugify }}"><img src="{{ company.src | relative_url }}" alt="{{ company.name }}"></div>
+    {% endfor %}
+  </div>
+
+  <p class="home-small-note">This is a very small sample of the teams using RubyLLM in production. <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Get featured.</a></p>
+</section>
+
+<section class="home-rail-section">
   <h2 id="why-rubyllm" class="home-rail-heading">Why RubyLLM?</h2>
-  <div class="home-alt-surface">
-    <div class="home-explanation">
-      <p>Every AI provider ships their own bloated client. Different APIs. Different response formats. Different conventions. It's exhausting.</p>
-      <p><strong>Not RubyLLM.</strong> One beautiful interface for all of them. Same code whether you're using GPT, Claude, or your local Ollama. Three dependencies. Works with Rails out of the box. Gets you from simple chats to advanced agentic workflows, RAG apps, chatbots, AI agents, content generators, and more.</p>
+  <div class="home-explanation">
+    <p>Every AI provider ships their own bloated client. Different APIs. Different response formats. Different conventions. It's exhausting.</p>
+    <p><strong>Not RubyLLM.</strong> One beautiful interface for all of them. Same code whether you're using GPT, Claude, or your local Ollama. Three dependencies. Works with Rails out of the box. Gets you from simple chats to advanced agentic workflows, RAG apps, chatbots, AI agents, content generators, and more.</p>
+  </div>
+</section>
+
+<section class="home-rail-section home-milestone-section">
+  <div class="home-milestone-card">
+    <h2 id="everything-you-need" class="home-rail-heading home-rail-heading--major">Everything you need.</h2>
+    <p class="home-section-lead home-centered">RubyLLM gives you one clean abstraction from simple prompts to production-grade AI workflows.</p>
+
+    <div class="home-pillars">
+      <div class="home-pillar">
+        <h3>One interface</h3>
+        <p>Use the same Ruby code across providers and models.</p>
+      </div>
+      <div class="home-pillar">
+        <h3>Built for Rails</h3>
+        <p>Persist chats, attach files, and ship features quickly.</p>
+      </div>
+      <div class="home-pillar">
+        <h3>Production-ready</h3>
+        <p>Tools, agents, structured outputs, usage and cost tracking.</p>
+      </div>
     </div>
   </div>
 </section>
 
-## Here's what it looks like.
+<section class="home-rail-section home-showcase-section">
+  <h2 id="heres-what-it-looks-like" class="home-rail-heading home-rail-heading--major">Here's what it looks like.</h2>
+  <p class="home-section-lead home-centered">
+    Start simple and scale up. Same API shape, more capability when you need it.
+  </p>
 
-<div class="home-code-grid">
+  <div class="home-showcase-feature home-example" markdown="1">
+
+### Chat with any model. Same interface.
+
+Same interface across providers. And when needed, switch models mid-conversation.
+
+```ruby
+chat = RubyLLM.chat model: "gemini-3-pro"
+chat.ask "What's the capital of France?"
+# => "The capital of France is Paris."
+
+chat.with_model "claude-sonnet-4-6"
+chat.ask "And what's its population?"
+# => "About 2.1 million in the city, 12 million metro."
+
+chat.with_model "gpt-5.4", provider: :openrouter
+chat.ask "Summarize this conversation"
+# => "We discussed Paris — capital of France, 2.1M city / 12M metro."
+
+chat.with_model "llama3", provider: :ollama
+chat.ask "Say that in French"
+# => "Paris, capitale de la France — 2,1M en ville, 12M en métropole."
+```
+{: data-title="switch_models.rb"}
+  </div>
+
+  <div class="home-showcase-grid home-showcase-grid-two">
   <div class="home-example" markdown="1">
 
 ### Just ask questions
@@ -202,7 +268,9 @@ WeatherAgent.new.ask "Weather in Berlin?"
 ```
 {: data-title="agent.rb"}
   </div>
+  </div>
 
+  <div class="home-showcase-grid home-showcase-grid-three">
   <div class="home-example" markdown="1">
 
 ### Get structured output
@@ -226,7 +294,7 @@ chat.ask "Analyze this product", with: "product.txt"
 
 ### Attach anything
 
-PDFs, images, audio, you name it. Just pass them in. We handle filenames, URLs, and Active Storage attachments.
+PDFs, images, audio, you name it.
 
 ```ruby
 chat = RubyLLM.chat
@@ -238,6 +306,26 @@ chat.ask "Describe this image", with: "photo.jpg"
 {: data-title="attachments.rb"}
   </div>
 
+  <div class="home-example" markdown="1">
+
+### Rails integration
+
+One line in your model. Conversations persist automatically.
+
+```ruby
+class Chat < ApplicationRecord
+  acts_as_chat
+end
+
+chat = Chat.create! model: "claude-sonnet-4-6"
+chat.ask "Summarize this report", with: "report.pdf"
+# Messages, tool calls, and tokens are all persisted automatically.
+```
+{: data-title="chat.rb"}
+  </div>
+  </div>
+
+  <div class="home-showcase-grid home-showcase-grid-two">
   <div class="home-example" markdown="1">
 
 ### Paint, embed, moderate, transcribe
@@ -262,124 +350,57 @@ RubyLLM.transcribe "meeting.wav"
 
   <div class="home-example" markdown="1">
 
-### Rails integration
-
-One line in your model. Conversations persist automatically.
-
-```ruby
-class Chat < ApplicationRecord
-  acts_as_chat
-end
-
-chat = Chat.create! model: "claude-sonnet-4-6"
-chat.ask "Summarize this report", with: "report.pdf"
-# Messages, tool calls, and tokens are all persisted automatically.
-```
-{: data-title="chat.rb"}
-  </div>
-
-  <div class="home-example" markdown="1">
-
-### Chat with any model. Same interface.
-
-Same interface across providers. And when needed, switch models mid-conversation.
-
-```ruby
-chat = RubyLLM.chat model: "gemini-3-pro"
-chat.ask "What's the capital of France?"
-# => "The capital of France is Paris."
-
-chat.with_model "claude-sonnet-4-6"
-chat.ask "And what's its population?"
-# => "About 2.1 million in the city, 12 million metro."
-
-chat.with_model "gpt-5.4", provider: :openrouter
-chat.ask "Summarize this conversation"
-# => "We discussed Paris — capital of France, 2.1M city / 12M metro."
-
-chat.with_model "llama3", provider: :ollama
-chat.ask "Say that in French"
-# => "Paris, capitale de la France — 2,1M en ville, 12M en métropole."
-```
-{: data-title="switch_models.rb"}
-  </div>
-
-  <div class="home-example" markdown="1">
-
 ### Track usage and cost
 
-Every response gives you tokens, cost, and model details.
+Every response tells you exactly what it used.
 
 ```ruby
 response = RubyLLM.chat.ask "Explain quantum computing"
 
-puts "Model: #{response.model_id}"
-puts "Tokens: #{response.input_tokens} in / #{response.output_tokens} out"
+response.model_id      # => "gpt-5-nano"
+response.input_tokens  # => 8
+response.output_tokens # => 312
 
-model_info = RubyLLM.models.find(response.model_id)
-if model_info&.input_price_per_million && model_info&.output_price_per_million
-  input_cost = response.input_tokens * model_info.input_price_per_million / 1_000_000
-  output_cost = response.output_tokens * model_info.output_price_per_million / 1_000_000
-  puts "Estimated cost: $#{format('%.6f', input_cost + output_cost)}"
-end
+model = RubyLLM.models.find response.model_id
+model.input_price_per_million  # => 0.15
+model.output_price_per_million # => 0.6
 ```
 {: data-title="cost_tracking.rb"}
   </div>
-</div>
-
-There is a lot more.
-{: .home-small-note }
-
-<section class="home-rail-section">
-  <h2 id="same-code-any-provider" class="home-rail-heading">Same code. Any provider.</h2>
-  <div class="home-alt-surface">
-    <p class="home-section-lead home-centered">
-      <a href="{{ '/available-models/' | relative_url }}">Thousands of models across 13 providers.</a> Switch whenever you want. Your code stays the same. Massive model registry with pricing and capabilities data.
-    </p>
-
-    <div class="provider-icons">
-      <a href="https://openai.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/openai.svg" alt="OpenAI" class="logo-medium"><img src="/assets/images/providers/openai-text.svg" alt="OpenAI" class="logo-medium"></a>
-      <a href="https://anthropic.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/anthropic-text.svg" alt="Anthropic" class="logo-small"></a>
-      <a href="https://ai.google.dev" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/gemini-color.svg" alt="Gemini" class="logo-medium"><img src="/assets/images/providers/gemini-text.svg" alt="Gemini" class="logo-small"></a>
-      <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/vertexai-color.svg" alt="VertexAI" class="logo-medium"><img src="/assets/images/providers/vertexai-text.svg" alt="VertexAI" class="logo-small"></a>
-      <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/bedrock-color.svg" alt="Bedrock" class="logo-medium"><img src="/assets/images/providers/bedrock-text.svg" alt="Bedrock" class="logo-small"></a>
-      <a href="https://deepseek.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/deepseek-color.svg" alt="DeepSeek" class="logo-medium"><img src="/assets/images/providers/deepseek-text.svg" alt="DeepSeek" class="logo-small"></a>
-      <a href="https://mistral.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/mistral-color.svg" alt="Mistral" class="logo-medium"><img src="/assets/images/providers/mistral-text.svg" alt="Mistral" class="logo-small"></a>
-      <a href="https://ollama.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/ollama.svg" alt="Ollama" class="logo-medium"><img src="/assets/images/providers/ollama-text.svg" alt="Ollama" class="logo-medium"></a>
-      <a href="https://openrouter.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/openrouter.svg" alt="OpenRouter" class="logo-medium"><img src="/assets/images/providers/openrouter-text.svg" alt="OpenRouter" class="logo-small"></a>
-      <a href="https://perplexity.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/perplexity-color.svg" alt="Perplexity" class="logo-medium"><img src="/assets/images/providers/perplexity-text.svg" alt="Perplexity" class="logo-small"></a>
-      <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/xai.svg" alt="xAI" class="logo-medium"><img src="/assets/images/providers/xai-text.svg" alt="xAI" class="logo-medium"></a>
-      <a href="https://gpustack.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="/assets/images/providers/gpustack-logo.png" alt="GPUStack" class="logo-medium"></a>
-    </div>
-
-    <p class="home-small-note">
-      Plus anything OpenAI-compatible. With GPUStack, you also get access to every model on ModelScope and Hugging Face.
-    </p>
   </div>
+
+  <p class="home-small-note"><a href="{{ '/getting-started/' | relative_url }}">And there is a lot more →</a></p>
 </section>
 
 <section class="home-rail-section">
-  <h2 id="used-by-real-teams" class="home-rail-heading">Used by real teams.</h2>
-  <div class="home-alt-surface">
-    <p class="home-section-lead home-centered">
-      Support bots. Internal copilots. Document pipelines. Customer-facing AI. All shipped with RubyLLM.
-    </p>
+  <h2 id="same-code-any-provider" class="home-rail-heading home-rail-heading--major">Same code. Any provider.</h2>
+  <p class="home-section-lead home-centered">
+    <a href="{{ '/available-models/' | relative_url }}">Thousands of models across 13 providers.</a> Switch whenever you want. Your code stays the same. Massive model registry with pricing and capabilities data.
+  </p>
 
-    <div class="home-company-logos">
-      <div class="home-company-logo"><img src="https://chatwithwork.com/logotype.svg" alt="Chat with Work"></div>
-      {% for company in site.data.company_logos_featured %}
-        <div class="home-company-logo" data-company="{{ company.name | slugify }}"><img src="{{ company.src | relative_url }}" alt="{{ company.name }}"></div>
-      {% endfor %}
+  <div class="provider-icons">
+      <a href="https://openai.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openai.svg' | relative_url }}" alt="OpenAI" class="logo-medium"><img src="{{ '/assets/images/providers/openai-text.svg' | relative_url }}" alt="OpenAI" class="logo-medium"></a>
+      <a href="https://anthropic.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/anthropic-text.svg' | relative_url }}" alt="Anthropic" class="logo-small"></a>
+      <a href="https://ai.google.dev" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gemini-color.svg' | relative_url }}" alt="Gemini" class="logo-medium"><img src="{{ '/assets/images/providers/gemini-text.svg' | relative_url }}" alt="Gemini" class="logo-small"></a>
+      <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/vertexai-color.svg' | relative_url }}" alt="VertexAI" class="logo-medium"><img src="{{ '/assets/images/providers/vertexai-text.svg' | relative_url }}" alt="VertexAI" class="logo-small"></a>
+      <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/bedrock-color.svg' | relative_url }}" alt="Bedrock" class="logo-medium"><img src="{{ '/assets/images/providers/bedrock-text.svg' | relative_url }}" alt="Bedrock" class="logo-small"></a>
+      <a href="https://deepseek.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/deepseek-color.svg' | relative_url }}" alt="DeepSeek" class="logo-medium"><img src="{{ '/assets/images/providers/deepseek-text.svg' | relative_url }}" alt="DeepSeek" class="logo-small"></a>
+      <a href="https://mistral.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/mistral-color.svg' | relative_url }}" alt="Mistral" class="logo-medium"><img src="{{ '/assets/images/providers/mistral-text.svg' | relative_url }}" alt="Mistral" class="logo-small"></a>
+      <a href="https://ollama.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/ollama.svg' | relative_url }}" alt="Ollama" class="logo-medium"><img src="{{ '/assets/images/providers/ollama-text.svg' | relative_url }}" alt="Ollama" class="logo-medium"></a>
+      <a href="https://openrouter.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openrouter.svg' | relative_url }}" alt="OpenRouter" class="logo-medium"><img src="{{ '/assets/images/providers/openrouter-text.svg' | relative_url }}" alt="OpenRouter" class="logo-small"></a>
+      <a href="https://perplexity.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/perplexity-color.svg' | relative_url }}" alt="Perplexity" class="logo-medium"><img src="{{ '/assets/images/providers/perplexity-text.svg' | relative_url }}" alt="Perplexity" class="logo-small"></a>
+      <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/xai.svg' | relative_url }}" alt="xAI" class="logo-medium"><img src="{{ '/assets/images/providers/xai-text.svg' | relative_url }}" alt="xAI" class="logo-medium"></a>
+      <a href="https://gpustack.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gpustack-logo.png' | relative_url }}" alt="GPUStack" class="logo-medium"></a>
     </div>
 
-    <p class="home-small-note">This is a very small sample of the teams using RubyLLM in production. <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Get featured.</a></p>
-  </div>
+  <p class="home-small-note">
+    Plus anything OpenAI-compatible. With GPUStack, you also get access to every model on ModelScope and Hugging Face.
+  </p>
 </section>
 
-<section class="home-rail-section">
+<section class="home-rail-section home-testimonials-section">
   <h2 id="what-teams-are-saying" class="home-rail-heading">What teams are saying.</h2>
-  <div class="home-alt-surface">
-    <div class="home-quotes">
+  <div class="home-quotes">
       <blockquote>
         "RubyLLM is pretty much the devise of this generation. Adding it to any application is pretty much a no-brainer."
         <cite>Primevise</cite>
@@ -412,30 +433,36 @@ There is a lot more.
         "Just having a framework to structure all our LLM processes is gigantic value. Tool integration works like a charm."
         <cite>OpenRegulatory</cite>
       </blockquote>
-    </div>
-
-    <p class="home-small-note">From the RubyLLM Usage Survey, March 2026.</p>
-    <p class="home-small-note home-small-note-tight">
-      Using RubyLLM in production? <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Share your story.</a>
-    </p>
   </div>
+
+  <p class="home-small-note">From the RubyLLM Usage Survey, March 2026.</p>
+  <p class="home-small-note home-small-note-tight">
+    Using RubyLLM in production? <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Share your story.</a>
+  </p>
 </section>
 
-## Ready to try it?
+<section class="home-rail-section home-rail-section--band">
+  <h2 id="building-it-together" class="home-rail-heading home-rail-heading--major">Building it together.</h2>
+  <p class="home-section-lead home-centered">
+    RubyLLM is open source and built in public. Ideas, bug reports, and pull requests shape the roadmap.
+  </p>
+  <p class="home-section-lead home-centered home-band-link">
+    <a href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Contribute on GitHub</a>
+  </p>
+</section>
+
+<h2 id="ready-to-try-it" class="home-rail-heading">Ready to try it?</h2>
 
 <div class="home-big-cards">
   <a class="home-big-card" href="{{ '/getting-started/' | relative_url }}">
-    <p class="home-big-card-label">Learning</p>
     <h3>Read the guides</h3>
     <p>Start simple. Build up from there.</p>
   </a>
   <a class="home-big-card" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">
-    <p class="home-big-card-label">Contributing</p>
     <h3>Contribute on GitHub</h3>
     <p>Found a bug? Got an idea? Jump in.</p>
   </a>
   <a class="home-big-card" href="https://github.com/crmne/ruby_llm/releases" target="_blank" rel="noreferrer">
-    <p class="home-big-card-label">Keeping up</p>
     <h3>See what's new</h3>
     <p>What changed and when.</p>
   </a>
