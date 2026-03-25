@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crmne/jekyll-vitepress-theme.git
-  revision: 3352dd03b139e63611a492fd616f76f68d9f64b8
+  revision: b23535dc518e3a6af3496a20a2ce0c6e1834363c
   branch: master
   specs:
     jekyll-vitepress-theme (1.2.0)
