@@ -5,9 +5,6 @@ nav_order: 3
 description: Configure once, use everywhere. API keys, defaults, timeouts, and multi-tenant contexts made simple.
 ---
 
-# {{ page.title }}
-{: .no_toc }
-
 {{ page.description }}
 {: .fs-6 .fw-300 }
 

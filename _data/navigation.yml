@@ -4,3 +4,9 @@
     - introduction
     - core_features
     - advanced
+- title: Reference
+  url: /available-models/
+  collections:
+    - reference
+- title: Blog
+  url: https://paolino.me

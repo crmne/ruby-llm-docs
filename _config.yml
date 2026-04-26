@@ -113,13 +113,17 @@ jekyll_vitepress:
     repository: crmne/ruby_llm
     text: Star
     show_count: true
+  github_sponsor:
+    enabled: true
+    user: crmne
+    text: Sponsor
   footer:
     enabled: true
     show_on_docs: false
     message: >-
       Brought to you by <a href="https://paolino.me" target="_blank" rel="noreferrer">Carmine Paolino</a>, maker of
     copyright: >-
-      <span class="footer-chatwithwork-line"><a class="footer-chatwithwork-link" href="https://chatwithwork.com" target="_blank" rel="noreferrer"><img class="footer-chatwithwork-logo" src="https://chatwithwork.com/logotype.svg" alt="Chat with Work"></a></span><span class="footer-built-with">Docs built with <a href="https://jekyll-vitepress.dev" target="_blank" rel="noreferrer">JekyllvitePress</a>.</span>
+      <span class="footer-brand-links"><a class="footer-chatwithwork-link" href="https://chatwithwork.com" target="_blank" rel="noreferrer"><img class="footer-chatwithwork-logo" src="https://chatwithwork.com/logotype.svg" alt="Chat with Work"></a></span><br><span class="footer-built-with">Docs built with <a href="https://jekyll-vitepress.dev" target="_blank" rel="noreferrer">Jekyll VitePress</a>.</span>
   doc_footer:
     enabled: true
     previous_label: Previous page

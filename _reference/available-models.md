@@ -7,9 +7,6 @@ redirect_from:
   - /guides/available-models
 ---
 
-# {{ page.title }}
-{: .no_toc }
-
 {{ page.description }}
 {: .fs-6 .fw-300 }
 
@@ -4425,4 +4422,3 @@ Models that generate embeddings:
 | text-embedding-3-small | openai | In: text; Out: embeddings | batch | 8191 | 1536 | In: $0.02 |
 | text-embedding-ada-002 | openai | In: text; Out: embeddings | batch | 8192 | 1536 | In: $0.10 |
 | gemini-embedding-001 | vertexai | In: text; Out: embeddings | streaming, function_calling | 2048 | 3072 | In: $0.15 |
-

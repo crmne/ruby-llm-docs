@@ -7,9 +7,6 @@ redirect_from:
   - /guides/moderation
 ---
 
-# {{ page.title }}
-{: .no_toc .d-inline-block }
-
 Available in v1.8.0+
 {: .label .label-green }
 

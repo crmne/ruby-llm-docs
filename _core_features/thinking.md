@@ -8,9 +8,6 @@ redirect_from:
   - /guides/reasoning
 ---
 
-# {{ page.title }}
-{: .d-inline-block .no_toc }
-
 New in 1.10
 {: .label .label-green }
 

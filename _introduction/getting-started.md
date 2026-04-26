@@ -8,9 +8,6 @@ redirect_from:
   - /installation
 ---
 
-# {{ page.title }}
-{: .no_toc }
-
 {{ page.description }}
 {: .fs-6 .fw-300 }
 

@@ -688,52 +688,6 @@ code,
   font-size: clamp(24px, 2.2vw, 34px);
 }
 
-.VPNavBarStar {
-  display: none;
-  align-items: center;
-  margin-right: 6px;
-}
-
-@media (min-width: 1280px) {
-  .VPNavBarStar {
-    display: flex;
-    height: var(--vp-nav-height);
-  }
-}
-
-.VPNavBarStarLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  height: 28px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
-  padding: 0 10px;
-  line-height: 1;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--vp-c-text-2);
-  text-decoration: none !important;
-  background: var(--vp-c-bg-soft);
-  transition: color 0.25s, border-color 0.25s, background-color 0.25s;
-}
-
-.VPNavBarStarLink:hover {
-  color: var(--vp-c-text-1);
-  border-color: var(--vp-c-brand-1);
-  background: var(--vp-c-bg-elv);
-}
-
-.VPNavBarStarLink .vpi-social-github {
-  width: 14px;
-  height: 14px;
-  color: currentColor;
-}
-
-.VPNavBarStarCount {
-  font-variant-numeric: tabular-nums;
-}
-
 .dark {
   --home-card-bg: var(--vp-c-bg-soft);
   --home-card-bg-hover: var(--vp-c-bg-elv);
@@ -747,8 +701,7 @@ code,
   --home-elev-code: none;
 }
 
-.dark .home-brought-to-you-logo,
-.dark .VPFooter .footer-chatwithwork-logo {
+.dark .home-brought-to-you-logo {
   filter: brightness(0) invert(1) !important;
 }
 
@@ -867,21 +820,6 @@ code,
 
 a.provider-logo {
   text-decoration: none !important;
-}
-
-.VPFooter .copyright {
-  text-align: center;
-}
-
-.VPFooter .footer-chatwithwork-logo {
-  display: inline !important;
-  vertical-align: middle;
-  margin-left: 0;
-}
-
-.VPFooter .footer-chatwithwork-line {
-  display: block;
-  margin-top: 8px;
 }
 
 .VPFooter .footer-built-with {

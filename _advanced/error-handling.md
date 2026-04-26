@@ -7,9 +7,6 @@ redirect_from:
   - /guides/error-handling
 ---
 
-# {{ page.title }}
-{: .no_toc }
-
 {{ page.description }}
 {: .fs-6 .fw-300 }
 
