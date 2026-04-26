@@ -12,9 +12,9 @@ redirect_from:
 {: .fs-6 .fw-300 }
 
 ---
-# Upgrade to 1.14
+## Upgrade to 1.14
 
-## How to Upgrade
+### How to Upgrade
 
 ```sh
 # Run the upgrade generator
@@ -28,15 +28,15 @@ That's it! The generator:
 - Changes `thought_signature` on tool calls from `string` to `text`
 - Prevents thought signature truncation issues on MySQL/MariaDB
 
-## What's New in 1.14
+### What's New in 1.14
 
 Among other features:
 
 - Safer Gemini thought signature persistence for Rails apps using ActiveRecord
 
-# Upgrade to 1.10
+## Upgrade to 1.10
 
-## How to Upgrade
+### How to Upgrade
 
 ```sh
 # Run the upgrade generator
@@ -51,16 +51,16 @@ That's it! The generator:
 - Adds `thinking_tokens` for tracking thinking token usage
 - Adds `thought_signature` to tool calls for Gemini 3 Pro function calling
 
-## What's New in 1.10
+### What's New in 1.10
 
 Among other features:
 
 - Extended thinking support across providers with optional persistence
 - Thinking token tracking when providers report it
 
-# Upgrade to 1.9
+## Upgrade to 1.9
 
-## How to Upgrade
+### How to Upgrade
 
 ```sh
 # Run the upgrade generator
@@ -74,20 +74,20 @@ That's it! The generator:
 - Adds the `cached_tokens` and `cache_creation_tokens` columns for tracking accessed cached tokens and created cache tokens respectively.
 - Adds the `content_raw` column for the new [Raw Content Blocks]({% link _core_features/chat.md %}#raw-content-blocks) feature
 
-## What's New in 1.9
+### What's New in 1.9
 
 Among other features:
 
 - [Raw Content Blocks]({% link _core_features/chat.md %}#raw-content-blocks) to pass content verbatim to an LLM, e.g. useful to enable Anthropic Prompt Caching.
 - Cached token tracking to accurately track costs given cache hits
 
-# Upgrade to 1.7
+## Upgrade to 1.7
 
 Upgrade to the DB-backed model registry for better data integrity and rich model metadata.
 
-## How to Upgrade
+### How to Upgrade
 
-### From 1.6 to 1.7 (2 commands)
+#### From 1.6 to 1.7 (2 commands)
 
 ```sh
 # Run the upgrade generator
@@ -105,7 +105,7 @@ That's it! The generator:
 - Loads the models in the db
 - Preserves all your data (old string columns renamed to `model_id_string`)
 
-### Custom Model Names
+#### Custom Model Names
 
 If you're using custom model names:
 
@@ -114,7 +114,7 @@ bin/rails generate ruby_llm:upgrade_to_v1_7 chat:Conversation message:ChatMessag
 bin/rails db:migrate
 ```
 
-### What happens without upgrading
+#### What happens without upgrading
 
 Your existing 1.6 app continues working without any changes. You'll see a deprecation warning on Rails boot:
 
@@ -122,11 +122,11 @@ Your existing 1.6 app continues working without any changes. You'll see a deprec
 !!! RubyLLM's legacy acts_as API is deprecated and will be removed in RubyLLM 2.0.0.
 ```
 
-## What's New in 1.7
+### What's New in 1.7
 
 Among other features, the DB-backed model registry replaces simple string fields with proper ActiveRecord associations. Additionally, the `acts_as` helpers have been redesigned with a more Rails-like API.
 
-### Available with DB-backed Model Registry
+#### Available with DB-backed Model Registry
 {: .d-inline-block }
 
 v1.7.0+
@@ -172,7 +172,7 @@ Chat.create!(model: "{{ site.models.default_chat }}", provider: "openrouter")  #
 Model.joins(:chats).group(:id).order('COUNT(chats.id) DESC')
 ```
 
-### Available without Model Registry
+#### Available without Model Registry
 {: .d-inline-block }
 
 Legacy mode
@@ -194,7 +194,7 @@ chat.model_id  # => "{{ site.models.openai_standard }}" (string only, no metadat
 - String-based model IDs only
 - Default provider routing
 
-## If You Have Custom Model Names
+### If You Have Custom Model Names
 
 If you're using custom model names (e.g., `Conversation` instead of `Chat`), you may need to update your `acts_as` declarations to the new API:
 
@@ -222,9 +222,9 @@ class ChatMessage < ApplicationRecord
 end
 ```
 
-## New Chat UI Generator
+### New Chat UI Generator
 
-### Instant Chat Interface
+#### Instant Chat Interface
 {: .d-inline-block }
 
 v1.7.0+
@@ -255,9 +255,9 @@ The chat UI works with your existing Chat and Message models and includes:
 - Code syntax highlighting
 - Responsive design
 
-## Troubleshooting
+### Troubleshooting
 
-### Config must be set before models load
+#### Config must be set before models load
 
 If you're setting `use_new_acts_as = true` in an initializer (like `config/initializers/ruby_llm.rb`), it won't work. Rails loads models before initializers run, causing various issues:
 
@@ -295,7 +295,7 @@ This ensures RubyLLM is configured before ActiveRecord loads your models. Other 
 
 See the [Configuration guide]({% link _introduction/configuration.md %}#initializer-load-timing-issue-with-use_new_acts_as) for more details.
 
-## New Applications
+### New Applications
 
 Fresh installs get the model registry automatically:
 
