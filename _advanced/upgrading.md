@@ -11,7 +11,6 @@ redirect_from:
 {{ page.description }}
 {: .fs-6 .fw-300 }
 
----
 ## Upgrade to 1.14
 
 ### How to Upgrade
