@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Stream Responses
+title: Stream responses
 nav_order: 3
 description: Learn how to display AI responses in real-time as they're generated
 redirect_from:

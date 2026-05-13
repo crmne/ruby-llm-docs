@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rails Integration
+title: Rails integration
 nav_order: 1
 description: Rails + AI made simple. Persist chats with ActiveRecord. Stream with Hotwire. Deploy with confidence.
 redirect_from:

@@ -1,23 +1,25 @@
 ---
-- name: Intuition Education
-  src: "/assets/images/companies/survey-2026/intuition-education.svg"
 - name: Missive
   src: "/assets/images/companies/survey-2026/missive.svg"
-- name: Hunter
-  src: "/assets/images/companies/survey-2026/hunter.svg"
-- name: Chatwoot
-  src: "/assets/images/companies/survey-2026/chatwoot.svg"
-- name: Build Canada (formerly Yuma.ai)
-  src: "/assets/images/companies/survey-2026/build-canada-formerly-yuma-ai.png"
-- name: OpenRegulatory
-  src: "/assets/images/companies/survey-2026/openregulatory.png"
-- name: Akira
-  src: "/assets/images/companies/survey-2026/akira.svg"
+- name: Chat with Work
+  src: "/assets/images/companies/survey-2026/chat-with-work.svg"
 - name: Corepilot
   src: "/assets/images/companies/survey-2026/corepilot.svg"
-- name: GrantHero
-  src: "/assets/images/companies/survey-2026/granthero.png"
-- name: Nodal Networks
-  src: "/assets/images/companies/survey-2026/nodal-networks.png"
 - name: Bunny Inc
   src: "/assets/images/companies/survey-2026/bunny-inc.png"
+- name: Intuition Education
+  src: "/assets/images/companies/survey-2026/intuition-education.svg"
+- name: Nodal Networks
+  src: "/assets/images/companies/survey-2026/nodal-networks.png"
+- name: Akira
+  src: "/assets/images/companies/survey-2026/akira.svg"
+- name: OpenRegulatory
+  src: "/assets/images/companies/survey-2026/openregulatory.png"
+- name: Hunter
+  src: "/assets/images/companies/survey-2026/hunter.svg"
+- name: Build Canada
+  src: "/assets/images/companies/survey-2026/build-canada-formerly-yuma-ai.png"
+- name: GrantHero
+  src: "/assets/images/companies/survey-2026/granthero.png"
+- name: Chatwoot
+  src: "/assets/images/companies/survey-2026/chatwoot.svg"

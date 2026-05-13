@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Model Registry
+title: Model registry
 nav_order: 4
 description: Access hundreds of AI models from all major providers with one simple API
 redirect_from:

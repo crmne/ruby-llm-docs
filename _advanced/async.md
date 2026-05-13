@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Scale with Async
+title: Scale with async
 nav_order: 2
 description: Handle hundreds of concurrent AI requests on modest hardware. Ruby's async ecosystem meets AI.
 redirect_from:

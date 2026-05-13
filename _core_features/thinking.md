@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extended Thinking
+title: Extended thinking
 nav_order: 8
 description: Give reasoning models more time and budget to deliberate, with optional access to thinking output
 redirect_from:

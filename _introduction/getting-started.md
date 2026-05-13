@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting Started
+title: Getting started
 nav_order: 1
 description: Start building AI apps in Ruby in 5 minutes. Chat, generate images, create embeddings - all with one gem.
 redirect_from:
@@ -10,8 +10,6 @@ redirect_from:
 
 {{ page.description }}
 {: .fs-6 .fw-300 }
-
----
 
 After reading this guide, you will know:
 
@@ -29,7 +27,7 @@ Add RubyLLM to your Gemfile:
 bundle add ruby_llm
 ```
 
-### Rails Quick Setup
+### Rails quick setup
 
 For Rails applications, you can use the generator to set up database-backed conversations:
 
@@ -39,7 +37,7 @@ bin/rails generate ruby_llm:install
 
 This creates Chat and Message models with ActiveRecord persistence. Your conversations will be automatically saved to the database.
 
-### Adding a Chat UI
+### Adding a chat UI
 
 After running the install generator, you can optionally add a ready-to-use chat interface:
 
@@ -53,9 +51,9 @@ This creates:
 - Background job for processing AI responses
 - Routes for the chat interface
 
-Then visit `http://localhost:3000/chats` to start chatting! See the [Rails Integration Guide]({% link _advanced/rails.md %}) for full details.
+Then visit `http://localhost:3000/chats` to start chatting! See the [Rails integration guide]({% link _advanced/rails.md %}) for full details.
 
-## Minimal Configuration
+## Minimal configuration
 
 RubyLLM needs API keys for the AI providers you want to use. Configure them once, typically when your application starts.
 
@@ -71,12 +69,11 @@ RubyLLM.configure do |config|
 end
 ```
 
-> You only need to configure keys for the providers you actually plan to use. See the [Configuration Guide]({% link _introduction/configuration.md %}) for all options, including setting defaults and connecting to custom endpoints.
-{: .note }
+You only need to configure keys for the providers you actually plan to use. See the [Configuration guide]({% link _introduction/configuration.md %}) for all options, including setting defaults and connecting to custom endpoints.
 
-## Your First Chat
+## Your first chat
 
-Interact with language models using `RubyLLM.chat`.
+Interact with language models using **RubyLLM.chat**
 
 ```ruby
 # Create a chat instance (uses the configured default model)
@@ -90,11 +87,11 @@ puts response.content
 # => "Ruby on Rails, often shortened to Rails, is a server-side web application..."
 ```
 
-RubyLLM handles the conversation history automatically. See the [Chatting with AI Models Guide]({% link _core_features/chat.md %}) for more details.
+RubyLLM handles the conversation history automatically. See the [Chatting with AI models guide]({% link _core_features/chat.md %}) for more details.
 
-## Generating an Image
+## Generating an image
 
-Generate images using models like DALL-E 3 via `RubyLLM.paint`.
+Generate images using models like DALL-E 3 via **RubyLLM.paint**
 
 ```ruby
 # Generate an image (uses the default image model)
@@ -112,11 +109,11 @@ end
 image.save("red_panda.png")
 ```
 
-Learn more in the [Image Generation Guide]({% link _core_features/image-generation.md %}).
+Learn more in the [Image generation guide]({% link _core_features/image-generation.md %}).
 
-## Creating an Embedding
+## Creating an embedding
 
-Create numerical vector representations of text using `RubyLLM.embed`.
+Create numerical vector representations of text using **RubyLLM.embed**
 
 ```ruby
 # Create an embedding (uses the default embedding model)
@@ -130,16 +127,15 @@ puts "Vector dimension: #{vector.length}" # e.g., 1536
 puts "Model used: #{embedding.model}"
 ```
 
-Explore further in the [Embeddings Guide]({% link _core_features/embeddings.md %}).
+Explore further in the [Embeddings guide]({% link _core_features/embeddings.md %}).
 
-## What's Next?
+## What’s next?
 
-You've covered the basics! Now you're ready to explore RubyLLM's features in more detail:
+You’ve covered the basics! Now you’re ready to explore RubyLLM’s features in more detail:
 
-*   [Chatting with AI Models]({% link _core_features/chat.md %})
-*   [Working with Models]({% link _advanced/models.md %}) (Choosing models, custom endpoints)
-*   [Using Tools]({% link _core_features/tools.md %}) (Letting AI call your code)
-*   [Streaming Responses]({% link _core_features/streaming.md %})
-*   [Rails Integration]({% link _advanced/rails.md %})
-*   [Configuration]({% link _introduction/configuration.md %})
-*   [Error Handling]({% link _advanced/error-handling.md %})
+*   [Chatting with AI models]({% link _core_features/chat.md %})
+*   [Working with models]({% link _advanced/models.md %}) (Choosing models, custom endpoints)
+*   [Using tools]({% link _core_features/tools.md %}) (Letting AI call your code)
+*   [Streaming responses]({% link _core_features/streaming.md %})
+*   [Rails integration]({% link _advanced/rails.md %})
+*   [Error handling]({% link _advanced/error-handling.md %})

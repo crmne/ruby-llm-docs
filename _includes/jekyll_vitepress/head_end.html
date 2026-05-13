@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&amp;display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/rubyllm-overrides.css' | relative_url }}">
+{% if page.layout == 'home' or page.url == '/' %}
+<script defer src="{{ '/assets/js/homepage.js' | relative_url }}"></script>
+{% endif %}
 <link rel="icon" type="image/png" href="{{ '/assets/images/favicon/favicon-96x96.png' | relative_url }}" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logo.svg' | relative_url }}">
 <link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | relative_url }}">

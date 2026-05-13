@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Error Handling
+title: Error handling
 nav_order: 3
 description: Learn how to handle errors gracefully when working with AI providers
 redirect_from:

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Image Generation
+title: Image generation
 nav_order: 5
 description: Generate images from text descriptions using AI models like DALL-E 3 and Imagen
 redirect_from:
