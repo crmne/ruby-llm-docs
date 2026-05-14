@@ -85,7 +85,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .VPHome {
   position: relative;
   isolation: isolate;
-  overflow-x: hidden;
+  overflow-x: clip;
   margin-bottom: 0 !important;
   background: var(--home-bg);
   color: var(--home-text);
@@ -1686,7 +1686,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   padding-right: 24px;
   padding-bottom: 141px;
   padding-left: 24px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .home-love-grid {
@@ -1696,6 +1696,34 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   gap: 24px;
   width: min(var(--home-inner), 100%);
   margin: 58px auto 0;
+}
+
+.home-love-grid.is-animated {
+  --home-love-top: 86px;
+  --home-love-after-gap: 176px;
+  position: relative;
+  display: block;
+  width: min(var(--home-inner), calc(100% - 48px));
+  height: min(840px, calc(100vh - 118px));
+  overflow: visible;
+  z-index: 2;
+}
+
+.home-love-grid.is-animated.is-fixed {
+  position: fixed;
+  top: var(--home-love-top);
+  left: 50%;
+  margin-top: 0;
+  transform: translateX(-50%);
+}
+
+.home-love-grid.is-animated.is-after {
+  position: absolute;
+  top: auto;
+  bottom: var(--home-love-after-gap);
+  left: 50%;
+  margin-top: 0;
+  transform: translateX(-50%);
 }
 
 .home-love-card {
@@ -1708,9 +1736,34 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   transition: box-shadow 0.18s ease;
 }
 
+.home-love-grid.is-animated .home-love-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: none;
+}
+
 .home-love-grid .home-love-card:nth-child(6) {
   z-index: 2;
   transform: translateY(-5px) rotate(-3deg);
+}
+
+.home-love-grid.is-animated .home-love-card:nth-child(6) {
+  transform: translate3d(0, 0, 0);
+}
+
+.home-love-section .home-small-note {
+  position: absolute;
+  right: 24px;
+  bottom: 64px;
+  left: 24px;
+  z-index: 1;
+  margin-top: 0;
 }
 
 .home-love-card::after {
@@ -2622,14 +2675,46 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     margin-bottom: 17px;
   }
 
-  .home-stack-section,
-  .home-founder-section,
-  .home-code-section,
-  .home-models-section,
-  .home-registry-section,
-  .home-love-section,
-  .home-ready-section {
-    display: none;
+  .home-love-grid.is-animated {
+    --home-love-top: 74px;
+    --home-love-after-gap: 142px;
+    width: calc(100% - 36px);
+    height: min(760px, calc(100vh - 104px));
+  }
+
+  .home-love-grid.is-animated .home-love-card {
+    padding: 22px 20px 18px;
+  }
+
+  .home-love-grid.is-animated .home-love-card::after {
+    top: 24px;
+    right: 18px;
+    width: 24px;
+    height: 21px;
+  }
+
+  .home-love-grid.is-animated .home-love-card header {
+    padding-right: 34px;
+  }
+
+  .home-love-grid.is-animated .home-love-card header strong {
+    font-size: 17px;
+  }
+
+  .home-love-grid.is-animated .home-love-card p {
+    margin: 16px 0 12px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .home-love-grid.is-animated .home-love-card cite {
+    font-size: 11px;
+  }
+
+  .home-love-section .home-small-note {
+    right: 18px;
+    bottom: 42px;
+    left: 18px;
   }
 
   .home-footer {

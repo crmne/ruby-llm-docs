@@ -417,53 +417,125 @@
     });
   }
 
-  function smoothstep(edge0, edge1, value) {
-    var x = Math.min(Math.max((value - edge0) / (edge1 - edge0), 0), 1);
-    return x * x * (3 - 2 * x);
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
   }
 
   function initLoveWall(root) {
     var wall = root.querySelector("[data-love-wall]");
     if (!wall || wall.dataset.loveBound) return;
-    wall.dataset.loveBound = "true";
 
+    var grid = wall.querySelector(".home-love-grid");
     var cards = Array.prototype.slice.call(wall.querySelectorAll("[data-love-card]"));
+    if (!grid || !cards.length) return;
+
+    wall.dataset.loveBound = "true";
+    grid.classList.add("is-animated");
+
     var ticking = false;
+    var layout = null;
+
+    function setGridState(state) {
+      grid.classList.toggle("is-fixed", state === "fixed");
+      grid.classList.toggle("is-after", state === "after");
+    }
+
+    function measure() {
+      setGridState("before");
+
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var viewport = window.innerHeight || document.documentElement.clientHeight;
+      var isMobile = width < 760;
+      var columns = isMobile ? 1 : 3;
+      var rows = 3;
+      var gap = isMobile ? 16 : 24;
+      var visibleCards = columns * rows;
+      var pageCount = Math.ceil(cards.length / visibleCards);
+      var gridStyle = window.getComputedStyle(grid);
+      var wallRect = wall.getBoundingClientRect();
+      var gridRect = grid.getBoundingClientRect();
+      var stageWidth = grid.clientWidth;
+      var stageHeight = grid.clientHeight;
+      var cardWidth = Math.max(0, (stageWidth - gap * (columns - 1)) / columns);
+      var cardHeight = Math.max(0, (stageHeight - gap * (rows - 1)) / rows);
+
+      layout = {
+        afterGap: parseFloat(gridStyle.getPropertyValue("--home-love-after-gap")) || 176,
+        cardHeight: cardHeight,
+        cardWidth: cardWidth,
+        columns: columns,
+        fixedTop: parseFloat(gridStyle.getPropertyValue("--home-love-top")) || 86,
+        gap: gap,
+        gridOffset: gridRect.top - wallRect.top,
+        isMobile: isMobile,
+        pageCount: pageCount,
+        rows: rows,
+        stageHeight: stageHeight,
+        stageWidth: stageWidth,
+        visibleCards: visibleCards
+      };
+
+      wall.style.minHeight = Math.max(
+        viewport * 1.35,
+        viewport + Math.max(pageCount - 1, 1) * (isMobile ? 620 : 720) + 220
+      ).toFixed(0) + "px";
+
+      cards.forEach(function (card) {
+        card.style.width = cardWidth.toFixed(1) + "px";
+        card.style.height = cardHeight.toFixed(1) + "px";
+      });
+    }
 
     function update() {
       ticking = false;
-      var viewport = window.innerHeight || document.documentElement.clientHeight;
-      var wallRect = wall.getBoundingClientRect();
-      if (viewport > 1600 || wallRect.top > viewport || wallRect.bottom < 0) {
-        cards.forEach(function (card) {
-          card.style.opacity = "";
-          card.style.transform = "";
-        });
-        return;
+      if (!layout) measure();
+
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var wallTop = wall.getBoundingClientRect().top + scrollY;
+      var start = wallTop + layout.gridOffset - layout.fixedTop;
+      var end = wallTop + wall.offsetHeight - layout.stageHeight - layout.afterGap - layout.fixedTop;
+      end = Math.max(start + 1, end);
+
+      if (scrollY < start) {
+        setGridState("before");
+      } else if (scrollY > end) {
+        setGridState("after");
+      } else {
+        setGridState("fixed");
       }
 
-      cards.forEach(function (card, index) {
-        var cardRect = card.getBoundingClientRect();
-        var total = viewport + cardRect.height;
-        var progress = total > 0 ? (viewport - cardRect.top) / total : 0;
-        progress = Math.min(Math.max(progress, 0), 1);
+      var progress = clamp((scrollY - start) / (end - start), 0, 1);
+      var pageFloat = progress * Math.max(layout.pageCount - 1, 0);
+      var travel = layout.isMobile ? 42 : 86;
 
-        var column = index % 3;
-        var direction = column === 0 ? -1 : column === 2 ? 1 : index % 2 ? -1 : 1;
-        var enter = smoothstep(0.04, 0.38, progress);
-        var leave = smoothstep(0.74, 1, progress);
-        var visible = Math.max(0, Math.min(enter, 1 - leave));
-        var startX = direction * (80 + (index % 3) * 26);
-        var startY = 96 + (index % 4) * 14;
-        var endX = direction * -1 * (70 + (index % 4) * 22);
-        var endY = -82 - (index % 3) * 18;
-        var baseRotate = ((index % 5) - 2) * 0.35;
-        var x = (1 - enter) * startX + leave * endX;
-        var y = (1 - enter) * startY + leave * endY;
-        var rotate = baseRotate + (1 - enter) * direction * 3 + leave * direction * -4;
+      cards.forEach(function (card, index) {
+        var page = Math.floor(index / layout.visibleCards);
+        var slot = index % layout.visibleCards;
+        var column = slot % layout.columns;
+        var row = Math.floor(slot / layout.columns);
+        var relativePage = page - pageFloat;
+        var distance = Math.abs(relativePage);
+        var visible = clamp(1 - distance, 0, 1);
+        var baseX = column * (layout.cardWidth + layout.gap);
+        var baseY = row * (layout.cardHeight + layout.gap);
+        var direction = relativePage < 0 ? -1 : 1;
+        var localPage = clamp(relativePage, -1, 1);
+        var x = baseX + localPage * travel;
+        var y = baseY + Math.sin(localPage * Math.PI) * (layout.isMobile ? 10 : 18);
+        var rotate = localPage * (layout.isMobile ? 1.2 : 2.4);
+        var scale = 0.96 + visible * 0.04;
+
+        if (distance > 1.05) {
+          card.style.opacity = "0";
+          card.style.pointerEvents = "none";
+          card.style.transform = "translate3d(" + (baseX + direction * travel).toFixed(1) + "px, " + baseY.toFixed(1) + "px, 0) scale(0.96)";
+          return;
+        }
 
         card.style.opacity = visible.toFixed(3);
-        card.style.transform = "translate3d(" + x.toFixed(1) + "px, " + y.toFixed(1) + "px, 0) rotate(" + rotate.toFixed(2) + "deg)";
+        card.style.pointerEvents = visible > 0.98 ? "auto" : "none";
+        card.style.zIndex = String(1000 - Math.round(distance * 100) + slot);
+        card.style.transform = "translate3d(" + x.toFixed(1) + "px, " + y.toFixed(1) + "px, 0) rotate(" + rotate.toFixed(2) + "deg) scale(" + scale.toFixed(3) + ")";
       });
     }
 
@@ -474,7 +546,11 @@
     }
 
     window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("resize", function () {
+      measure();
+      requestUpdate();
+    });
+    measure();
     update();
   }
 
