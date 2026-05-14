@@ -446,7 +446,7 @@
       var width = window.innerWidth || document.documentElement.clientWidth;
       var viewport = window.innerHeight || document.documentElement.clientHeight;
       var isMobile = width < 760;
-      var columns = isMobile ? 1 : 3;
+      var columns = isMobile ? 1 : width < 980 ? 2 : 3;
       var rows = 3;
       var gap = isMobile ? 16 : 24;
       var visibleCards = columns * rows;
@@ -477,7 +477,7 @@
 
       wall.style.minHeight = Math.max(
         viewport * 1.35,
-        viewport + Math.max(pageCount - 1, 1) * (isMobile ? 620 : 720) + 220
+        viewport + Math.max(pageCount - 1, 1) * (isMobile ? 620 : columns === 2 ? 660 : 720) + 220
       ).toFixed(0) + "px";
 
       cards.forEach(function (card) {
@@ -506,7 +506,7 @@
 
       var progress = clamp((scrollY - start) / (end - start), 0, 1);
       var pageFloat = progress * Math.max(layout.pageCount - 1, 0);
-      var travel = layout.isMobile ? 42 : 86;
+      var travel = layout.isMobile ? 42 : layout.columns === 2 ? 64 : 86;
 
       cards.forEach(function (card, index) {
         var page = Math.floor(index / layout.visibleCards);

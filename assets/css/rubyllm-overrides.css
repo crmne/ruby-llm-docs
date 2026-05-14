@@ -890,7 +890,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 40px;
   align-items: center;
-  height: 384px;
   min-height: 384px;
   margin-top: 54px;
   border-radius: 24px;
@@ -2133,11 +2132,47 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-founder-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 28px;
+    min-height: 360px;
+    padding: 28px 32px;
   }
 
   .home-founder-media {
-    grid-row: 1;
+    grid-row: auto;
+  }
+
+  .home-founder-media > img:first-child {
+    width: 200px;
+  }
+
+  .home-love-grid.is-animated {
+    height: min(860px, calc(100vh - 102px));
+  }
+
+  .home-love-grid.is-animated .home-love-card {
+    padding: 24px 20px 20px;
+  }
+
+  .home-love-grid.is-animated .home-love-card::after {
+    top: 25px;
+    right: 20px;
+    width: 24px;
+    height: 21px;
+  }
+
+  .home-love-grid.is-animated .home-love-card header {
+    padding-right: 34px;
+  }
+
+  .home-love-grid.is-animated .home-love-card header strong {
+    font-size: 17px;
+  }
+
+  .home-love-grid.is-animated .home-love-card p {
+    margin: 16px 0 12px;
+    font-size: 13.5px;
+    line-height: 1.36;
   }
 
 }
@@ -2249,11 +2284,18 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-founder-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
     padding: 26px;
   }
 
+  .home-founder-media {
+    grid-row: 1;
+  }
+
   .home-founder-media > img:first-child {
-    width: 100%;
+    width: min(100%, 240px);
   }
 
   .home-code-card {
