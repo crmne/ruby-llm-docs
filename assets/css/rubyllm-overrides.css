@@ -122,6 +122,10 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   display: none;
 }
 
+.VPNavBar.home:not(.has-sidebar):not(.top) {
+  background-color: var(--home-band-bg);
+}
+
 @media (min-width: 768px) {
   .VPNavBarSearchButton {
     background-color: var(--vp-c-default-2);
