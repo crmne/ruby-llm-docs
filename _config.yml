@@ -115,6 +115,19 @@ jekyll_vitepress:
     repository: crmne/ruby_llm
     text: Star
     show_count: true
+  gem_downloads:
+    enabled: true
+    name: ruby_llm
+    text: Gem downloads
+    url: https://clickgems.clickhouse.com/dashboard/ruby_llm
+    label: View RubyLLM gem downloads
+    show_count: true
+  github_trending:
+    enabled: true
+    text: GitHub trending
+    value: "#1 repo of the day"
+    url: https://trendshift.io/repositories/13640
+    label: View RubyLLM GitHub trending history
   github_sponsor:
     enabled: true
     user: crmne

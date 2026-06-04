@@ -2,7 +2,7 @@
 layout: home
 title: Home
 nav_order: 1
-description: Ruby-native AI framework for production apps in Ruby and Rails.
+description: Build AI features the Ruby way
 permalink: /
 redirect_from:
   - /guides/
@@ -11,14 +11,11 @@ hero:
     light: /assets/images/logotype.svg
     dark: /assets/images/logotype_dark.svg
     alt: RubyLLM
-    width: 275
-    height: 72
-  text: 'Build production AI features<br><span class="home-hero-highlight">the Ruby way<span class="home-hero-caret" aria-hidden="true"></span></span>'
-  tagline: "RubyLLM is a Ruby-native AI framework for chats, tools, agents, structured outputs, files<br>and Rails apps &mdash; one beautiful mental model across providers and models"
+    width: 320
+    height: 110
+  text: 'Build AI features <span class="home-hero-highlight">the Ruby way<span class="home-hero-caret" aria-hidden="true"></span></span>'
+  tagline: 'One <em class="home-hero-tagline-highlight">beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every Ruby AI workflow in between.'
   actions:
-    - theme: alt
-      text: Github
-      link: https://github.com/crmne/ruby_llm
     - theme: brand
       text: Get started
       link: /getting-started/
@@ -26,9 +23,6 @@ hero:
 
 <section id="demo" class="home-section home-demo-section">
   <div class="home-section-inner">
-    <h2 class="home-heading home-heading--compact">Go from zero to AI app in about<br class="home-demo-desktop-break"><span class="home-demo-mobile-space"> </span>a minute</h2>
-    <div class="home-down-icon" aria-hidden="true"></div>
-
     <div class="home-demo-frame" data-demo-video>
       <img class="home-demo-poster" src="{{ '/assets/images/home/demo-poster-figma.png' | relative_url }}" alt="" aria-hidden="true">
       <pre class="home-demo-terminal" aria-hidden="true"><code>Compile initial Tailwind build
@@ -57,8 +51,7 @@ Created sample hooks in .kamal/hooks
         <span class="term-red">force</span> config/cable.yml
 ~ <span class="term-cursor"></span></code></pre>
       <video class="home-demo-video" preload="metadata" playsinline>
-        <source src="{{ '/assets/videos/rubyllm-demo.webm' | relative_url }}" type="video/webm">
-        <source src="{{ '/assets/videos/rubyllm-demo.mp4' | relative_url }}" type="video/mp4">
+        <source src="https://talks.paolino.me/rucoco-2026/demo.mp4" type="video/mp4">
       </video>
       <button class="home-play-button" type="button" aria-label="Play RubyLLM demo">
         <span aria-hidden="true"></span>
