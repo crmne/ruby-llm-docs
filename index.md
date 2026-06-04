@@ -61,6 +61,131 @@ Created sample hooks in .kamal/hooks
   </div>
 </section>
 
+<section class="home-section home-band home-models-section">
+  <div class="home-section-inner">
+    <h2 class="home-heading">Change models, not your code</h2>
+    <p class="home-lead">
+      12 providers in core. More through supporting gems. Every OpenAI-compatible API. Thousands of local models through Ollama and GPUStack. Same code.
+    </p>
+
+    <div class="provider-icons" aria-label="Supported AI providers">
+      <a href="https://anthropic.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/anthropic-text.svg' | relative_url }}" alt="Anthropic" class="logo-wide"></a>
+      <a href="https://azure.microsoft.com/products/ai-services/openai-service" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/azureai-color.svg' | relative_url }}" alt="Azure AI" class="logo-mark"><img src="{{ '/assets/images/providers/azureai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/bedrock-color.svg' | relative_url }}" alt="Amazon Bedrock" class="logo-mark"><img src="{{ '/assets/images/providers/bedrock-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://deepseek.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/deepseek-color.svg' | relative_url }}" alt="DeepSeek" class="logo-mark"><img src="{{ '/assets/images/providers/deepseek-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://ai.google.dev" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gemini-color.svg' | relative_url }}" alt="Gemini" class="logo-mark"><img src="{{ '/assets/images/providers/gemini-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://gpustack.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gpustack-logo.png' | relative_url }}" alt="GPUStack" class="logo-wide"></a>
+      <a href="https://mistral.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/mistral-color.svg' | relative_url }}" alt="Mistral AI" class="logo-mark"><img src="{{ '/assets/images/providers/mistral-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://ollama.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/ollama.svg' | relative_url }}" alt="Ollama" class="logo-mark"><img src="{{ '/assets/images/providers/ollama-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://openai.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openai.svg' | relative_url }}" alt="OpenAI" class="logo-mark"><img src="{{ '/assets/images/providers/openai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://openrouter.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openrouter.svg' | relative_url }}" alt="OpenRouter" class="logo-mark"><img src="{{ '/assets/images/providers/openrouter-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://perplexity.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/perplexity-color.svg' | relative_url }}" alt="Perplexity" class="logo-mark"><img src="{{ '/assets/images/providers/perplexity-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/vertexai-color.svg' | relative_url }}" alt="Vertex AI" class="logo-mark"><img src="{{ '/assets/images/providers/vertexai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+      <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/xai.svg' | relative_url }}" alt="xAI" class="logo-mark"><img src="{{ '/assets/images/providers/xai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
+    </div>
+  </div>
+</section>
+
+<section id="code-examples" class="home-section home-code-section">
+  <div class="home-section-inner">
+    <h2 class="home-heading">Show me the code</h2>
+  </div>
+
+  <div class="home-code-grid" markdown="1">
+
+```ruby
+chat = RubyLLM.chat
+chat.ask "What's the best way to learn Ruby?"
+```
+{: .home-code-card data-title="Just ask questions" }
+
+```ruby
+chat = RubyLLM.chat
+chat.ask "What's in this image?", with: "ruby_conf.jpg"
+chat.ask "What's happening in this video?", with: "video.mp4"
+chat.ask "Describe this meeting", with: "meeting.wav"
+chat.ask "Summarize this document", with: "contract.pdf"
+chat.ask "Explain this code", with: "app.rb"
+```
+{: .home-code-card data-title="Analyze any file type" }
+
+```ruby
+chat = RubyLLM.chat
+chat.ask "Analyze these files", with: ["diagram.png", "report.pdf", "notes.txt"]
+```
+{: .home-code-card data-title="Multiple files at once" }
+
+```ruby
+chat = RubyLLM.chat
+chat.ask "Tell me a story about Ruby" do |chunk|
+  print chunk.content
+end
+```
+{: .home-code-card data-title="Stream responses" }
+
+```ruby
+RubyLLM.paint "a sunset over mountains in watercolor style"
+```
+{: .home-code-card data-title="Generate images" }
+
+```ruby
+RubyLLM.embed "Ruby is elegant and expressive"
+```
+{: .home-code-card data-title="Create embeddings" }
+
+```ruby
+RubyLLM.transcribe "meeting.wav"
+```
+{: .home-code-card data-title="Transcribe audio to text" }
+
+```ruby
+RubyLLM.moderate "Check if this text is safe"
+```
+{: .home-code-card data-title="Moderate content for safety" }
+
+```ruby
+chat = RubyLLM.chat
+class Weather < RubyLLM::Tool
+  desc "Get current weather"
+
+  def execute(latitude:, longitude:)
+    url = "https://api.open-meteo.com/v1/forecast?latitude=#{latitude}&longitude=#{longitude}&current=temperature_2m,wind_speed_10m"
+    JSON.parse(Faraday.get(url).body)
+  end
+end
+
+chat.with_tool(Weather).ask "What's the weather in Berlin?"
+```
+{: .home-code-card data-title="Let AI use your code" }
+
+```ruby
+class WeatherAssistant < RubyLLM::Agent
+  model "gpt-5-nano"
+  instructions "Be concise and always use tools for weather."
+  tools Weather
+end
+
+WeatherAssistant.new.ask "What's the weather in Berlin?"
+```
+{: .home-code-card data-title="Define an agent with instructions + tools" }
+
+```ruby
+class ProductSchema < RubyLLM::Schema
+  string :name
+  number :price
+  array :features do
+    string
+  end
+end
+
+chat = RubyLLM.chat
+response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "product.txt"
+```
+{: .home-code-card data-title="Get structured output" }
+
+  </div>
+</section>
+
 <section class="home-section home-band home-community-section">
   <div class="home-section-inner">
     <h2 class="home-heading">Proven by the community</h2>
@@ -104,48 +229,6 @@ Created sample hooks in .kamal/hooks
       RubyLLM rails-native AI framework is used by teams shipping AI in production<br>
       <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Get featured</a>
     </p>
-  </div>
-</section>
-
-<section class="home-section home-definition-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">What is RubyLLM?</h2>
-    <p class="home-lead">
-      RubyLLM is a complete AI framework which gives you one beautiful interface for models, providers, chats, streaming, agents, tools, files, structured outputs, Rails persistence, usage, costs and model capabilities
-    </p>
-
-    <div class="home-feature-grid">
-      <article class="home-feature-card">
-        <span class="home-card-icon home-card-icon--ruby" aria-hidden="true"></span>
-        <h3>Ruby-native first</h3>
-        <p>Fully optimized for the Ruby stack and patterns</p>
-      </article>
-      <article class="home-feature-card">
-        <span class="home-card-icon home-card-icon--rails" aria-hidden="true"></span>
-        <h3>Rails-native as well</h3>
-        <p>Fits into Rails projects with minimal setup</p>
-      </article>
-      <article class="home-feature-card">
-        <span class="home-card-icon home-card-icon--rocket" aria-hidden="true"></span>
-        <h3>Plain Ruby support</h3>
-        <p>It's built to feel like a core part of the Rails ecosystem</p>
-      </article>
-      <article class="home-feature-card">
-        <span class="home-card-icon home-card-icon--ready" aria-hidden="true"></span>
-        <h3>Production-ready</h3>
-        <p>Tools, agents, structured outputs and cost tracking</p>
-      </article>
-      <article class="home-feature-card">
-        <span class="home-card-icon home-card-icon--open" aria-hidden="true"></span>
-        <h3>Open source</h3>
-        <p>Built in public with transparent development</p>
-      </article>
-    </div>
-
-    <div class="home-actions home-actions--center">
-      <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Github</a>
-      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Start coding</a>
-    </div>
   </div>
 </section>
 
@@ -213,250 +296,6 @@ Created sample hooks in .kamal/hooks
         <img class="home-signature-image" src="{{ '/assets/images/founder/carmine-signature.png' | relative_url }}" alt="Carmine Paolino signature">
       </div>
     </article>
-  </div>
-</section>
-
-<section id="code-examples" class="home-section home-code-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">Everything you need, with Ruby's elegance</h2>
-    <p class="home-lead">
-      Start with one line. Grow into tools, agents, structured outputs, Rails persistence, multimodal workflows,<br>
-      and cost-aware production apps &mdash; without changing mental models
-    </p>
-  </div>
-
-  <div class="home-code-grid">
-<article class="home-code-card" data-code-example="ask" markdown="1">
-
-### Ask anything
-
-```ruby
-RubyLLM.chat.ask "Explain Ruby blocks in 3 lines"
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Ask anything example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="ask">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Ask anything example"></button>
-</div>
-<div class="home-code-result" hidden>Ruby blocks are chunks of code passed to methods. They let APIs yield work to callers, making each, map, callbacks, and DSLs feel natural.</div>
-</article>
-
-<article class="home-code-card" data-code-example="stream" markdown="1">
-
-### Stream responses
-
-```ruby
-chat.ask "Tell me a story about Ruby" do |chunk|
-  print chunk.content
-end
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Stream responses example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="stream">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Stream responses example"></button>
-</div>
-<div class="home-code-result" data-stream-result hidden>Ruby yielded each word as it arrived, and the interface stayed responsive from the first token to the final line.</div>
-</article>
-
-<article class="home-code-card" data-code-example="files" markdown="1">
-
-### Attach files
-
-```ruby
-chat.ask "Summarize this contract", with: "contract.pdf"
-chat.ask "What changed?", with: ["before.png", "after.png"]
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Attach files example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="files">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Attach files example"></button>
-</div>
-<div class="home-code-result" hidden>The contract renews yearly and includes a 30-day termination clause. The liability cap changed from $25k to $50k.</div>
-</article>
-
-<article class="home-code-card" data-code-example="tools" markdown="1">
-
-### Let AI call your code
-
-```ruby
-class Weather < RubyLLM::Tool
-  description "Get current weather"
-  param :city
-
-  def execute(city:)
-    WeatherAPI.lookup(city)
-  end
-end
-
-chat.with_tool(Weather).ask "Do I need an umbrella in Berlin?"
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Tool calling example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="tools">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Tool calling example"></button>
-</div>
-<div class="home-code-result" hidden>Yes. It is raining in Berlin right now, so take an umbrella.</div>
-</article>
-
-<article class="home-code-card" data-code-example="agents" markdown="1">
-
-### Build agents
-
-```ruby
-class SupportAgent < RubyLLM::Agent
-  model "gpt-5-nano"
-  instructions "You are a concise support assistant."
-  tools SearchDocs, LookupAccount
-end
-
-SupportAgent.new.ask "How do I reset my API key?"
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Build agents example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="agents">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Build agents example"></button>
-</div>
-<div class="home-code-result" hidden>Open Settings, choose API keys, click Regenerate, then update the key in your environment before restarting the app.</div>
-</article>
-
-<article class="home-code-card" data-code-example="structured" markdown="1">
-
-### Get structured output
-
-```ruby
-class ProductSchema < RubyLLM::Schema
-  string :name
-  number :price
-  array :features, of: :string
-end
-
-chat.with_schema(ProductSchema)
-  .ask "Extract product details", with: "product.txt"
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Structured output example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="structured">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Structured output example"></button>
-</div>
-<div class="home-code-result" hidden>{"name":"RubyLLM Pro","price":49,"features":["tools","agents","files"]}</div>
-</article>
-
-<article class="home-code-card" data-code-example="rails" markdown="1">
-
-### Use Rails persistence
-
-```ruby
-class Chat < ApplicationRecord
-  acts_as_chat
-end
-
-chat = Chat.create!(model: "claude-sonnet-4-6")
-chat.ask "Summarize this report", with: "report.pdf"
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Rails persistence example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="rails">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Rails persistence example"></button>
-</div>
-<div class="home-code-result" hidden>&lt;Message role="assistant" content="Revenue grew 18%, churn fell to 2.1%, and expansion revenue drove most of the quarter."&gt;</div>
-</article>
-
-<article class="home-code-card" data-code-example="usage" markdown="1">
-
-### Track usage and cost
-
-```ruby
-response = chat.ask "Explain embeddings"
-
-response.input_tokens
-response.output_tokens
-response.model_id
-
-model = RubyLLM.models.find(response.model_id)
-model.input_price_per_million
-```
-
-<div class="home-code-actions">
-  <button class="home-run-button" type="button" aria-label="Run Usage and cost example"><span aria-hidden="true"></span>Run</button>
-  <button class="home-compare-button" type="button" data-compare-example="usage">Compare</button>
-  <button class="home-copy-button" type="button" aria-label="Copy Usage and cost example"></button>
-</div>
-<div class="home-code-result" hidden>384
-112
-"gpt-5.4"
-2.5</div>
-</article>
-  </div>
-
-  <a class="home-code-more" href="{{ '/getting-started/' | relative_url }}">See all code examples</a>
-
-  <div class="home-section-inner home-code-cta">
-    <p>Start with a few lines of ruby and build production-ready features<br>with a rails-native AI framework now</p>
-    <div class="home-actions home-actions--center">
-      <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Github</a>
-      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Start coding</a>
-    </div>
-  </div>
-
-  <div class="home-compare-modal" data-compare-modal hidden>
-    <div class="home-compare-backdrop" data-compare-close></div>
-    <div class="home-compare-dialog" role="dialog" aria-modal="true" aria-labelledby="home-compare-title">
-      <button class="home-compare-close" type="button" data-compare-close aria-label="Close comparison"></button>
-      <h3 id="home-compare-title">Ask anything</h3>
-      <div class="home-compare-layout">
-        <section class="home-compare-pane">
-          <div class="home-compare-tab is-active">
-            <img src="{{ '/assets/images/file-icons/ruby.svg' | relative_url }}" alt="" aria-hidden="true">
-            Ruby
-          </div>
-          <pre><code data-compare-ruby></code></pre>
-        </section>
-        <section class="home-compare-pane">
-          <div class="home-compare-tabs" role="tablist" aria-label="Comparison language">
-            <button type="button" class="is-active" data-compare-language="javascript" role="tab" aria-selected="true"><img src="{{ '/assets/images/file-icons/javascript.svg' | relative_url }}" alt="" aria-hidden="true">JavaScript</button>
-            <button type="button" data-compare-language="python" role="tab" aria-selected="false"><img src="{{ '/assets/images/file-icons/python.svg' | relative_url }}" alt="" aria-hidden="true">Python</button>
-          </div>
-          <pre><code data-compare-other></code></pre>
-        </section>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="home-section home-models-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">Change models, not your code</h2>
-    <p class="home-lead">
-      New models come out constantly. RubyLLM lets you try them, compare them and switch providers without rewriting your application
-    </p>
-
-    <div class="provider-icons" aria-label="Supported AI providers">
-      <a href="https://openai.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openai.svg' | relative_url }}" alt="OpenAI" class="logo-mark"><img src="{{ '/assets/images/providers/openai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-      <a href="https://anthropic.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/anthropic-text.svg' | relative_url }}" alt="Anthropic" class="logo-wide"></a>
-      <a href="https://ai.google.dev" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gemini-color.svg' | relative_url }}" alt="Gemini" class="logo-mark"><img src="{{ '/assets/images/providers/gemini-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-      <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/vertexai-text.svg' | relative_url }}" alt="Vertex AI" class="logo-wide"></a>
-      <span class="provider-break" aria-hidden="true"></span>
-      <a href="https://mistral.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/mistral-color.svg' | relative_url }}" alt="Mistral AI" class="logo-mark"><img src="{{ '/assets/images/providers/mistral-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-      <a href="https://perplexity.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/perplexity-color.svg' | relative_url }}" alt="Perplexity" class="logo-mark"><img src="{{ '/assets/images/providers/perplexity-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-      <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/xai.svg' | relative_url }}" alt="xAI" class="logo-wide"></a>
-      <a href="https://ollama.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/ollama.svg' | relative_url }}" alt="Ollama" class="logo-mark"><img src="{{ '/assets/images/providers/ollama-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-      <a href="https://openrouter.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/openrouter-text.svg' | relative_url }}" alt="OpenRouter" class="logo-wide"></a>
-      <span class="provider-break" aria-hidden="true"></span>
-      <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/bedrock-text.svg' | relative_url }}" alt="Amazon Bedrock" class="logo-wide"></a>
-      <a href="https://gpustack.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/gpustack-logo.png' | relative_url }}" alt="GPUStack" class="logo-wide"></a>
-      <a href="https://deepseek.com" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/deepseek-color.svg' | relative_url }}" alt="DeepSeek" class="logo-mark"><img src="{{ '/assets/images/providers/deepseek-text.svg' | relative_url }}" alt="" class="logo-text"></a>
-    </div>
-
-    <p class="home-models-note">
-      RubyLLM supports anything OpenAI-compatible. With GPUStack, you also get access to every model on ModelScope and Hugging Face
-    </p>
   </div>
 </section>
 
