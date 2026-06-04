@@ -1,7 +1,7 @@
 ---
-current: ruby_llm_auto
+current: v1.15.0
 items:
-  - title: Latest (current)
+  - title: v1.15.0 (current)
     url: index.html
   - title: Changelog
     url: https://github.com/crmne/ruby_llm/releases
