@@ -122,50 +122,23 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   display: none;
 }
 
-.VPNavBar.home {
-  border-bottom: 1px solid var(--home-line);
-  background: var(--home-band-bg);
-  backdrop-filter: none;
-}
-
-.VPNavBar.home .title {
-  font-weight: 900;
-}
-
-.VPNavBar.home .VPNavBarSearch {
-  margin-left: 13px;
-}
-
-.VPNavBar.home .VPNavBarSearchButton,
-.VPNavBar.home .VPNavBarSearch .DocSearch-Button {
-  justify-content: flex-start;
-  width: 288px;
-  height: 38px;
-  border-radius: 999px;
-  padding: 0 10px 0 12px;
-  border: 0;
-  background: #e7ded9;
-}
-
-.VPNavBar.home .VPNavBarSearchButton .keys {
-  margin-left: auto;
-}
-
-@media (max-width: 767px) {
-  .VPNavBar.home .VPNavBarSearch {
-    margin-left: auto;
+@media (min-width: 768px) {
+  .VPNavBarSearchButton {
+    background-color: var(--vp-c-default-2);
+    color: var(--vp-c-text-2);
   }
 
-  .VPNavBar.home .VPNavBarSearchButton,
-  .VPNavBar.home .VPNavBarSearch .DocSearch-Button {
-    width: 40px;
-    padding: 0;
-    justify-content: center;
+  .VPNavBarSearchButton:hover {
+    background-color: var(--vp-c-default-3);
+    color: var(--vp-c-text-1);
   }
 
-  .VPNavBar.home .VPNavBarSearchButton .text,
-  .VPNavBar.home .VPNavBarSearchButton .keys {
-    display: none;
+  .dark .VPNavBarSearchButton {
+    background-color: var(--vp-c-bg-elv);
+  }
+
+  .dark .VPNavBarSearchButton:hover {
+    background-color: var(--vp-c-default-3);
   }
 }
 
@@ -2097,16 +2070,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   --home-shadow-soft: 0 20px 56px rgba(0, 0, 0, 0.26);
 }
 
-.dark .VPNavBar.home {
-  background: #191818;
-}
-
-.dark .VPNavBar.home .VPNavBarSearchButton,
-.dark .VPNavBar.home .VPNavBarSearch .DocSearch-Button {
-  background: #242423;
-  color: var(--home-muted);
-}
-
 .dark .home-hero-highlight::before {
   background: rgb(201 39 30 / 0.22);
 }
@@ -2656,10 +2619,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 @media (max-width: 760px) {
-  .VPNavBar.home .VPNavBarSearch {
-    display: none;
-  }
-
   .VPHome .VPHero {
     padding-top: 68px;
     padding-bottom: 72px;

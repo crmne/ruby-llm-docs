@@ -71,7 +71,6 @@ jekyll_vitepress:
       "--vp-c-brand-soft": rgba(201, 39, 30, 0.14)
       "--vp-c-bg": "#f7f3f1"
       "--vp-c-bg-alt": "#F3ECE7"
-      "--vp-nav-bg-color": "#F3ECE7"
       "--vp-c-bg-soft": "#F3ECE7"
       "--vp-c-bg-elv": "#FAF9F7"
       "--vp-c-border": "#E0D9D5"
@@ -94,7 +93,6 @@ jekyll_vitepress:
       "--vp-c-brand-soft": rgba(255, 67, 61, 0.18)
       "--vp-c-bg": "#1B1B1A"
       "--vp-c-bg-alt": "#181817"
-      "--vp-nav-bg-color": "#191818"
       "--vp-c-bg-soft": "#232323"
       "--vp-c-bg-elv": "#232323"
       "--vp-c-border": "#30302F"
