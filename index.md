@@ -17,7 +17,7 @@ hero:
   tagline: 'One <em class="home-hero-tagline-highlight">beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every Ruby AI workflow in between.'
   actions:
     - theme: brand
-      text: Get started
+      text: Start coding
       link: /getting-started/
 ---
 
@@ -144,7 +144,7 @@ Created sample hooks in .kamal/hooks
 
     <div class="home-actions home-actions--center">
       <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Github</a>
-      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Get started</a>
+      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Start coding</a>
     </div>
   </div>
 </section>
@@ -401,7 +401,7 @@ model.input_price_per_million
     <p>Start with a few lines of ruby and build production-ready features<br>with a rails-native AI framework now</p>
     <div class="home-actions home-actions--center">
       <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Github</a>
-      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Get started</a>
+      <a class="home-button home-button--solid" href="{{ '/getting-started/' | relative_url }}">Start coding</a>
     </div>
   </div>
 
@@ -739,7 +739,7 @@ model.input_price_per_million
       <a class="home-ready-card" href="{{ '/getting-started/' | relative_url }}">
         <span class="home-card-icon home-card-icon--rocket" aria-hidden="true"></span>
         <h3>Start building in minutes</h3>
-        <span>Get started</span>
+        <span>Start coding</span>
       </a>
 
       <a class="home-ready-card" href="{{ '/rails/' | relative_url }}">
