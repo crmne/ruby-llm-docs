@@ -377,7 +377,7 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
   </p>
 </section>
 
-<section class="home-section home-band home-love-section" data-love-wall>
+<section class="home-section home-band home-love-section" data-love-carousel>
   <div class="home-section-inner">
     <h2 class="home-heading">Wall of Love</h2>
     <p class="home-lead">
@@ -385,183 +385,122 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
     </p>
   </div>
 
-  <div class="home-love-grid">
+  <div class="home-love-stage">
+    <div class="home-love-grid">
     <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">BC</span><strong>Build Canada (formerly Yuma.ai)</strong><small>Usage Survey</small></header>
-      <p>It feels natural. At Yuma, serving over 100,000 end users, our unified AI interface had accumulated so much cruft. RubyLLM is so much nicer than all of that.</p>
-      <cite>Build Canada (formerly Yuma.ai)</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">BL</span><strong>BCA LTD</strong><small>Usage Survey</small></header>
-      <p>We built our own quick and dirty wrapper, then your project came up and rocked it.</p>
-      <cite>BCA LTD</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">E</span><strong>Edrupt</strong><small>Usage Survey</small></header>
-      <p>A very clean and beautiful abstraction for working with multiple LLM providers.</p>
-      <cite>Edrupt</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">NN</span><strong>Nodal Networks</strong><small>Usage Survey</small></header>
-      <p>Our Langgraph agent was failing. I took a gamble and rebuilt it using RubyLLM. Not only was it far simpler, it performed better.</p>
-      <cite>Nodal Networks</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">P</span><strong>Primevise</strong><small>Usage Survey</small></header>
-      <p>RubyLLM is pretty much the devise of this generation. Adding it to any application is pretty much a no-brainer.</p>
-      <cite>Primevise</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">O</span><strong>OpenRegulatory</strong><small>Usage Survey</small></header>
-      <p>Just having a framework to structure all our LLM processes is gigantic value. Tool integration works like a charm.</p>
-      <cite>OpenRegulatory</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">HB</span><strong>Hadrien Blanc Innovation</strong><small>Usage Survey</small></header>
-      <p>I delivered a lot of value to my customers because of your work.</p>
-      <cite>Hadrien Blanc Innovation</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">C</span><strong>Corepilot</strong><small>Usage Survey</small></header>
-      <p>We got our proof of concept up in one day and the first beta in about a week. Really impressive.</p>
-      <cite>Corepilot</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">DA</span><strong>dScribe AI</strong><small>Usage Survey</small></header>
-      <p>The speed of development and the closest thing to the AI SDK in JavaScript land. Easiest Rails integration.</p>
-      <cite>dScribe AI</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">BI</span><strong>Bunny Inc</strong><small>Usage Survey</small></header>
-      <p>Super easy way to start adding magic to our app. Love the speed of improvements.</p>
-      <cite>Bunny Inc</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">LA</span><strong>LiteChat AI</strong><small>Usage Survey</small></header>
-      <p>As project requirements grow, RubyLLM always seems one step ahead.</p>
-      <cite>LiteChat AI</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">C</span><strong>Crevio</strong><small>Usage Survey</small></header>
-      <p>Love how Ruby-like it feels. The DSL is incredibly intuitive and follows all the conventions I would expect.</p>
-      <cite>Crevio</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">F</span><strong>Fracta</strong><small>Usage Survey</small></header>
-      <p>I could not be happier for making this decision. I am very excited with the API the gem provides and the surrounding community.</p>
-      <cite>Fracta</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">SJ</span><strong>Startup Jobs</strong><small>Usage Survey</small></header>
+      <header><img src="{{ '/assets/images/home/testimonials/people/marc-kohlbrugge.webp' | relative_url }}" alt="Marc Köhlbrugge"><strong>Marc Köhlbrugge</strong><small>Founder/CEO, Startup Jobs</small></header>
       <p>Ruby-esque DSL and the right level of abstraction: composable, flexible on architecture, opinionated on lower-level implementation.</p>
-      <cite>Startup Jobs</cite>
     </article>
     <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">C</span><strong>Cora</strong><small>Usage Survey</small></header>
+      <header><img src="{{ '/assets/images/home/testimonials/people/jorge-manrubia.webp' | relative_url }}" alt="Jorge Manrubia"><strong>Jorge Manrubia</strong><small>Principal Programmer, 37signals</small></header>
+      <p>We are using OpenAI API using the fantastic RubyLLM gem from @paolino.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/kieran-klaassen.webp' | relative_url }}" alt="Kieran Klaassen"><strong>Kieran Klaassen</strong><small>Founder, Cora</small></header>
       <p>Love deleting code when adding a library, and love the thought that goes into the gem.</p>
-      <cite>Cora</cite>
     </article>
     <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>ReelMoney</strong><small>Usage Survey</small></header>
+      <header><img src="{{ '/assets/images/home/testimonials/people/elvinas-predkelis.webp' | relative_url }}" alt="Elvinas Predkelis"><strong>Elvinas Predkelis</strong><small>CEO, Primevise</small></header>
+      <p>RubyLLM is pretty much the devise of this generation. Adding it to any application is pretty much a no-brainer.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/nick-warwick.webp' | relative_url }}" alt="Nick Warwick"><strong>Nick Warwick</strong><small>Founding Engineer, Nodal Networks</small></header>
+      <p>Our Langgraph agent was failing. I took a gamble and rebuilt it using RubyLLM. Not only was it far simpler, it performed better.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/brendan-samek.webp' | relative_url }}" alt="Brendan Samek"><strong>Brendan Samek</strong><small>Founding Software Engineer, Build Canada</small></header>
+      <p>It feels natural. At Yuma, serving over 100,000 end users, our unified AI interface had accumulated so much cruft. RubyLLM is so much nicer than all of that.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/axel-grubba.webp' | relative_url }}" alt="Axel Grubba"><strong>Axel Grubba</strong><small>Founder, Crevio</small></header>
+      <p>Love how Ruby-like it feels. The DSL is incredibly intuitive and follows all the conventions I would expect.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/luis-ezcurdia.webp' | relative_url }}" alt="Luis Ezcurdia"><strong>Luis Ezcurdia</strong><small>Software Engineer</small></header>
+      <p>RubyLLM is awesome, easy and intuitive. You should try it, even if you don’t work with Ruby.</p>
+    </article>
+    <article class="home-love-card" data-love-card>
+      <header><img src="{{ '/assets/images/home/testimonials/people/chris-sonnier.webp' | relative_url }}" alt="Chris Sonnier"><strong>Chris Sonnier</strong><small>Ruby/Rails Engineer</small></header>
+      <p>If you can find a better Ruby AI library than RubyLLM, I will only write JavaScript for the rest of the year!</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/joe-leo.webp' | relative_url }}" alt="Joe Leo"><strong>Joe Leo</strong><small>Founder/CEO, Def Method</small></header>
+      <p>Most tools add layers. This one removes them. It keeps the mental load low.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/mauro-eldritch.webp' | relative_url }}" alt="Mauro Eldritch"><strong>Mauro Eldritch</strong><small>Founder, BCA LTD</small></header>
+      <p>We built our own quick and dirty wrapper, then your project came up and rocked it.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/hamid-siddiqui.webp' | relative_url }}" alt="Hamid Siddiqui"><strong>Hamid Siddiqui</strong><small>Founder, ReelMoney</small></header>
       <p>I replaced my internal provider implementation with RubyLLM and it just worked nicely. Deleted a lot of code.</p>
-      <cite>ReelMoney</cite>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">MS</span><strong>MadBomber Software</strong><small>Usage Survey</small></header>
-      <p>Letting someone else manage the fast-moving infrastructure of the LLM API landscape allowed me to focus on applications.</p>
-      <cite>MadBomber Software</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/philippe-lehoux.webp' | relative_url }}" alt="Philippe Lehoux"><strong>Philippe Lehoux</strong><small>CEO, Missive</small></header>
+      <p>Multi-provider support. Agentic loop support. Can we sponsor?</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">IE</span><strong>Intuition Education</strong><small>Usage Survey</small></header>
-      <p>Seamless integration within the applications, and the ability to switch models and providers.</p>
-      <cite>Intuition Education</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/ruslan-leteyski.webp' | relative_url }}" alt="Ruslan Leteyski"><strong>Ruslan Leteyski</strong><small>CEO, Zipchat</small></header>
+      <p>Implementation-agnostic access to models helps us simplify our flow and experiment with agentic systems.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">A</span><strong>Akira</strong><small>Usage Survey</small></header>
-      <p>Simple Ruby idiomatic interface.</p>
-      <cite>Akira</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/jonathan-satovsky.webp' | relative_url }}" alt="Jonathan Satovsky"><strong>Jonathan Satovsky</strong><small>CEO, FinDash</small></header>
+      <p>When a tool removes noise instead of adding it, you get to stay focused on the real work.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">OC</span><strong>OpenSource Connections</strong><small>Usage Survey</small></header>
-      <p>Great examples, and I love the changelog.</p>
-      <cite>OpenSource Connections</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/aaron-snyder.webp' | relative_url }}" alt="Aaron Snyder"><strong>Aaron Snyder</strong><small>CTO / Co-founder, Corepilot</small></header>
+      <p>We got our proof of concept up in one day and the first beta in about a week. Really impressive.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">GD</span><strong>GTM Delta</strong><small>Usage Survey</small></header>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/cole-robertson.webp' | relative_url }}" alt="Cole Robertson"><strong>Cole Robertson</strong><small>Co-founder and CTO, dScribe AI</small></header>
+      <p>The speed of development and the closest thing to the AI SDK in JavaScript land. Easiest Rails integration.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/rich-chetwynd.webp' | relative_url }}" alt="Rich Chetwynd"><strong>Rich Chetwynd</strong><small>Generalist, Bunny Inc</small></header>
+      <p>Super easy way to start adding magic to our app. Love the speed of improvements.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/ale-solano.webp' | relative_url }}" alt="Ale Solano"><strong>Ale Solano</strong><small>Software Engineer, OpenRegulatory</small></header>
+      <p>Just having a framework to structure all our LLM processes is gigantic value. Tool integration works like a charm.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/eric-wright.webp' | relative_url }}" alt="Eric Wright"><strong>Eric Wright</strong><small>Chief Content Officer, GTM Delta</small></header>
       <p>It just works. I do not want to keep dealing with wrappers and fast-moving provider changes.</p>
-      <cite>GTM Delta</cite>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">Y</span><strong>Yato</strong><small>Usage Survey</small></header>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/hadrien-blanc.webp' | relative_url }}" alt="Hadrien Blanc"><strong>Hadrien Blanc</strong><small>Freelancer, Hadrien Blanc Innovation</small></header>
+      <p>I delivered a lot of value to my customers because of your work.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/dewayne-vanhoozer.webp' | relative_url }}" alt="Dewayne VanHoozer"><strong>Dewayne VanHoozer</strong><small>The MadBomber, MadBomber Software</small></header>
+      <p>Letting someone else manage the fast-moving infrastructure of the LLM API landscape allowed me to focus on applications.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/john-desilva.webp' | relative_url }}" alt="John DeSilva"><strong>John DeSilva</strong><small>Chief Architect, Revela</small></header>
+      <p>Really solid overall, well thought out, and seamless across Rails model-backed chats and one-off chats.</p>
+    </article>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/angel-mendez.webp' | relative_url }}" alt="Angel Mendez"><strong>Angel Mendez</strong><small>CEO, Yato</small></header>
       <p>My clients and my clients&#39; clients are very happy because we can iterate and improve our system quickly.</p>
-      <cite>Yato</cite>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">IS</span><strong>INLOOP.STUDIO</strong><small>Usage Survey</small></header>
-      <p>Simple API and welcoming developer community.</p>
-      <cite>INLOOP.STUDIO</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/nina-revko.webp' | relative_url }}" alt="Nina Revko"><strong>Nina Revko</strong><small>Senior Software Engineer, Instrumentl</small></header>
+      <p>RubyLLM made the future of Ruby and AI feel easier, more accessible, and completely within reach.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">C</span><strong>Cleary</strong><small>Usage Survey</small></header>
-      <p>The DSL is fantastic. Very easy to use.</p>
-      <cite>Cleary</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/daniel-friis.webp' | relative_url }}" alt="Daniel Friis"><strong>Daniel Friis</strong><small>Creator, RubyLLM::Schema</small></header>
+      <p>Foundational tooling for working with AI in Ruby and Rails applications.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>Just wanted to give a quick shout-out to the RubyLLM team - the work they have done is seriously impressive.</p>
-      <cite>Reddit / r/rails</cite>
+    <article class="home-love-card" data-love-card hidden>
+      <header><img src="{{ '/assets/images/home/testimonials/people/giovapanasiti.webp' | relative_url }}" alt="Giovanni Panasiti"><strong>Giovanni Panasiti</strong><small>Co-founder, Consultala</small></header>
+      <p>I’m kinda fitting RubyLLM into all of my projects.</p>
     </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>It is genuinely useful and makes life a lot easier when dealing with various AI providers.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>Glad you called this out - I love this gem. Perfect encapsulation of Rails ethos too.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>We are using it almost exclusively for one of our projects. Generally, it is really well designed. We love it.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/ruby</strong><small>Community Post</small></header>
-      <p>Love RubyLLM. The abstraction is beautiful and a work of art.</p>
-      <cite>Reddit / r/ruby</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>It is a fantastic abstraction. Switching models or even providers is a string swap.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>If I make any kind of real money with Homechorus I will sponsor your beautiful gem.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>So ridiculously beautiful.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">R</span><strong>Reddit / r/rails</strong><small>Community Post</small></header>
-      <p>Such a solid gem. Loving it - thank you.</p>
-      <cite>Reddit / r/rails</cite>
-    </article>
-    <article class="home-love-card" data-love-card>
-      <header><span aria-hidden="true">G</span><strong>Giovapanasiti / X</strong><small>Community Post</small></header>
-      <p>All of this a year ago was a nightmare to even imagine; now it is as easy as any other Rails feature.</p>
-      <cite>Giovapanasiti / X</cite>
-    </article>
+    </div>
+    <nav class="home-love-controls" aria-label="Wall of Love quotes">
+      <button class="home-love-nav home-love-nav--prev" type="button" data-love-prev aria-label="Previous quotes"><span aria-hidden="true"></span></button>
+      <button class="home-love-nav home-love-nav--next" type="button" data-love-next aria-label="Next quotes"><span aria-hidden="true"></span></button>
+    </nav>
   </div>
-
-  <p class="home-small-note">
-    RubyLLM Usage Survey and public community posts<br>
-    Using RubyLLM in production? <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Share your story</a>
-  </p>
 </section>
 
 <section class="home-section home-ready-section">

@@ -417,141 +417,88 @@
     });
   }
 
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
+  function initLoveCarousel(root) {
+    var carousel = root.querySelector("[data-love-carousel]");
+    if (!carousel || carousel.dataset.loveBound) return;
 
-  function initLoveWall(root) {
-    var wall = root.querySelector("[data-love-wall]");
-    if (!wall || wall.dataset.loveBound) return;
+    var cards = Array.prototype.slice.call(carousel.querySelectorAll("[data-love-card]"));
+    var previousButton = carousel.querySelector("[data-love-prev]");
+    var nextButton = carousel.querySelector("[data-love-next]");
+    if (!cards.length) return;
 
-    var grid = wall.querySelector(".home-love-grid");
-    var cards = Array.prototype.slice.call(wall.querySelectorAll("[data-love-card]"));
-    if (!grid || !cards.length) return;
+    carousel.dataset.loveBound = "true";
 
-    wall.dataset.loveBound = "true";
-    grid.classList.add("is-animated");
+    var pageSize = getPageSize();
+    var pageCount = Math.ceil(cards.length / pageSize);
+    var page = 0;
+    var slots = [
+      { x: "-7px", y: "2px", rotate: "-1.4deg" },
+      { x: "4px", y: "-3px", rotate: "1deg" },
+      { x: "8px", y: "4px", rotate: "-0.8deg" },
+      { x: "6px", y: "-1px", rotate: "1.6deg" },
+      { x: "-4px", y: "3px", rotate: "-1.1deg" },
+      { x: "-8px", y: "-4px", rotate: "0.9deg" },
+      { x: "3px", y: "0px", rotate: "-1.7deg" },
+      { x: "-6px", y: "5px", rotate: "1.2deg" },
+      { x: "7px", y: "-2px", rotate: "-0.6deg" }
+    ];
 
-    var ticking = false;
-    var layout = null;
-
-    function setGridState(state) {
-      grid.classList.toggle("is-fixed", state === "fixed");
-      grid.classList.toggle("is-after", state === "after");
+    function getPageSize() {
+      if (window.matchMedia("(max-width: 760px)").matches) return 3;
+      if (window.matchMedia("(max-width: 1100px)").matches) return 6;
+      return 9;
     }
 
-    function measure() {
-      setGridState("before");
+    function render() {
+      pageSize = getPageSize();
+      pageCount = Math.ceil(cards.length / pageSize);
+      if (page >= pageCount) page = pageCount - 1;
 
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      var viewport = window.innerHeight || document.documentElement.clientHeight;
-      var isMobile = width < 760;
-      var columns = isMobile ? 1 : width < 980 ? 2 : 3;
-      var rows = 3;
-      var gap = isMobile ? 16 : 24;
-      var visibleCards = columns * rows;
-      var pageCount = Math.ceil(cards.length / visibleCards);
-      var gridStyle = window.getComputedStyle(grid);
-      var wallRect = wall.getBoundingClientRect();
-      var gridRect = grid.getBoundingClientRect();
-      var stageWidth = grid.clientWidth;
-      var stageHeight = grid.clientHeight;
-      var cardWidth = Math.max(0, (stageWidth - gap * (columns - 1)) / columns);
-      var cardHeight = Math.max(0, (stageHeight - gap * (rows - 1)) / rows);
-
-      layout = {
-        afterGap: parseFloat(gridStyle.getPropertyValue("--home-love-after-gap")) || 176,
-        cardHeight: cardHeight,
-        cardWidth: cardWidth,
-        columns: columns,
-        fixedTop: parseFloat(gridStyle.getPropertyValue("--home-love-top")) || 86,
-        gap: gap,
-        gridOffset: gridRect.top - wallRect.top,
-        isMobile: isMobile,
-        pageCount: pageCount,
-        rows: rows,
-        stageHeight: stageHeight,
-        stageWidth: stageWidth,
-        visibleCards: visibleCards
-      };
-
-      wall.style.minHeight = Math.max(
-        viewport * 1.35,
-        viewport + Math.max(pageCount - 1, 1) * (isMobile ? 620 : columns === 2 ? 660 : 720) + 220
-      ).toFixed(0) + "px";
+      var start = page * pageSize;
 
       cards.forEach(function (card) {
-        card.style.width = cardWidth.toFixed(1) + "px";
-        card.style.height = cardHeight.toFixed(1) + "px";
+        card.hidden = true;
+        card.setAttribute("aria-hidden", "true");
+        card.style.order = "";
       });
-    }
 
-    function update() {
-      ticking = false;
-      if (!layout) measure();
+      var end = Math.min(start + pageSize, cards.length);
 
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-      var wallTop = wall.getBoundingClientRect().top + scrollY;
-      var start = wallTop + layout.gridOffset - layout.fixedTop;
-      var end = wallTop + wall.offsetHeight - layout.stageHeight - layout.afterGap - layout.fixedTop;
-      end = Math.max(start + 1, end);
+      for (var slot = 0; slot < end - start; slot += 1) {
+        var card = cards[start + slot];
+        var position = slots[slot];
 
-      if (scrollY < start) {
-        setGridState("before");
-      } else if (scrollY > end) {
-        setGridState("after");
-      } else {
-        setGridState("fixed");
+        card.hidden = false;
+        card.removeAttribute("aria-hidden");
+        card.style.order = String(slot + 1);
+        card.style.setProperty("--home-love-x", position.x);
+        card.style.setProperty("--home-love-offset", position.y);
+        card.style.setProperty("--home-love-rotate", position.rotate);
       }
 
-      var progress = clamp((scrollY - start) / (end - start), 0, 1);
-      var pageFloat = progress * Math.max(layout.pageCount - 1, 0);
-      var travel = layout.isMobile ? 42 : layout.columns === 2 ? 64 : 86;
+      if (previousButton) previousButton.setAttribute("aria-label", "Previous quotes, page " + (page + 1) + " of " + pageCount);
+      if (nextButton) nextButton.setAttribute("aria-label", "Next quotes, page " + (page + 1) + " of " + pageCount);
+    }
 
-      cards.forEach(function (card, index) {
-        var page = Math.floor(index / layout.visibleCards);
-        var slot = index % layout.visibleCards;
-        var column = slot % layout.columns;
-        var row = Math.floor(slot / layout.columns);
-        var relativePage = page - pageFloat;
-        var distance = Math.abs(relativePage);
-        var visible = clamp(1 - distance, 0, 1);
-        var baseX = column * (layout.cardWidth + layout.gap);
-        var baseY = row * (layout.cardHeight + layout.gap);
-        var direction = relativePage < 0 ? -1 : 1;
-        var localPage = clamp(relativePage, -1, 1);
-        var x = baseX + localPage * travel;
-        var y = baseY + Math.sin(localPage * Math.PI) * (layout.isMobile ? 10 : 18);
-        var rotate = localPage * (layout.isMobile ? 1.2 : 2.4);
-        var scale = 0.96 + visible * 0.04;
+    function move(direction) {
+      page = (page + direction + pageCount) % pageCount;
+      render();
+    }
 
-        if (distance > 1.05) {
-          card.style.opacity = "0";
-          card.style.pointerEvents = "none";
-          card.style.transform = "translate3d(" + (baseX + direction * travel).toFixed(1) + "px, " + baseY.toFixed(1) + "px, 0) scale(0.96)";
-          return;
-        }
+    if (pageCount > 1 && previousButton && nextButton) {
+      carousel.classList.add("is-paged");
 
-        card.style.opacity = visible.toFixed(3);
-        card.style.pointerEvents = visible > 0.98 ? "auto" : "none";
-        card.style.zIndex = String(1000 - Math.round(distance * 100) + slot);
-        card.style.transform = "translate3d(" + x.toFixed(1) + "px, " + y.toFixed(1) + "px, 0) rotate(" + rotate.toFixed(2) + "deg) scale(" + scale.toFixed(3) + ")";
+      previousButton.addEventListener("click", function () {
+        move(-1);
+      });
+
+      nextButton.addEventListener("click", function () {
+        move(1);
       });
     }
 
-    function requestUpdate() {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", function () {
-      measure();
-      requestUpdate();
-    });
-    measure();
-    update();
+    window.addEventListener("resize", render, { passive: true });
+    render();
   }
 
   function initHomepage() {
@@ -561,7 +508,7 @@
     initDemoVideos(root);
     initCodeCards(root);
     initCompareModal(root);
-    initLoveWall(root);
+    initLoveCarousel(root);
   }
 
   if (document.readyState === "loading") {

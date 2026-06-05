@@ -89,7 +89,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin-bottom: 0 !important;
   background: var(--home-bg);
   color: var(--home-text);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .VPHome::before {
@@ -499,7 +499,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin: 0 auto;
   color: var(--home-text);
   font-size: 19px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.35;
   text-align: center;
 }
@@ -509,16 +509,22 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin: 44px auto 0;
   color: var(--home-text);
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.45;
   text-align: center;
 }
 
-.home-small-note a,
-.home-model-table-note a,
 .home-code-more {
   color: var(--vp-c-brand-1);
   font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home-small-note a,
+.home-model-table-note a {
+  color: var(--vp-c-brand-1);
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -735,7 +741,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   max-width: 220px;
   color: var(--home-muted);
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.22;
 }
 
@@ -941,12 +947,12 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin: 0 0 20px;
   color: var(--home-text);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.45;
 }
 
 .home-founder-copy strong {
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .home-quote-mark {
@@ -975,7 +981,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-founder-signoff span {
   color: var(--home-muted);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .home-founder-media {
@@ -1203,7 +1209,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin: 0;
   color: var(--home-text);
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -1572,7 +1578,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   background: var(--home-bg);
   color: var(--home-muted);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.22;
   vertical-align: top;
 }
@@ -1580,7 +1586,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-model-table td:first-child {
   background: var(--home-band-bg);
   color: var(--home-muted);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .home-model-table td:nth-child(4) {
@@ -1592,7 +1598,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   padding-bottom: 13px;
   color: var(--home-text);
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -1600,9 +1606,16 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   position: relative;
   padding-top: 82px;
   padding-right: 24px;
-  padding-bottom: 141px;
+  padding-bottom: 96px;
   padding-left: 24px;
   overflow: visible;
+}
+
+.home-love-stage {
+  position: relative;
+  width: min(calc(var(--home-inner) + 160px), 100%);
+  margin: 46px auto 0;
+  padding: 0 80px;
 }
 
 .home-love-grid {
@@ -1611,66 +1624,147 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   width: min(var(--home-inner), 100%);
-  margin: 58px auto 0;
+  margin: 0 auto;
 }
 
-.home-love-grid.is-animated {
-  --home-love-top: 86px;
-  --home-love-after-gap: 176px;
-  position: relative;
-  display: block;
-  width: min(var(--home-inner), calc(100% - 48px));
-  height: min(840px, calc(100vh - 118px));
-  overflow: visible;
-  z-index: 2;
+.home-love-controls {
+  display: none;
 }
 
-.home-love-grid.is-animated.is-fixed {
-  position: fixed;
-  top: var(--home-love-top);
-  left: 50%;
-  margin-top: 0;
-  transform: translateX(-50%);
-}
-
-.home-love-grid.is-animated.is-after {
+.home-love-section.is-paged .home-love-controls {
   position: absolute;
-  top: auto;
-  bottom: var(--home-love-after-gap);
-  left: 50%;
-  margin-top: 0;
-  transform: translateX(-50%);
+  inset: 0;
+  z-index: 4;
+  display: block;
+  pointer-events: none;
+}
+
+.home-love-nav {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--vp-c-brand-1);
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translateY(-50%);
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.home-love-nav:hover {
+  color: color-mix(in srgb, var(--vp-c-brand-1) 78%, var(--home-heading));
+  transform: translateY(-50%) scale(1.08);
+}
+
+.home-love-nav:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--vp-c-brand-1) 40%, transparent);
+  outline-offset: 2px;
+}
+
+.home-love-nav span {
+  width: 16px;
+  height: 16px;
+  border-top: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+}
+
+.home-love-nav--prev {
+  left: 13px;
+}
+
+.home-love-nav--prev span {
+  transform: rotate(-135deg) translate(-1px, -1px);
+}
+
+.home-love-nav--next {
+  right: 13px;
+}
+
+.home-love-nav--next span {
+  transform: rotate(45deg) translate(-1px, 1px);
 }
 
 .home-love-card {
+  --home-love-x: 0px;
+  --home-love-rotate: 0deg;
+  --home-love-offset: 0px;
   position: relative;
-  min-height: 273px;
+  min-height: 204px;
   margin: 0;
-  padding: 28px 24px 24px;
+  padding: 24px 22px 22px;
   text-align: left;
+  transform: translate(var(--home-love-x), var(--home-love-offset)) rotate(var(--home-love-rotate));
+  transform-origin: 50% 14px;
   will-change: opacity, transform;
-  transition: box-shadow 0.18s ease;
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
 
-.home-love-grid.is-animated .home-love-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate3d(0, 0, 0);
-  transition: none;
+.home-love-card[hidden] {
+  display: none;
+}
+
+.home-love-grid .home-love-card:nth-child(1) {
+  --home-love-x: -7px;
+  --home-love-rotate: -1.4deg;
+  --home-love-offset: 2px;
+}
+
+.home-love-grid .home-love-card:nth-child(2) {
+  --home-love-x: 4px;
+  --home-love-rotate: 1deg;
+  --home-love-offset: -3px;
+}
+
+.home-love-grid .home-love-card:nth-child(3) {
+  --home-love-x: 8px;
+  --home-love-rotate: -0.8deg;
+  --home-love-offset: 4px;
+}
+
+.home-love-grid .home-love-card:nth-child(4) {
+  --home-love-x: 6px;
+  --home-love-rotate: 1.6deg;
+  --home-love-offset: -1px;
+}
+
+.home-love-grid .home-love-card:nth-child(5) {
+  --home-love-x: -4px;
+  --home-love-rotate: -1.1deg;
+  --home-love-offset: 3px;
 }
 
 .home-love-grid .home-love-card:nth-child(6) {
-  z-index: 2;
-  transform: translateY(-5px) rotate(-3deg);
+  --home-love-x: -8px;
+  --home-love-rotate: 0.9deg;
+  --home-love-offset: -4px;
 }
 
-.home-love-grid.is-animated .home-love-card:nth-child(6) {
-  transform: translate3d(0, 0, 0);
+.home-love-grid .home-love-card:nth-child(7) {
+  --home-love-x: 3px;
+  --home-love-rotate: -1.7deg;
+  --home-love-offset: 0px;
+}
+
+.home-love-grid .home-love-card:nth-child(8) {
+  --home-love-x: -6px;
+  --home-love-rotate: 1.2deg;
+  --home-love-offset: 5px;
+}
+
+.home-love-grid .home-love-card:nth-child(9) {
+  --home-love-x: 7px;
+  --home-love-rotate: -0.6deg;
+  --home-love-offset: -2px;
 }
 
 .home-love-section .home-small-note {
@@ -1680,6 +1774,26 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   left: 24px;
   z-index: 1;
   margin-top: 0;
+}
+
+.home-love-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 2;
+  width: 21px;
+  height: 21px;
+  border: 1px solid color-mix(in srgb, var(--home-red-dark) 64%, var(--home-line));
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.92) 0 16%, transparent 18%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 54%),
+    var(--vp-c-brand-1);
+  box-shadow:
+    0 2px 0 color-mix(in srgb, var(--home-red-dark) 72%, #000),
+    0 9px 18px rgba(66, 42, 34, 0.22);
+  transform: translateX(-50%);
 }
 
 .home-love-card::after {
@@ -1731,23 +1845,23 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-love-card header small {
-  color: var(--home-muted);
+  color: color-mix(in srgb, var(--home-muted) 78%, transparent);
   font-size: 12px;
-  font-weight: 800;
-  line-height: 1.1;
+  font-weight: 300;
+  line-height: 1.25;
 }
 
 .home-love-card p {
-  margin: 22px 0 18px;
+  margin: 18px 0 0;
   color: var(--home-muted);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.43;
 }
 
 .home-love-card p strong {
   color: var(--home-text);
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .home-love-card cite {
@@ -1854,9 +1968,13 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin: 0;
   color: var(--home-muted);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.45;
   text-align: center;
+}
+
+.home-footer p a {
+  font-weight: 400;
 }
 
 .home-footer a {
@@ -2005,6 +2123,10 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   color: var(--home-text);
 }
 
+.dark .home-love-nav {
+  color: color-mix(in srgb, var(--vp-c-brand-1) 70%, var(--home-heading));
+}
+
 .dark .home-model-table th {
   background: #342c30;
   color: var(--home-muted);
@@ -2013,6 +2135,20 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .dark .home-model-table td,
 .dark .home-model-table td:first-child {
   background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 1280px) {
+  .home-love-stage {
+    padding: 0 66px;
+  }
+
+  .home-love-nav--prev {
+    left: 6px;
+  }
+
+  .home-love-nav--next {
+    right: 6px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -2064,35 +2200,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .home-founder-media > img:first-child {
     width: 200px;
-  }
-
-  .home-love-grid.is-animated {
-    height: min(860px, calc(100vh - 102px));
-  }
-
-  .home-love-grid.is-animated .home-love-card {
-    padding: 24px 20px 20px;
-  }
-
-  .home-love-grid.is-animated .home-love-card::after {
-    top: 25px;
-    right: 20px;
-    width: 24px;
-    height: 21px;
-  }
-
-  .home-love-grid.is-animated .home-love-card header {
-    padding-right: 34px;
-  }
-
-  .home-love-grid.is-animated .home-love-card header strong {
-    font-size: 17px;
-  }
-
-  .home-love-grid.is-animated .home-love-card p {
-    margin: 16px 0 12px;
-    font-size: 13.5px;
-    line-height: 1.36;
   }
 
 }
@@ -2639,40 +2746,26 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     margin-bottom: 17px;
   }
 
-  .home-love-grid.is-animated {
-    --home-love-top: 74px;
-    --home-love-after-gap: 142px;
-    width: calc(100% - 36px);
-    height: min(760px, calc(100vh - 104px));
+  .home-love-stage {
+    padding: 0;
   }
 
-  .home-love-grid.is-animated .home-love-card {
-    padding: 22px 20px 18px;
+  .home-love-section.is-paged .home-love-controls {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    pointer-events: auto;
   }
 
-  .home-love-grid.is-animated .home-love-card::after {
-    top: 24px;
-    right: 18px;
-    width: 24px;
-    height: 21px;
+  .home-love-nav {
+    position: static;
+    transform: none;
   }
 
-  .home-love-grid.is-animated .home-love-card header {
-    padding-right: 34px;
-  }
-
-  .home-love-grid.is-animated .home-love-card header strong {
-    font-size: 17px;
-  }
-
-  .home-love-grid.is-animated .home-love-card p {
-    margin: 16px 0 12px;
-    font-size: 13px;
-    line-height: 1.35;
-  }
-
-  .home-love-grid.is-animated .home-love-card cite {
-    font-size: 11px;
+  .home-love-nav:hover {
+    transform: translateY(-2px);
   }
 
   .home-love-section .home-small-note {
