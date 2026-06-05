@@ -1,6 +1,6 @@
 ---
 - name: Chat with Work
-  src: "/assets/images/companies/survey-2026/chat-with-work.svg"
+  src: "/assets/images/chat-with-work/logotype.png"
 - name: Missive
   src: "/assets/images/companies/survey-2026/missive.svg"
 - name: Chatwoot
