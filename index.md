@@ -97,7 +97,7 @@ Created sample hooks in .kamal/hooks
 chat = RubyLLM.chat
 chat.ask "What's the best way to learn Ruby?"
 ```
-{: .home-code-card data-title="Just ask questions" }
+{: .home-code-card data-title="Just ask questions" data-href="{% link _core_features/chat.md %}#starting-a-conversation" data-doc-title="Starting a Conversation" }
 
 ```ruby
 chat = RubyLLM.chat
@@ -107,13 +107,13 @@ chat.ask "Describe this meeting", with: "meeting.wav"
 chat.ask "Summarize this document", with: "contract.pdf"
 chat.ask "Explain this code", with: "app.rb"
 ```
-{: .home-code-card data-title="Analyze any file type" }
+{: .home-code-card data-title="Analyze any file type" data-href="{% link _core_features/chat.md %}#multi-modal-conversations" data-doc-title="Multi-modal Conversations" }
 
 ```ruby
 chat = RubyLLM.chat
 chat.ask "Analyze these files", with: ["diagram.png", "report.pdf", "notes.txt"]
 ```
-{: .home-code-card data-title="Multiple files at once" }
+{: .home-code-card data-title="Multiple files at once" data-href="{% link _core_features/chat.md %}#automatic-file-type-detection" data-doc-title="Automatic File Type Detection" }
 
 ```ruby
 chat = RubyLLM.chat
@@ -121,27 +121,27 @@ chat.ask "Tell me a story about Ruby" do |chunk|
   print chunk.content
 end
 ```
-{: .home-code-card data-title="Stream responses" }
+{: .home-code-card data-title="Stream responses" data-href="{% link _core_features/streaming.md %}" data-doc-title="Stream responses" }
 
 ```ruby
 RubyLLM.paint "a sunset over mountains in watercolor style"
 ```
-{: .home-code-card data-title="Generate images" }
+{: .home-code-card data-title="Generate images" data-href="{% link _core_features/image-generation.md %}" data-doc-title="Image generation" }
 
 ```ruby
 RubyLLM.embed "Ruby is elegant and expressive"
 ```
-{: .home-code-card data-title="Create embeddings" }
+{: .home-code-card data-title="Create embeddings" data-href="{% link _core_features/embeddings.md %}" data-doc-title="Embeddings" }
 
 ```ruby
 RubyLLM.transcribe "meeting.wav"
 ```
-{: .home-code-card data-title="Transcribe audio to text" }
+{: .home-code-card data-title="Transcribe audio to text" data-href="{% link _core_features/audio-transcription.md %}" data-doc-title="Audio transcription" }
 
 ```ruby
 RubyLLM.moderate "Check if this text is safe"
 ```
-{: .home-code-card data-title="Moderate content for safety" }
+{: .home-code-card data-title="Moderate content for safety" data-href="{% link _core_features/moderation.md %}" data-doc-title="Moderation" }
 
 ```ruby
 chat = RubyLLM.chat
@@ -156,7 +156,7 @@ end
 
 chat.with_tool(Weather).ask "What's the weather in Berlin?"
 ```
-{: .home-code-card data-title="Let AI use your code" }
+{: .home-code-card data-title="Let AI use your code" data-href="{% link _core_features/tools.md %}" data-doc-title="Tools" }
 
 ```ruby
 class WeatherAssistant < RubyLLM::Agent
@@ -167,7 +167,7 @@ end
 
 WeatherAssistant.new.ask "What's the weather in Berlin?"
 ```
-{: .home-code-card data-title="Define an agent with instructions + tools" }
+{: .home-code-card data-title="Define an agent with instructions + tools" data-href="{% link _core_features/agents.md %}#defining-an-agent" data-doc-title="Defining an Agent" }
 
 ```ruby
 class ProductSchema < RubyLLM::Schema
@@ -181,36 +181,16 @@ end
 chat = RubyLLM.chat
 response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "product.txt"
 ```
-{: .home-code-card data-title="Get structured output" }
+{: .home-code-card data-title="Get structured output" data-href="{% link _core_features/chat.md %}#getting-structured-output" data-doc-title="Getting Structured Output" }
 
+  </div>
+
+  <div class="home-code-cta">
+    <p>… and much more. <a href="{% link _introduction/getting-started.md %}">Read the guides</a></p>
   </div>
 </section>
 
-<section class="home-section home-band home-community-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">Proven by the community</h2>
-    <p class="home-lead">
-      RubyLLM used in production, backed by a growing community and designed for real-world applications
-    </p>
-
-    <div class="home-stats" aria-label="RubyLLM community stats">
-      <div class="home-stat-card">
-        <strong>3.9K+</strong>
-        <span>GitHub stars from Ruby developers</span>
-      </div>
-      <div class="home-stat-card">
-        <strong>6.1M+</strong>
-        <span>gem downloads across Ruby applications</span>
-      </div>
-      <div class="home-stat-card">
-        <strong>13+</strong>
-        <span>supported providers plus compatible APIs</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="home-section home-companies-section">
+<section class="home-section home-band home-companies-section">
   <div class="home-section-inner">
     <h2 class="home-heading">Already shipping in production</h2>
     <p class="home-lead">

@@ -83,8 +83,46 @@
     button.appendChild(document.createTextNode(label));
   }
 
+  function syncCodeCardDocLink(card) {
+    var href = card.dataset.href;
+    if (!href) return;
+
+    var wrapper = card.parentElement && card.parentElement.classList.contains("vp-code-block-title")
+      ? card.parentElement
+      : null;
+    var titleBar = wrapper ? wrapper.querySelector(":scope > .vp-code-block-title-bar") : null;
+    if (!titleBar) return;
+
+    card.querySelectorAll(":scope > .home-code-card-title-link, :scope > .home-code-card-doc-link").forEach(function (link) {
+      link.remove();
+    });
+
+    var docTitle = card.dataset.docTitle || "Docs";
+    var titleText = titleBar.querySelector(":scope > .vp-code-block-title-text");
+    if (!titleText) return;
+
+    var titleLink = titleBar.querySelector(":scope > .home-code-card-title-link");
+    if (!titleLink) {
+      titleLink = document.createElement("a");
+      titleLink.className = "home-code-card-title-link";
+      titleBar.replaceChild(titleLink, titleText);
+      titleLink.appendChild(titleText);
+    } else if (titleText.parentElement !== titleLink) {
+      titleLink.textContent = "";
+      titleLink.appendChild(titleText);
+    }
+
+    titleLink.href = href;
+    titleLink.title = "Read " + docTitle + " docs";
+    if (card.dataset.title) {
+      titleLink.setAttribute("aria-label", "Read " + docTitle + " docs for " + card.dataset.title);
+    }
+  }
+
   function initCodeCards(root) {
     root.querySelectorAll(".home-code-card").forEach(function (card) {
+      syncCodeCardDocLink(card);
+
       if (card.dataset.codeBound) return;
       card.dataset.codeBound = "true";
 
@@ -118,6 +156,10 @@
         });
       }
     });
+  }
+
+  function syncCodeCardDocLinks(root) {
+    root.querySelectorAll(".home-code-card").forEach(syncCodeCardDocLink);
   }
 
   function writeClipboard(text) {
@@ -507,6 +549,9 @@
 
     initDemoVideos(root);
     initCodeCards(root);
+    window.setTimeout(function () {
+      syncCodeCardDocLinks(root);
+    }, 0);
     initCompareModal(root);
     initLoveCarousel(root);
   }

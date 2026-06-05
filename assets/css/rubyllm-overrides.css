@@ -745,21 +745,9 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   line-height: 1.22;
 }
 
-.home-community-section {
-  position: relative;
-  z-index: 1;
-  padding-bottom: 132px;
-}
-
-.home-community-section .home-section-inner {
-  position: relative;
-  z-index: 1;
-}
-
 .home-companies-section {
   padding-top: 112px;
   padding-bottom: 130px;
-  background: transparent;
 }
 
 .home-company-logos {
@@ -1022,6 +1010,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-code-grid > .home-code-card,
 .home-code-grid > .vp-code-block-title {
+  position: relative;
   min-width: 0;
   min-height: 0;
   margin: 0 !important;
@@ -1037,9 +1026,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-code-grid > .vp-code-block-title .vp-code-block-title-bar {
+  position: relative;
   margin: 0 !important;
   border-radius: 8px 8px 0 0;
   padding: 0 12px;
+  overflow: hidden;
   background: color-mix(in srgb, var(--home-code-bg) 88%, var(--home-line));
   box-shadow: inset 0 -1px var(--home-line);
 }
@@ -1058,11 +1049,37 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   display: flex;
   align-items: center;
   padding: 0 16px;
+  overflow: hidden;
   box-shadow: inset 0 -1px var(--home-line);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-code-card-title-link {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.home-code-grid > .vp-code-block-title .home-code-card-title-link .vp-code-block-title-text {
+  color: inherit;
+}
+
+.home-code-card-title-link:hover {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .home-code-grid > .vp-code-block-title .vp-code-block-title-text {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   padding: 0 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .home-code-grid .home-code-card {
@@ -1211,6 +1228,14 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
+  text-align: center;
+}
+
+.home-code-cta a {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .home-compare-modal[hidden] {
@@ -2650,10 +2675,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .home-stats {
     margin-top: 24px;
-  }
-
-  .home-community-section {
-    padding-bottom: 18px;
   }
 
   .home-companies-section {
