@@ -286,9 +286,16 @@ bin/rails generate ruby_llm:schema Product
 
     <div class="home-company-logos" aria-label="Companies using RubyLLM">
       {% for company in site.data.company_logos_featured %}
+        {% if company.mark %}
+        <div class="home-company-logo home-company-logo--layered" data-company="{{ company.name | slugify }}">
+          <img class="logo-layer-color" src="{{ company.mark | relative_url }}" alt="" aria-hidden="true">
+          <img class="logo-layer-text" src="{{ company.text | relative_url }}" alt="{{ company.name }}">
+        </div>
+        {% else %}
         <div class="home-company-logo" data-company="{{ company.name | slugify }}">
           <img src="{{ company.src | relative_url }}" alt="{{ company.name }}">
         </div>
+        {% endif %}
       {% endfor %}
     </div>
 

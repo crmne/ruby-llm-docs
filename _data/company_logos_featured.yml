@@ -2,11 +2,13 @@
 - name: Chat with Work
   src: "/assets/images/chat-with-work/logotype.png"
 - name: Shopify
-  src: "/assets/images/companies/survey-2026/shopify.svg"
+  mark: "/assets/images/companies/survey-2026/shopify-mark.svg"
+  text: "/assets/images/companies/survey-2026/shopify-text.svg"
 - name: 37signals
   src: "/assets/images/companies/survey-2026/37signals.svg"
 - name: Chatwoot
-  src: "/assets/images/companies/survey-2026/chatwoot.svg"
+  mark: "/assets/images/companies/survey-2026/chatwoot-mark.svg"
+  text: "/assets/images/companies/survey-2026/chatwoot-text.svg"
 - name: SerpApi
   src: "/assets/images/companies/survey-2026/serpapi.svg"
 - name: Hunter
@@ -18,7 +20,8 @@
 - name: Build Canada
   src: "/assets/images/companies/survey-2026/build-canada-formerly-yuma-ai.png"
 - name: OpenRegulatory
-  src: "/assets/images/companies/survey-2026/openregulatory.png"
+  mark: "/assets/images/companies/survey-2026/openregulatory-color.png"
+  text: "/assets/images/companies/survey-2026/openregulatory-text.png"
 - name: Corepilot
   src: "/assets/images/companies/survey-2026/corepilot.svg"
 - name: Nodal Networks
@@ -26,6 +29,7 @@
 - name: Intuition Education
   src: "/assets/images/companies/survey-2026/intuition-education.svg"
 - name: GrantHero
-  src: "/assets/images/companies/survey-2026/granthero.png"
+  mark: "/assets/images/companies/survey-2026/granthero-mark.png"
+  text: "/assets/images/companies/survey-2026/granthero-text.png"
 - name: Akira
   src: "/assets/images/companies/survey-2026/akira.svg"

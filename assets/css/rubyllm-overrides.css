@@ -811,6 +811,40 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   opacity: 0.7;
 }
 
+/* In dark mode, flip the monochrome/dark logos to white so they stay legible
+   on the dark band — mirroring how the provider currentColor logos behave.
+   Brand-colored logos (Shopify, Chatwoot, Hunter, Build Canada, OpenRegulatory,
+   GrantHero, Intuition) are intentionally left in their brand colors. */
+.dark .home-company-logo[data-company="chat-with-work"] img,
+.dark .home-company-logo[data-company="37signals"] img,
+.dark .home-company-logo[data-company="serpapi"] img,
+.dark .home-company-logo[data-company="missive"] img,
+.dark .home-company-logo[data-company="bunny-inc"] img,
+.dark .home-company-logo[data-company="corepilot"] img,
+.dark .home-company-logo[data-company="nodal-networks"] img,
+.dark .home-company-logo[data-company="akira"] img {
+  filter: brightness(0) invert(1);
+}
+
+/* Some logos ship as two stacked layers (a colored mark + a dark wordmark)
+   so that only the text inverts to white in dark mode while the mark keeps its
+   brand color. The two layers share the same canvas, so the absolutely
+   positioned text layer overlays the mark layer exactly. */
+.home-company-logo--layered {
+  position: relative;
+}
+
+.home-company-logo--layered .logo-layer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dark .home-company-logo--layered .logo-layer-text {
+  filter: brightness(0) invert(1);
+}
+
 .home-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1756,6 +1790,10 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   height: auto;
 }
 
+.dark .home-footer-chat-with-work img {
+  filter: brightness(0) invert(1);
+}
+
 .home-footer-credit small {
   display: inline;
   margin-left: 7px;
@@ -2039,14 +2077,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   .home-love-grid,
   .home-company-logos {
     grid-template-columns: 1fr;
-  }
-
-  .VPHome .vp-doc .provider-icons {
-    grid-template-columns: 1fr;
-  }
-
-  .VPHome .vp-doc .provider-logo:nth-of-type(13) {
-    grid-column: auto;
   }
 
   .home-stat-card {
@@ -2392,6 +2422,49 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   .home-company-logo img {
     max-width: 100px;
     max-height: 36px;
+  }
+
+  .VPHome .vp-doc .provider-icons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 18px;
+    margin-top: 22px;
+  }
+
+  .VPHome .vp-doc .provider-logo,
+  .VPHome .vp-doc .provider-logo:nth-of-type(11),
+  .VPHome .vp-doc .provider-logo:nth-of-type(13) {
+    grid-column: auto;
+  }
+
+  /* Shrink the mark + wordmark pairs so they fit three-up without overflowing
+     their cells on narrow screens. Capping width + object-fit lets the widest
+     logos scale down to their cell instead of bleeding into neighbours. */
+  .VPHome .vp-doc .provider-logo {
+    gap: 5px;
+  }
+
+  .VPHome .vp-doc .provider-logo img {
+    object-fit: contain;
+    min-width: 0;
+  }
+
+  .VPHome .vp-doc .provider-logo .logo-mark {
+    height: 18px;
+    max-width: 100%;
+  }
+
+  .VPHome .vp-doc .provider-logo .logo-text {
+    height: 15px;
+    max-width: 100%;
+  }
+
+  .VPHome .vp-doc .provider-logo .logo-wide {
+    height: 17px;
+    max-width: 100%;
+  }
+
+  .VPHome .vp-doc .provider-logo[href*="gpustack"] .logo-wide {
+    height: 20px;
   }
 
   .home-love-stage {
