@@ -14,7 +14,7 @@ hero:
     width: 320
     height: 110
   text: 'Build AI features <span class="home-hero-highlight">the Ruby way<span class="home-hero-caret" aria-hidden="true"></span></span>'
-  tagline: 'A single, <em>beautiful</em> Ruby framework for all major AI models. Easily build chatbots, AI agents, RAG applications, content generators, and every AI workflow you can think of.'
+  tagline: 'A single, <em>beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every AI workflow you can think of.'
   actions:
     - theme: brand
       text: Start coding
@@ -63,7 +63,7 @@ Created sample hooks in .kamal/hooks
 
 <section class="home-section home-band home-models-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">Change models, not your code</h2>
+    <h2 class="home-heading">Change models, not code</h2>
     <p class="home-lead">
       12 providers in core. More through supporting gems. Every OpenAI-compatible API. Thousands of local models through Ollama and GPUStack. Same code.
     </p>
