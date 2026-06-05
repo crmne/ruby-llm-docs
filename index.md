@@ -63,9 +63,9 @@ Created sample hooks in .kamal/hooks
 
 <section class="home-section home-band home-models-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">Change models, not code</h2>
+    <h2 class="home-heading">A single API for all providers</h2>
     <p class="home-lead">
-      12 providers in core. More through supporting gems. Every OpenAI-compatible API. Thousands of local models through Ollama and GPUStack.
+      Integrate with 13 major providers and all OpenAI-compatible ones. Use local models through Ollama and GPUStack. Without changing your code.
     </p>
 
     <div class="provider-icons" aria-label="Supported AI providers">
@@ -96,7 +96,7 @@ Created sample hooks in .kamal/hooks
 
 <section id="code-examples" class="home-section home-code-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">Show me the code</h2>
+    <h2 class="home-heading">Talk is cheap, show me the code</h2>
   </div>
 
   <div class="home-code-grid" markdown="1">
