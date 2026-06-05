@@ -200,9 +200,9 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
 
 <section class="home-section home-band home-companies-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">Join them</h2>
+    <h2 class="home-heading">You're in good company</h2>
     <p class="home-lead">
-      Companies using RubyLLM today
+      Used by thousands of developers serving millions of people
     </p>
 
     <div class="home-company-logos" aria-label="Companies using RubyLLM">
