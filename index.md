@@ -352,24 +352,10 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
   <div class="home-section-inner">
     <h2 class="home-heading">Ready to try it?</h2>
 
-    <div class="home-ready-grid">
-      <a class="home-ready-card" href="{{ '/getting-started/' | relative_url }}">
-        <span class="home-card-icon home-card-icon--book" aria-hidden="true"></span>
-        <h3>Learn how to build with RubyLLM</h3>
-        <span>Read the guides</span>
-      </a>
-
-      <a class="home-ready-card" href="{{ '/getting-started/' | relative_url }}">
-        <span class="home-card-icon home-card-icon--rocket" aria-hidden="true"></span>
-        <h3>Start building in minutes</h3>
-        <span>Start coding</span>
-      </a>
-
-      <a class="home-ready-card" href="{{ '/rails/' | relative_url }}">
-        <span class="home-card-icon home-card-icon--open" aria-hidden="true"></span>
-        <h3>Explore real-world use cases</h3>
-        <span>See examples</span>
-      </a>
+    <div class="home-ready-actions">
+      <a class="home-button home-button--solid home-button--gem" href="{{ '/getting-started/' | relative_url }}#installation">Install the gem</a>
+      <a class="home-button home-button--outline home-button--examples" href="#code-examples">See examples</a>
+      <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Star the repo</a>
     </div>
   </div>
 </section>
@@ -381,9 +367,13 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
       <img class="home-footer-logo-dark" src="{{ '/assets/images/logotype_dark.svg' | relative_url }}" alt="RubyLLM">
     </a>
 
-    <p>
+    <p class="home-footer-credit">
       Brought to you by <a href="https://paolino.me" target="_blank" rel="noreferrer">Carmine Paolino</a><br>
-      maker of <a href="https://chatwithwork.com" target="_blank" rel="noreferrer">Chat with Work</a> - Your AI coworker
+      maker of
+      <a class="home-footer-chat-with-work" href="https://chatwithwork.com" target="_blank" rel="noreferrer" aria-label="Chat with Work">
+        <img src="{{ '/assets/images/chat-with-work/logotype.png' | relative_url }}" alt="Chat with Work">
+      </a>
+      <small>Fully private work AI</small>
     </p>
 
     <nav class="home-footer-nav" aria-label="Footer">

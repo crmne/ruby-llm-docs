@@ -304,6 +304,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   font-size: 18px;
   font-weight: 600;
   line-height: 1;
+  white-space: nowrap;
   text-decoration: none !important;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
@@ -446,10 +447,40 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   background: color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent);
 }
 
+.home-button--outline {
+  background: transparent;
+  color: var(--vp-c-brand-1) !important;
+}
+
+.home-button--outline:hover {
+  background: color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent);
+}
+
+.home-button--gem::before,
+.home-button--examples::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background: currentColor;
+}
+
+.home-button--gem::before {
+  -webkit-mask: url("../images/home/icons/ruby-diamond.svg") center / contain no-repeat;
+  mask: url("../images/home/icons/ruby-diamond.svg") center / contain no-repeat;
+}
+
+.home-button--examples::before {
+  -webkit-mask: url("../images/home/icons/file-code.svg") center / contain no-repeat;
+  mask: url("../images/home/icons/file-code.svg") center / contain no-repeat;
+}
+
 .VPHome .VPButton.alt::before,
 .VPHome .VPHero .VPButton.medium.alt::before,
 .home-button--ghost::before {
   content: "";
+  flex: 0 0 auto;
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -710,7 +741,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-stat-card,
-.home-ready-card,
 .home-code-card,
 .home-love-card {
   border-radius: var(--home-radius);
@@ -777,39 +807,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   max-height: 32px;
   object-fit: contain;
   opacity: 0.7;
-}
-
-.home-card-icon {
-  --home-icon: url("../images/home/icons/ruby-diamond.svg");
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 20px;
-  background: var(--vp-c-brand-1);
-  -webkit-mask: var(--home-icon) center / contain no-repeat;
-  mask: var(--home-icon) center / contain no-repeat;
-}
-
-.home-card-icon--rocket {
-  --home-icon: url("../images/home/icons/rocket.svg");
-}
-
-.home-card-icon--open {
-  --home-icon: url("../images/home/icons/file-code.svg");
-}
-
-.home-card-icon--book {
-  --home-icon: url("../images/home/icons/book.svg");
-}
-
-.home-ready-card h3,
-.vp-doc .home-ready-card h3 {
-  margin: 0 0 12px;
-  color: var(--home-text);
-  font-family: "Lora", Georgia, "Times New Roman", serif;
-  font-size: 23px;
-  font-weight: 700;
-  line-height: 1.15;
 }
 
 .home-actions {
@@ -1624,58 +1621,25 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   background: transparent;
 }
 
-.home-ready-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.home-ready-card {
+.home-ready-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 276px;
-  padding: 38px 28px 30px;
-  color: var(--home-text);
-  text-align: center;
-  text-decoration: none !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.home-ready-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--home-shadow);
-}
-
-.home-ready-card h3,
-.vp-doc .home-ready-card h3 {
-  max-width: 260px;
-  margin-bottom: 22px;
-  font-size: 24px;
-}
-
-.home-ready-card > span:last-child {
-  display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  border: 2px solid var(--vp-c-brand-1);
-  border-radius: 999px;
-  padding: 0 22px;
-  color: var(--vp-c-brand-1);
-  font-size: 13px;
-  font-weight: 900;
+  gap: 14px;
+  margin-top: 42px;
 }
 
-.home-ready-card:nth-child(2) > span:last-child {
-  background: var(--vp-c-brand-1);
-  color: #fff;
+.home-ready-actions .home-button {
+  flex: 0 0 auto;
+  min-width: 220px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .home-footer {
-  min-height: 114px;
-  padding: 24px 32px;
+  min-height: 148px;
+  padding: 34px 40px;
   border-top: 1px solid var(--home-line);
   background: var(--home-grid), var(--home-band-bg);
 }
@@ -1684,7 +1648,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
   width: min(1360px, 100%);
   margin: 0 auto;
 }
@@ -1695,9 +1659,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-footer-logo img {
   display: block;
-  width: 247px;
-  height: 64px;
-  object-fit: fill;
+  width: 286px;
+  height: auto;
 }
 
 .home-footer-logo-dark,
@@ -1709,34 +1672,60 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   display: block !important;
 }
 
-.home-footer p {
+.home-footer-credit {
   margin: 0;
   color: var(--home-muted);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.5;
   text-align: center;
 }
 
-.home-footer p a {
+.home-footer-credit a {
+  font-weight: 700;
+}
+
+.home-footer-chat-with-work {
+  display: inline-flex;
+  align-items: center;
+  width: 148px;
+  height: 28px;
+  margin: 0 3px;
+  vertical-align: -8px;
+}
+
+.home-footer-chat-with-work img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-footer-credit small {
+  display: inline;
+  margin-left: 7px;
+  color: var(--home-muted);
+  font-size: 13px;
   font-weight: 400;
-}
-
-.home-footer a {
-  color: var(--home-text);
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.home-footer a:hover {
-  color: var(--vp-c-brand-1);
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
 .home-footer-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 22px;
-  font-size: 12px;
+  gap: 24px;
+  font-size: 13px;
+}
+
+.home-footer-nav a {
+  color: var(--home-muted);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-footer-nav a:hover {
+  color: var(--vp-c-brand-1);
 }
 
 .dark {
@@ -1774,8 +1763,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .dark .VPHome .VPHero .VPButton.medium.brand,
 .dark .home-button--solid,
 .dark .home-run-button,
-.dark .home-play-button,
-.dark .home-ready-card:nth-child(2) > span:last-child {
+.dark .home-play-button {
   border-color: #FF433D;
   background: #FF433D;
   color: #fff !important;
@@ -1784,14 +1772,13 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .dark .VPHome .VPButton.alt,
 .dark .VPHome .VPHero .VPButton.medium.alt,
 .dark .home-button--ghost,
-.dark .home-ready-card > span:last-child,
+.dark .home-button--outline,
 .dark .home-compare-button,
 .dark .home-copy-button {
   border-color: #FF433D;
   color: #FF433D !important;
 }
 
-.dark .home-card-icon,
 .dark .home-love-card::after {
   background: #D32F2F;
 }
@@ -1845,7 +1832,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   color: var(--home-code-fg) !important;
 }
 
-.dark .home-ready-card,
 .dark .home-stat-card,
 .dark .home-code-card,
 .dark .home-love-card,
@@ -1995,7 +1981,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   .home-stats,
   .home-code-grid,
   .home-love-grid,
-  .home-ready-grid,
   .home-company-logos {
     grid-template-columns: 1fr;
   }
@@ -2075,16 +2060,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .home-compare-dialog code {
     font-size: 14px;
-  }
-
-  .home-footer-inner {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .home-footer-logo,
-  .home-footer-nav {
-    justify-self: center;
   }
 
   .home-footer-nav {
@@ -2328,7 +2303,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .VPHome .VPHero .actions,
-  .home-actions {
+  .home-actions,
+  .home-ready-actions {
     flex-direction: column;
     gap: 14px;
   }
@@ -2361,10 +2337,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     max-height: 36px;
   }
 
-  .home-card-icon {
-    margin-bottom: 17px;
-  }
-
   .home-love-stage {
     padding: 0;
   }
@@ -2394,14 +2366,14 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-footer {
-    min-height: 292px;
-    padding: 46px 18px 38px;
+    min-height: 260px;
+    padding: 42px 18px 34px;
   }
 
   .home-footer-inner {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 22px;
   }
 
   .home-footer-logo {
@@ -2409,23 +2381,22 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-footer-logo img {
-    width: 188px;
-    height: auto;
+    width: 214px;
+  }
+
+  .home-footer-credit {
+    order: 3;
+    max-width: 340px;
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   .home-footer-nav {
     order: 2;
     width: 100%;
-    justify-content: space-between;
-    gap: 0;
-    padding: 0 8px;
+    justify-content: center;
+    gap: 12px 18px;
+    padding: 0;
     font-size: 14px;
-  }
-
-  .home-footer p {
-    order: 3;
-    max-width: 340px;
-    font-size: 15px;
-    line-height: 1.45;
   }
 }
