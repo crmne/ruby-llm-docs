@@ -192,9 +192,9 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
 
 <section class="home-section home-band home-companies-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">Already shipping in production</h2>
+    <h2 class="home-heading">Join them</h2>
     <p class="home-lead">
-      Support bots, internal copilots, document pipelines, and customer-facing AI features are already being built with RubyLLM
+      Companies using RubyLLM today
     </p>
 
     <div class="home-company-logos" aria-label="Companies using RubyLLM">
@@ -206,8 +206,10 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
     </div>
 
     <p class="home-small-note">
-      RubyLLM rails-native AI framework is used by teams shipping AI in production<br>
+      Using RubyLLM?
       <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Get featured</a>
+      and/or
+      <a href="https://github.com/sponsors/crmne" target="_blank" rel="noreferrer">sponsor us</a>
     </p>
   </div>
 </section>

@@ -15,3 +15,10 @@ playwright-report/
 .claude/
 moved-from-theme-repo/
 companies/
+!assets/images/companies/
+assets/images/companies/*
+!assets/images/companies/survey-2026/
+assets/images/companies/survey-2026/*
+!assets/images/companies/survey-2026/37signals.svg
+!assets/images/companies/survey-2026/shopify.svg
+!assets/images/companies/survey-2026/serpapi.svg
