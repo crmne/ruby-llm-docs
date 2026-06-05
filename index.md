@@ -65,7 +65,7 @@ Created sample hooks in .kamal/hooks
   <div class="home-section-inner">
     <h2 class="home-heading">Change models, not code</h2>
     <p class="home-lead">
-      12 providers in core. More through supporting gems. Every OpenAI-compatible API. Thousands of local models through Ollama and GPUStack. Same code.
+      12 providers in core. More through supporting gems. Every OpenAI-compatible API. Thousands of local models through Ollama and GPUStack.
     </p>
 
     <div class="provider-icons" aria-label="Supported AI providers">
@@ -355,7 +355,11 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
     <div class="home-ready-actions">
       <a class="home-button home-button--solid home-button--gem" href="{{ '/getting-started/' | relative_url }}#installation">Install the gem</a>
       <a class="home-button home-button--outline home-button--examples" href="#code-examples">See examples</a>
-      <a class="home-button home-button--ghost" href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">Star the repo</a>
+      <a class="VPButton medium alt home-hero-metric-button home-hero-star-link" href="https://github.com/crmne/ruby_llm" aria-label="Star crmne/ruby_llm on GitHub" target="_blank" rel="noreferrer noopener" data-github-star-repo="crmne/ruby_llm" data-github-star-show-count="true">
+        <span class="vpi-social-github" aria-hidden="true"></span>
+        <span>Star</span>
+        <span class="home-hero-star-count" aria-hidden="true">...</span>
+      </a>
     </div>
   </div>
 </section>
