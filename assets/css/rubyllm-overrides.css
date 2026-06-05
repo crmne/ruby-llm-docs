@@ -521,8 +521,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   text-underline-offset: 4px;
 }
 
-.home-small-note a,
-.home-model-table-note a {
+.home-small-note a {
   color: var(--vp-c-brand-1);
   font-weight: 400;
   text-decoration: underline;
@@ -822,130 +821,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-actions--center {
   justify-content: center;
   margin-top: 56px;
-}
-
-.home-stack-section {
-  padding-top: 118px;
-  padding-bottom: 101px;
-}
-
-.home-stack-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 8px;
-  row-gap: 0;
-  max-width: 1060px;
-  margin: 58px auto 0;
-}
-
-.home-stack-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  padding: 0 24px;
-  background: var(--home-card-bg);
-  color: var(--home-text);
-  font-size: 16px;
-  font-weight: 900;
-  text-decoration: none !important;
-  box-shadow: 0 4px 12px rgba(66, 42, 34, 0.03);
-  transition: border-color 0.18s ease, color 0.18s ease;
-}
-
-.home-stack-links a:hover,
-.home-stack-links a:focus-visible {
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 34%, transparent);
-  color: var(--vp-c-brand-1);
-}
-
-.home-stack-break {
-  flex: 0 0 100%;
-  height: 0;
-}
-
-.home-founder-section {
-  padding-top: 112px;
-  padding-bottom: 114px;
-  background: transparent;
-}
-
-.home-founder-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 40px;
-  align-items: center;
-  min-height: 384px;
-  margin-top: 54px;
-  border-radius: 24px;
-  padding: 24px 42px;
-  background: var(--home-band-bg);
-  text-align: left;
-}
-
-.home-founder-copy p {
-  margin: 0 0 20px;
-  color: var(--home-text);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.45;
-}
-
-.home-founder-copy strong {
-  font-weight: 400;
-}
-
-.home-quote-mark {
-  display: block;
-  height: 30px;
-  color: var(--vp-c-brand-1);
-  font-family: "Lora", Georgia, "Times New Roman", serif;
-  font-size: 58px;
-  font-weight: 900;
-  line-height: 0.75;
-}
-
-.home-founder-signoff {
-  display: grid;
-  gap: 5px;
-  margin-top: 22px;
-}
-
-.home-founder-signoff strong {
-  color: var(--home-text);
-  font-family: "Lora", Georgia, "Times New Roman", serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.home-founder-signoff span {
-  color: var(--home-muted);
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.home-founder-media {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 14px;
-}
-
-.home-founder-media > img:first-child {
-  width: 224px;
-  max-width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.home-signature-image {
-  width: 148px;
-  height: auto;
 }
 
 .home-code-section {
@@ -1410,6 +1285,10 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   pointer-events: none;
 }
 
+.home-models-note {
+  max-width: 760px;
+}
+
 .VPHome .vp-doc .provider-icons {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1466,121 +1345,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .VPHome .vp-doc .provider-logo:nth-of-type(11) {
   grid-column: 2;
-}
-
-.home-registry-section {
-  padding-top: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-}
-
-.home-model-table-wrap {
-  width: min(var(--home-inner), 100%);
-  margin: 83px auto 0;
-  height: 560px;
-  overflow: hidden;
-  border: 1px solid var(--home-line);
-  border-radius: 16px;
-  background: var(--home-bg);
-}
-
-.home-model-table {
-  display: table !important;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  min-width: 850px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  overflow: hidden;
-  color: #2C2926;
-  text-align: left;
-}
-
-.vp-doc .home-model-table {
-  display: table !important;
-  margin: 0;
-  overflow: hidden;
-}
-
-.home-model-table th {
-  height: 49px;
-  padding: 14px 16px;
-  border-right: 1px solid var(--home-line);
-  background: #ded7d2;
-  color: var(--home-muted);
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 1.2;
-  position: relative;
-}
-
-.home-model-table th:nth-child(1) {
-  width: 200px;
-}
-
-.home-model-table th:nth-child(2) {
-  width: 268px;
-}
-
-.home-model-table th:nth-child(3) {
-  width: 267px;
-}
-
-.home-model-table th:nth-child(4) {
-  width: 151px;
-}
-
-.home-model-table th:nth-child(1)::after,
-.home-model-table th:nth-child(4)::after {
-  content: "";
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  width: 8px;
-  height: 13px;
-  background: var(--home-muted);
-  transform: translateY(-50%);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 8 13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0 7.2 4H.8L4 0Zm0 13 .8-4h6.4L4 13Z'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 8 13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0 7.2 4H.8L4 0Zm0 13 .8-4h6.4L4 13Z'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
-.home-model-table th:last-child,
-.home-model-table td:last-child {
-  border-right: 0;
-}
-
-.home-model-table td {
-  height: 73px;
-  padding: 14px 16px;
-  border-right: 1px solid var(--home-line);
-  border-bottom: 1px solid var(--home-line);
-  background: var(--home-bg);
-  color: var(--home-muted);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.22;
-  vertical-align: top;
-}
-
-.home-model-table td:first-child {
-  background: var(--home-band-bg);
-  color: var(--home-muted);
-  font-weight: 400;
-}
-
-.home-model-table td:nth-child(4) {
-  white-space: nowrap;
-}
-
-.home-model-table-note {
-  margin: 57px auto 0 !important;
-  padding-bottom: 13px;
-  color: var(--home-text);
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
 }
 
 .home-love-section {
@@ -2068,13 +1832,10 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .dark .vp-doc .home-lead,
 .dark .home-small-note,
 .dark .vp-doc .home-small-note,
-.dark .home-code-cta p,
-.dark .home-model-table-note,
-.dark .home-founder-copy p {
+.dark .home-code-cta p {
   color: var(--home-text);
 }
 
-.dark .home-founder-card,
 .dark .home-love-card header span {
   background: #232323;
 }
@@ -2084,7 +1845,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   color: var(--home-code-fg) !important;
 }
 
-.dark .home-stack-links a,
 .dark .home-ready-card,
 .dark .home-stat-card,
 .dark .home-code-card,
@@ -2093,24 +1853,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   background: var(--home-card-bg);
 }
 
-.dark .home-stack-links a,
-.dark .home-model-table,
-.dark .home-model-table td {
-  color: var(--home-text);
-}
-
 .dark .home-love-nav {
   color: color-mix(in srgb, var(--vp-c-brand-1) 70%, var(--home-heading));
-}
-
-.dark .home-model-table th {
-  background: #342c30;
-  color: var(--home-muted);
-}
-
-.dark .home-model-table td,
-.dark .home-model-table td:first-child {
-  background: rgba(255, 255, 255, 0.03);
 }
 
 @media (max-width: 1280px) {
@@ -2161,21 +1905,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .VPHome .vp-doc .provider-logo:nth-of-type(13) {
     grid-column: 2;
-  }
-
-  .home-founder-card {
-    grid-template-columns: minmax(0, 1fr) 240px;
-    gap: 28px;
-    min-height: 360px;
-    padding: 28px 32px;
-  }
-
-  .home-founder-media {
-    grid-row: auto;
-  }
-
-  .home-founder-media > img:first-child {
-    width: 200px;
   }
 
 }
@@ -2287,31 +2016,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     font-size: 36px;
   }
 
-  .home-stack-links {
-    justify-content: stretch;
-  }
-
-  .home-stack-links a {
-    flex: 1 1 calc(50% - 10px);
-    min-width: 138px;
-    padding: 0 12px;
-  }
-
-  .home-founder-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    min-height: 0;
-    padding: 26px;
-  }
-
-  .home-founder-media {
-    grid-row: 1;
-  }
-
-  .home-founder-media > img:first-child {
-    width: min(100%, 240px);
-  }
-
   .home-code-card {
     min-height: 0;
   }
@@ -2371,15 +2075,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .home-compare-dialog code {
     font-size: 14px;
-  }
-
-  .home-model-table-wrap {
-    width: calc(100vw - 20px);
-    margin-left: calc(50% - 50vw + 10px);
-  }
-
-  .home-model-table {
-    min-width: 850px;
   }
 
   .home-footer-inner {

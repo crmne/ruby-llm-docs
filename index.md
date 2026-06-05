@@ -83,6 +83,14 @@ Created sample hooks in .kamal/hooks
       <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/vertexai-color.svg' | relative_url }}" alt="Vertex AI" class="logo-mark"><img src="{{ '/assets/images/providers/vertexai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
       <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/xai.svg' | relative_url }}" alt="xAI" class="logo-mark"><img src="{{ '/assets/images/providers/xai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
     </div>
+
+    <p class="home-small-note home-models-note">
+      All with a comprehensive, refreshable
+      <a href="{{ '/available-models/' | relative_url }}">model registry</a>,
+      so you can
+      <a href="{{ '/chat/' | relative_url }}#tracking-token-usage">price your app</a>
+      before it reaches production.
+    </p>
   </div>
 </section>
 
@@ -212,151 +220,6 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
       <a href="https://github.com/sponsors/crmne" target="_blank" rel="noreferrer">sponsor us</a>
     </p>
   </div>
-</section>
-
-<section class="home-section home-band home-stack-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">The full stack for Ruby AI</h2>
-    <p class="home-lead">
-      A consistent way to build, scale, and ship AI features within the ruby ecosystem.<br>
-      From support bots, internal tools, copilots to complex document pipelines
-    </p>
-
-    <div class="home-stack-links" aria-label="RubyLLM documentation areas">
-      <a href="{{ '/chat/' | relative_url }}">chat</a>
-      <a href="{{ '/streaming/' | relative_url }}">streaming</a>
-      <a href="{{ '/tools/' | relative_url }}">tools</a>
-      <a href="{{ '/agents/' | relative_url }}">agents</a>
-      <a href="{{ '/chat/' | relative_url }}#getting-structured-output">structured outputs</a>
-      <a href="{{ '/chat/' | relative_url }}#working-with-text-files">file attachments</a>
-      <a href="{{ '/chat/' | relative_url }}#working-with-images">vision</a>
-      <span class="home-stack-break" aria-hidden="true"></span>
-      <a href="{{ '/chat/' | relative_url }}#working-with-audio">audio</a>
-      <a href="{{ '/chat/' | relative_url }}#working-with-pdfs">documents</a>
-      <a href="{{ '/image-generation/' | relative_url }}">image generation</a>
-      <a href="{{ '/image-generation/' | relative_url }}#working-with-generated-images">image editing</a>
-      <a href="{{ '/embeddings/' | relative_url }}">embeddings</a>
-      <a href="{{ '/moderation/' | relative_url }}">moderation</a>
-      <span class="home-stack-break" aria-hidden="true"></span>
-      <a href="{{ '/audio-transcription/' | relative_url }}">transcription</a>
-      <a href="{{ '/rails/' | relative_url }}">rails persistence</a>
-      <a href="{{ '/rails/' | relative_url }}#streaming-responses-with-hotwireturbo">hotwire/turbo streaming</a>
-      <a href="{{ '/rails/' | relative_url }}#setting-up-models-with-acts_as-helpers">activerecord integration</a>
-      <a href="{{ '/async/' | relative_url }}">async workflows</a>
-      <span class="home-stack-break" aria-hidden="true"></span>
-      <a href="{{ '/agentic-workflows/' | relative_url }}">multi-agent workflows</a>
-      <a href="{{ '/models/' | relative_url }}">model registry</a>
-      <a href="{{ '/chat/' | relative_url }}#tracking-token-usage">usage and cost tracking</a>
-      <a href="{{ '/models/' | relative_url }}#provider-specific-resolution">provider switching</a>
-      <span class="home-stack-break" aria-hidden="true"></span>
-      <a href="{{ '/configuration/' | relative_url }}#custom-openai-compatible-endpoints">openai-compatible apis</a>
-    </div>
-  </div>
-</section>
-
-<section class="home-section home-founder-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">Why RubyLLM exists?</h2>
-
-    <article class="home-founder-card">
-      <div class="home-founder-copy">
-        <span class="home-quote-mark" aria-hidden="true">"</span>
-        <p>
-          I came back to Ruby in 2024 to build AI applications, and I could not find the framework I wanted. Everything felt too fragmented, too low-level, or too far from the Ruby way of doing things.
-        </p>
-        <p>
-          So I built <strong>RubyLLM</strong>: one beautiful mental model for building AI features in Ruby and Rails. Chats, tools, agents, files, structured outputs, models, costs, and Rails integration - all designed to feel like they belong together.
-        </p>
-        <div class="home-founder-signoff">
-          <strong>Carmine Paolino</strong>
-          <span>Founder of RubyLLM</span>
-        </div>
-      </div>
-
-      <div class="home-founder-media">
-        <img src="{{ '/assets/images/founder/carmine.jpg' | relative_url }}" alt="Carmine Paolino">
-        <img class="home-signature-image" src="{{ '/assets/images/founder/carmine-signature.png' | relative_url }}" alt="Carmine Paolino signature">
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="home-section home-registry-section">
-  <div class="home-section-inner">
-    <h2 class="home-heading">Know your models, price your app</h2>
-    <p class="home-lead">
-      RubyLLM ships with a refreshable model registry, so production apps can compare capabilities, understand context windows, choose the right model, and price usage correctly
-    </p>
-  </div>
-
-  <div class="home-model-table-wrap">
-    <table class="home-model-table">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>I/O</th>
-          <th>Capabilities</th>
-          <th>Context</th>
-          <th>Standard pricing (1M tokens)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>GPT-5.4</td>
-          <td><strong>In:</strong> text, image, pdf;<br><strong>Out:</strong> text</td>
-          <td>tools, structured output, reasoning, vision</td>
-          <td>1.05M</td>
-          <td><strong>In:</strong> $2.50, <strong>Out:</strong> $15.00,<br><strong>Cache:</strong> $0.25</td>
-        </tr>
-        <tr>
-          <td>Claude Sonnet 4.6</td>
-          <td><strong>In:</strong> text, image, pdf;<br><strong>Out:</strong> text</td>
-          <td>tools, reasoning, vision, PDFs</td>
-          <td>1M</td>
-          <td><strong>In:</strong> $3.00, <strong>Out:</strong> $15.00,<br><strong>Cache:</strong> $0.30</td>
-        </tr>
-        <tr>
-          <td>Gemini 3 Pro Preview</td>
-          <td><strong>In:</strong> text, image, video, audio, pdf;<br><strong>Out:</strong> text</td>
-          <td>tools, structured output, audio, video, PDFs</td>
-          <td>1M</td>
-          <td><strong>In:</strong> $2.00, <strong>Out:</strong> $12.00,<br><strong>Cache:</strong> $0.20</td>
-        </tr>
-        <tr>
-          <td>Claude Opus 4.5</td>
-          <td><strong>In:</strong> text, image, pdf;<br><strong>Out:</strong> text</td>
-          <td>tools, reasoning, vision, PDFs</td>
-          <td>200K</td>
-          <td><strong>In:</strong> $5.00, <strong>Out:</strong> $25.00,<br><strong>Cache:</strong> $0.50</td>
-        </tr>
-        <tr>
-          <td>Mistral Large</td>
-          <td><strong>In:</strong> text, image;<br><strong>Out:</strong> text</td>
-          <td>tools, structured output, batch, vision</td>
-          <td>262K</td>
-          <td><strong>In:</strong> $0.50, <strong>Out:</strong> $1.50,<br><strong>Cache:</strong> -</td>
-        </tr>
-        <tr>
-          <td>DeepSeek Chat</td>
-          <td><strong>In:</strong> text;<br><strong>Out:</strong> text</td>
-          <td>tools, cached input pricing</td>
-          <td>131K</td>
-          <td><strong>In:</strong> $0.28, <strong>Out:</strong> $0.42,<br><strong>Cache:</strong> $0.03</td>
-        </tr>
-        <tr>
-          <td>Sonar Pro</td>
-          <td><strong>In:</strong> text, image;<br><strong>Out:</strong> text</td>
-          <td>vision, search</td>
-          <td>200K</td>
-          <td><strong>In:</strong> $3.00, <strong>Out:</strong> $15.00,<br><strong>Cache:</strong> -</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p class="home-model-table-note">
-    The registry currently tracks <a href="{{ '/available-models/' | relative_url }}">1171 models</a> across 11 providers
-  </p>
 </section>
 
 <section class="home-section home-band home-love-section" data-love-carousel>
