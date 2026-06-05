@@ -200,9 +200,9 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
 
 <section class="home-section home-band home-companies-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">You're in good company</h2>
+    <h2 class="home-heading">You're already using RubyLLM</h2>
     <p class="home-lead">
-      Used by thousands of developers serving millions of people
+      Used by hundreds of companies, serving millions of users
     </p>
 
     <div class="home-company-logos" aria-label="Companies using RubyLLM">
@@ -216,7 +216,7 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
     <p class="home-small-note">
       Using RubyLLM?
       <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Get featured</a>
-      and/or
+      or
       <a href="https://github.com/sponsors/crmne" target="_blank" rel="noreferrer">sponsor us</a>
     </p>
   </div>
