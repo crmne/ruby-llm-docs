@@ -778,6 +778,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-companies-section {
   padding-top: 112px;
   padding-bottom: 130px;
+  background: var(--home-grid), var(--home-bg);
 }
 
 .home-company-logos {
@@ -1060,11 +1061,35 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   text-align: center;
 }
 
-.home-code-cta a {
+.home-code-cta p a {
   color: var(--vp-c-brand-1);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.home-code-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.home-code-cta-actions .home-button {
+  min-width: 198px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home-rails-section {
+  padding-top: 106px;
+  padding-bottom: 112px;
+}
+
+.home-rails-code-grid {
+  margin-top: 42px;
 }
 
 .home-compare-modal[hidden] {
@@ -1285,6 +1310,36 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-models-note {
   max-width: 760px;
+}
+
+.home-model-switcher {
+  width: min(760px, 100%);
+  margin: 48px auto 0;
+}
+
+.home-code-grid .home-model-switcher-code pre {
+  overflow-x: auto !important;
+  white-space: pre !important;
+  overflow-wrap: normal;
+}
+
+.home-code-grid .home-model-switcher-code code {
+  min-width: max-content;
+  white-space: pre !important;
+  overflow-wrap: normal;
+}
+
+.home-model-switcher-model,
+.home-model-switcher-provider {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.home-model-switcher.is-swapping .home-model-switcher-model,
+.home-model-switcher.is-swapping .home-model-switcher-provider {
+  opacity: 0;
+  transform: translateY(-3px);
 }
 
 .VPHome .vp-doc .provider-icons {

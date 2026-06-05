@@ -162,6 +162,139 @@
     root.querySelectorAll(".home-code-card").forEach(syncCodeCardDocLink);
   }
 
+  function initModelSwitcher(root) {
+    var switcher = root.querySelector("[data-model-switcher]");
+    if (!switcher || switcher.dataset.modelSwitcherBound) return;
+    switcher.dataset.modelSwitcherBound = "true";
+
+    var card = switcher.querySelector("[data-model-switcher-code]");
+    var code = card && card.querySelector("code");
+    var model = switcher.querySelector("[data-model-switcher-model]");
+    var provider = switcher.querySelector("[data-model-switcher-provider]");
+    if (!card || !code) return;
+
+    if (!model || !provider) {
+      var stringSpan = Array.prototype.find.call(code.querySelectorAll(".s2"), function (span) {
+        return span.textContent.indexOf("claude-opus-4-7") !== -1;
+      });
+      if (!stringSpan) return;
+
+      stringSpan.textContent = "";
+      stringSpan.appendChild(document.createTextNode("\""));
+
+      model = document.createElement("span");
+      model.className = "home-model-switcher-model";
+      model.dataset.modelSwitcherModel = "";
+      stringSpan.appendChild(model);
+      stringSpan.appendChild(document.createTextNode("\""));
+
+      provider = document.createElement("span");
+      provider.className = "home-model-switcher-provider";
+      provider.dataset.modelSwitcherProvider = "";
+      stringSpan.parentNode.insertBefore(provider, stringSpan.nextSibling);
+    }
+
+    var examples = [
+      {
+        model: "claude-opus-4-7",
+        provider: "",
+        title: "Anthropic"
+      },
+      {
+        model: "claude-opus-4-7",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:azure</span>',
+        title: "Azure AI"
+      },
+      {
+        model: "claude-opus-4-7",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:bedrock</span>',
+        title: "Amazon Bedrock"
+      },
+      {
+        model: "deepseek-v4-pro",
+        provider: "",
+        title: "DeepSeek"
+      },
+      {
+        model: "gemini-3.1-pro-preview",
+        provider: "",
+        title: "Gemini"
+      },
+      {
+        model: "qwen3",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:gpustack</span>',
+        title: "GPUStack"
+      },
+      {
+        model: "mistral-medium-latest",
+        provider: "",
+        title: "Mistral AI"
+      },
+      {
+        model: "gemma4",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:ollama</span>',
+        title: "Ollama"
+      },
+      {
+        model: "gpt-5.5",
+        provider: "",
+        title: "OpenAI"
+      },
+      {
+        model: "claude-opus-4-7",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:openrouter</span>',
+        title: "OpenRouter"
+      },
+      {
+        model: "sonar-pro",
+        provider: "",
+        title: "Perplexity"
+      },
+      {
+        model: "gemini-3.1-pro-preview",
+        provider: ', <span class="ss">provider:</span> <span class="ss">:vertexai</span>',
+        title: "Vertex AI"
+      },
+      {
+        model: "grok-4.3",
+        provider: "",
+        title: "xAI"
+      }
+    ];
+    var index = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function render(example) {
+      var wrapper = card.parentElement && card.parentElement.classList.contains("vp-code-block-title")
+        ? card.parentElement
+        : null;
+      var title = wrapper && wrapper.querySelector(":scope > .vp-code-block-title-bar .vp-code-block-title-text");
+
+      model.textContent = example.model;
+      provider.innerHTML = example.provider;
+      card.dataset.title = example.title;
+      code.dataset.originalText = code.textContent.trim();
+      if (title) {
+        title.textContent = example.title;
+        title.dataset.title = example.title;
+      }
+    }
+
+    render(examples[index]);
+
+    if (reduceMotion) return;
+
+    window.setInterval(function () {
+      switcher.classList.add("is-swapping");
+
+      window.setTimeout(function () {
+        index = (index + 1) % examples.length;
+        render(examples[index]);
+        switcher.classList.remove("is-swapping");
+      }, 180);
+    }, 2200);
+  }
+
   function writeClipboard(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       return navigator.clipboard.writeText(text);
@@ -549,6 +682,7 @@
 
     initDemoVideos(root);
     initCodeCards(root);
+    initModelSwitcher(root);
     window.setTimeout(function () {
       syncCodeCardDocLinks(root);
     }, 0);

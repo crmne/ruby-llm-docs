@@ -84,6 +84,17 @@ Created sample hooks in .kamal/hooks
       <a href="https://x.ai" target="_blank" rel="noreferrer" class="provider-logo"><img src="{{ '/assets/images/providers/xai.svg' | relative_url }}" alt="xAI" class="logo-mark"><img src="{{ '/assets/images/providers/xai-text.svg' | relative_url }}" alt="" class="logo-text"></a>
     </div>
 
+    <div class="home-code-grid home-model-switcher" data-model-switcher aria-label="Same RubyLLM API across providers">
+{% capture model_switcher_code %}
+```ruby
+chat = RubyLLM.chat(model: "claude-opus-4-7")
+chat.say "Hello!"
+```
+{: .home-code-card .home-model-switcher-code data-title="Anthropic" data-model-switcher-code="true" }
+{% endcapture %}
+{{ model_switcher_code | markdownify }}
+    </div>
+
     <p class="home-small-note home-models-note">
       All with a comprehensive, refreshable
       <a href="{{ '/available-models/' | relative_url }}">model registry</a>,
@@ -194,7 +205,76 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
   </div>
 
   <div class="home-code-cta">
-    <p>… and much more. <a href="{% link _introduction/getting-started.md %}">Read the guides</a></p>
+    <p>Plus
+      <a href="{% link _advanced/agentic-workflows.md %}#rag-as-a-workflow-step">RAG</a>,
+      <a href="{% link _advanced/agentic-workflows.md %}">agentic workflows</a>,
+      <a href="{% link _advanced/async.md %}">Fiber support</a>,
+      <a href="{% link _core_features/thinking.md %}">extended thinking</a>,
+      <a href="{% link _core_features/chat.md %}#anthropic-prompt-caching">prompt caching</a>,
+      <a href="{% link _introduction/configuration.md %}#openai-compatible-apis">custom endpoints</a>,
+      <a href="{% link _introduction/configuration.md %}#contexts-isolated-configurations">multi-tenant contexts</a>,
+      <a href="{% link _reference/ecosystem.md %}#rubyllmmcp">MCP</a>,
+      <a href="{% link _reference/ecosystem.md %}#rubyllminstrumentation">instrumentation</a>,
+      <a href="{% link _reference/ecosystem.md %}#rubyllmmonitoring">monitoring</a>,
+      <a href="{% link _advanced/error-handling.md %}">error handling</a>,
+      and much more.
+    </p>
+    <div class="home-code-cta-actions">
+      <a class="home-button home-button--solid" href="{% link _introduction/getting-started.md %}">Read the guides</a>
+    </div>
+  </div>
+</section>
+
+<section id="rails-integration" class="home-section home-band home-rails-section">
+  <div class="home-section-inner">
+    <h2 class="home-heading">Feels at home in Rails</h2>
+    <p class="home-lead">
+      Add database-backed conversations, model metadata, and an optional Hotwire chat UI with Rails generators, without changing the API.
+    </p>
+  </div>
+
+  <div class="home-code-grid home-rails-code-grid" markdown="1">
+
+```sh
+bundle add ruby_llm
+bin/rails generate ruby_llm:install
+bin/rails db:migrate
+bin/rails ruby_llm:load_models
+```
+{: .home-code-card data-title="Install the Rails integration" data-href="{% link _advanced/rails.md %}#setting-up-your-rails-application" data-doc-title="Setting Up Your Rails Application" }
+
+```sh
+bin/rails generate ruby_llm:chat_ui # http://localhost:3000/chats
+```
+{: .home-code-card data-title="Add the optional chat UI" data-href="{% link _advanced/rails.md %}#adding-a-chat-ui" data-doc-title="Generating a Chat UI" }
+
+```ruby
+chat = Chat.create! model: "claude-sonnet-4"
+chat.ask "What's in this file?", with: "report.pdf"
+```
+{: .home-code-card data-title="Persist chats with ActiveRecord, without changing the API" data-href="{% link _advanced/rails.md %}#core-models-and-acts_as-methods" data-doc-title="Core Models and acts_as Methods" }
+
+```sh
+bin/rails generate ruby_llm:agent Support
+bin/rails generate ruby_llm:tool Weather
+bin/rails generate ruby_llm:schema Product
+```
+{: .home-code-card data-title="Generate agents, tools, and schemas" data-href="{% link _advanced/rails.md %}#rails-generators-for-agents-tools-and-schemas" data-doc-title="Rails Generators for Agents, Tools, and Schemas" }
+
+  </div>
+
+  <div class="home-code-cta">
+    <p>Plus
+      <a href="{% link _advanced/rails.md %}#conventional-directory-structure">conventional directory structures</a>,
+      <a href="{% link _advanced/rails.md %}#setting-up-activestorage">ActiveStorage support</a>,
+      <a href="{% link _advanced/rails.md %}#file-attachments">attachment support</a>,
+      <a href="{% link _advanced/rails.md %}#streaming-responses-with-hotwireturbo">Hotwire/Turbo streaming</a>,
+      <a href="{% link _core_features/agents.md %}#prompt-management-and-conventions">prompt management</a>,
+      and more.
+    </p>
+    <div class="home-code-cta-actions">
+      <a class="home-button home-button--solid" href="{% link _advanced/rails.md %}">Read the Rails guide</a>
+    </div>
   </div>
 </section>
 
@@ -225,9 +305,6 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
 <section class="home-section home-band home-love-section" data-love-carousel>
   <div class="home-section-inner">
     <h2 class="home-heading">Wall of Love</h2>
-    <p class="home-lead">
-      RubyLLM has become the AI layer people wish they had when they started building with Ruby.
-    </p>
   </div>
 
   <div class="home-love-stage">
@@ -354,11 +431,9 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
 
     <div class="home-ready-actions">
       <a class="home-button home-button--solid home-button--gem" href="{{ '/getting-started/' | relative_url }}#installation">Install the gem</a>
-      <a class="home-button home-button--outline home-button--examples" href="#code-examples">See examples</a>
       <a class="VPButton medium alt home-hero-metric-button home-hero-star-link" href="https://github.com/crmne/ruby_llm" aria-label="Star crmne/ruby_llm on GitHub" target="_blank" rel="noreferrer noopener" data-github-star-repo="crmne/ruby_llm" data-github-star-show-count="true">
         <span class="vpi-social-github" aria-hidden="true"></span>
-        <span>Star</span>
-        <span class="home-hero-star-count" aria-hidden="true">...</span>
+        <span>View source</span>
       </a>
     </div>
   </div>
