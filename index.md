@@ -113,8 +113,7 @@ chat.say "Hello!"
   <div class="home-code-grid" markdown="1">
 
 ```ruby
-chat = RubyLLM.chat
-chat.ask "What's the best way to learn Ruby?"
+RubyLLM.chat.ask "What's the best way to learn Ruby?"
 ```
 {: .home-code-card data-title="Just ask questions" data-href="{% link _core_features/chat.md %}#starting-a-conversation" data-doc-title="Starting a Conversation" }
 
