@@ -2101,6 +2101,12 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
   .home-code-card pre {
     max-height: 320px;
+    padding: 12px 14px !important;
+  }
+
+  .home-code-grid .home-code-card code {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
   }
 
   .home-code-actions {
