@@ -1,6 +1,6 @@
 ---
 - name: Chat with Work
-  src: "/assets/images/chat-with-work/logotype.png"
+  src: "/assets/images/chat-with-work/logotype.svg"
 - name: Shopify
   mark: "/assets/images/companies/survey-2026/shopify-mark.svg"
   text: "/assets/images/companies/survey-2026/shopify-text.svg"
