@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Model registry
+title: Model Registry
 nav_order: 4
-description: Access hundreds of AI models from all major providers with one simple API
+description: Access hundreds of AI models from all major AI providers with one Ruby framework
 redirect_from:
   - /guides/models
 ---
@@ -37,6 +37,8 @@ The registry stores crucial information about each model, including:
 *   **`supports_functions`**: If it can use [Tools]({% link _core_features/tools.md %}).
 *   **`input_price_per_million`**: Cost in USD per 1 million input tokens.
 *   **`output_price_per_million`**: Cost in USD per 1 million output tokens.
+*   **`cache_read_input_price_per_million`**: Cost in USD per 1 million cache read tokens, when available. v1.15+
+*   **`cache_write_input_price_per_million`**: Cost in USD per 1 million cache write tokens, when available. v1.15+
 *   **`family`**: A broader classification (e.g., `gpt4o`).
 
 This registry allows RubyLLM to validate models, route requests correctly, provide capability information, and offer convenient filtering.
@@ -99,7 +101,7 @@ This is useful when you want to refresh only cloud-based models without querying
 
 The `rake models:update` task is designed for gem maintainers and updates the `models.json` file shipped with the gem:
 
-```sh
+```bash
 # Only for gem development - requires API keys and gem directory structure
 bundle exec rake models:update
 ```
@@ -110,7 +112,7 @@ This task is not intended for Rails applications as it writes to gem directories
 
 For Rails applications, the install generator sets up everything automatically:
 
-```sh
+```bash
 bin/rails generate ruby_llm:install
 bin/rails db:migrate
 ```
@@ -196,6 +198,46 @@ model_bedrock = RubyLLM.models.find('{{ site.models.anthropic_current }}', :bedr
 ```
 
 When you pass a provider, RubyLLM resolves aliases first. For Bedrock, it then applies region/inference-profile resolution (for example `us.` prefixes) before falling back to an exact ID match.
+
+## Calculating Costs
+{: .d-inline-block }
+
+v1.15+
+{: .label .label-green }
+
+Models can turn token usage into a `RubyLLM::Cost` object:
+
+```ruby
+model = RubyLLM.models.find('{{ site.models.default_chat }}')
+response = RubyLLM.chat(model: model.id, provider: model.provider).ask("Summarize Ruby's object model.")
+
+cost = model.cost_for(response.tokens)
+puts cost.input
+puts cost.output
+puts cost.cache_read
+puts cost.cache_write
+puts cost.thinking
+puts cost.total
+```
+
+Costs use RubyLLM's normalized token buckets: standard input, billable output, cache read, cache write, and separately priced thinking when the model registry exposes a distinct reasoning-token price. See [Tracking Token Usage]({% link _core_features/chat.md %}#tracking-token-usage) for the provider comparison table and what RubyLLM exposes consistently across providers.
+
+Most applications use the shorter helpers on messages, chats, and agents:
+
+```ruby
+response.cost.total
+chat.cost.total
+agent.cost.total
+```
+
+To combine several cost objects yourself, use `RubyLLM::Cost.aggregate`:
+
+```ruby
+cost = RubyLLM::Cost.aggregate(messages.map(&:cost))
+cost.total
+```
+
+If pricing is incomplete for tokens that were used, the affected cost and `cost.total` return `nil`. Cost helpers cover token-priced conversation usage; provider-specific add-ons such as search-query charges remain available in the provider's raw usage payload.
 
 ## Connecting to Custom Endpoints & Using Unlisted Models
 {: .d-inline-block }

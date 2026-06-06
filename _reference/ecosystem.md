@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RubyLLM ecosystem
+title: RubyLLM Ecosystem
 nav_order: 3
 description: Extend RubyLLM with MCP servers, structured schemas, instrumentation, monitoring and community-built tools for production AI apps.
 ---
@@ -10,6 +10,18 @@ description: Extend RubyLLM with MCP servers, structured schemas, instrumentatio
 
 > Ecosystem projects are maintained by their respective authors. We list projects for discoverability, but we cannot guarantee the quality, security, maintenance status, or fitness of every listed project.
 {: .note }
+
+---
+
+After reading this guide, you will know:
+
+* How `RubyLLM::Schema` simplifies structured data definition for AI applications
+* What the Model Context Protocol (MCP) is and how `RubyLLM::MCP` brings it to Ruby
+* How `RubyLLM::Instrumentation` exposes RubyLLM events through ActiveSupport notifications
+* How `RubyLLM::Monitoring` provides dashboards and alerts for RubyLLM activity
+* How `RubyLLM::RedCandle` enables local model execution from Ruby
+* How OpenTelemetry instrumentation for RubyLLM provides observability into your LLM applications
+* Where to find community projects and how to contribute your own
 
 ## RubyLLM::Schema
 
@@ -38,7 +50,7 @@ When working with LLMs, you often need to define precise data structures for:
 
 ### Installation
 
-```sh
+```bash
 gem install ruby_llm-schema
 ```
 
@@ -70,7 +82,7 @@ The Model Context Protocol is an open standard that allows AI applications to in
 
 ### Installation
 
-```sh
+```bash
 gem install ruby_llm-mcp
 ```
 
@@ -106,7 +118,7 @@ When building LLM applications, you may need custom monitoring, analytics, or lo
 
 ### Installation
 
-```sh
+```bash
 gem install ruby_llm-instrumentation
 ```
 
@@ -132,7 +144,7 @@ When running RubyLLM-powered features in production, you need ongoing visibility
 
 ### Installation
 
-```sh
+```bash
 gem install ruby_llm-monitoring
 ```
 
@@ -165,7 +177,7 @@ Running LLMs locally offers several advantages:
 
 ### Installation
 
-```sh
+```bash
 gem install ruby_llm-red_candle
 ```
 
@@ -209,7 +221,7 @@ This gem provides all of this automatically, with minimal setup and without havi
 
 ### Installation
 
-```sh
+```bash
 gem install opentelemetry-instrumentation-ruby_llm
 ```
 
@@ -222,6 +234,42 @@ end
 ```
 
 For detailed documentation, setup instructions, and examples, visit the [OpenTelemetry RubyLLM Instrumentation repository](https://github.com/thoughtbot/opentelemetry-instrumentation-ruby_llm).
+
+---
+
+## RubyLLM::Tribunal
+
+**LLM Evaluation and Testing for Ruby**
+
+[`RubyLLM::Tribunal`](https://github.com/Alqemist-labs/ruby_llm-tribunal) helps you evaluate and test LLM outputs in Ruby applications. It combines deterministic assertions for fast checks with model-based evaluations for quality, faithfulness, and safety.
+
+### Why Use RubyLLM::Tribunal?
+
+When building LLM features, you often need to verify that responses are:
+
+- Grounded in retrieved context
+- Relevant to the user's request
+- Free from hallucinations or unsafe content
+- Resistant to jailbreak or prompt injection attempts
+
+`RubyLLM::Tribunal` brings these checks into your RSpec or Minitest suite.
+
+### Key Features
+
+- Deterministic assertions for exact matches, regexes, JSON validation, and other fast checks
+- LLM-as-judge assertions for faithfulness, relevance, correctness, and refusal behavior
+- Assertions for hallucinations, toxicity, harmful content, bias, jailbreaks, and PII exposure
+- Red team attacks to generate adversarial prompts and test defenses
+- Multiple reporters including Console, JSON, HTML, JUnit, and GitHub Actions
+- Test helpers for RSpec and Minitest
+
+### Installation
+
+```bash
+gem install ruby_llm-tribunal
+```
+
+For detailed documentation and examples, visit the [RubyLLM::Tribunal repository](https://github.com/Alqemist-labs/ruby_llm-tribunal).
 
 ---
 

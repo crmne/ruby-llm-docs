@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Agentic workflows
-nav_order: 5
+title: Agentic Workflows
+nav_order: 6
 description: Build workflow-oriented AI systems with plain Ruby orchestration, from routing and parallelization to RAG
 ---
 

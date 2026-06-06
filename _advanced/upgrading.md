@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Upgrading
-nav_order: 6
+nav_order: 7
 description: Upgrade guides for changes in data formats
 redirect_from:
   - /upgrading-to-1-7
@@ -11,11 +11,71 @@ redirect_from:
 {{ page.description }}
 {: .fs-6 .fw-300 }
 
-## Upgrade to 1.14
 
-### How to Upgrade
+This guide focuses on upgrade-impacting changes: migrations, token semantics, deprecations, and compatibility notes. It is not a complete changelog. For every feature, fix, and patch note, see the [GitHub releases](https://github.com/crmne/ruby_llm/releases).
+{: .note }
 
-```sh
+---
+# Upgrade to 1.15
+
+## How to Upgrade
+
+No generator is required for the token and cost API changes in 1.15.
+
+If you use the Rails integration and already ran the v1.9 migration, no new columns are needed. The new `cache_read_tokens` and `cache_write_tokens` helpers use the existing `cached_tokens` and `cache_creation_tokens` columns.
+
+## Token Semantics Changed
+
+RubyLLM now normalizes prompt cache usage before exposing token counts. From 1.15 onward, `response.tokens.input` means standard input tokens. When a provider includes cache reads or cache writes in its raw prompt token total, RubyLLM subtracts those cache buckets and exposes them separately.
+
+Use the new cache names in new code:
+
+```ruby
+response.tokens.input
+response.tokens.output
+response.tokens.cache_read
+response.tokens.cache_write
+```
+
+The top-level token helpers still work for backwards compatibility:
+
+```ruby
+response.input_tokens       # Same as tokens.input
+response.output_tokens      # Same as tokens.output
+response.cache_read_tokens  # Same as tokens.cache_read
+response.cache_write_tokens # Same as tokens.cache_write
+response.cached_tokens          # Same as cache_read_tokens
+response.cache_creation_tokens  # Same as cache_write_tokens
+```
+
+If your app stored or displayed provider raw prompt totals, reconstruct the request-side input activity by adding the normalized buckets:
+
+```ruby
+request_side_input_tokens =
+  response.tokens.input.to_i +
+  response.tokens.cache_read.to_i +
+  response.tokens.cache_write.to_i
+```
+
+For costs, prefer the new cost helpers instead of multiplying token totals yourself:
+
+```ruby
+response.cost.total
+chat.cost.total
+agent.cost.total
+```
+
+Cost helpers are available from 1.15 onward. They return `nil` for any cost bucket whose pricing is missing, and `cost.total` is also `nil` when a used bucket has incomplete pricing.
+
+`tokens.thinking` remains available from 1.10. From 1.15 onward, `tokens.output` is normalized as the billable output bucket. Do not add `tokens.thinking` to `tokens.output` yourself; RubyLLM includes thinking in output when the provider bills it as output, and exposes `cost.thinking` only for models with distinct reasoning-token pricing.
+
+See [Tracking Token Usage]({% link _core_features/chat.md %}#tracking-token-usage) for the provider comparison table and the exact normalized token semantics RubyLLM exposes.
+
+# Upgrade to 1.14
+
+## How to Upgrade
+
+```bash
 # Run the upgrade generator
 bin/rails generate ruby_llm:upgrade_to_v1_14
 
@@ -27,17 +87,17 @@ That's it! The generator:
 - Changes `thought_signature` on tool calls from `string` to `text`
 - Prevents thought signature truncation issues on MySQL/MariaDB
 
-### What's New in 1.14
+## What's New in 1.14
 
 Among other features:
 
 - Safer Gemini thought signature persistence for Rails apps using ActiveRecord
 
-## Upgrade to 1.10
+# Upgrade to 1.10
 
-### How to Upgrade
+## How to Upgrade
 
-```sh
+```bash
 # Run the upgrade generator
 bin/rails generate ruby_llm:upgrade_to_v1_10
 
@@ -50,18 +110,18 @@ That's it! The generator:
 - Adds `thinking_tokens` for tracking thinking token usage
 - Adds `thought_signature` to tool calls for Gemini 3 Pro function calling
 
-### What's New in 1.10
+## What's New in 1.10
 
 Among other features:
 
 - Extended thinking support across providers with optional persistence
 - Thinking token tracking when providers report it
 
-## Upgrade to 1.9
+# Upgrade to 1.9
 
-### How to Upgrade
+## How to Upgrade
 
-```sh
+```bash
 # Run the upgrade generator
 bin/rails generate ruby_llm:upgrade_to_v1_9
 
@@ -73,22 +133,22 @@ That's it! The generator:
 - Adds the `cached_tokens` and `cache_creation_tokens` columns for tracking accessed cached tokens and created cache tokens respectively.
 - Adds the `content_raw` column for the new [Raw Content Blocks]({% link _core_features/chat.md %}#raw-content-blocks) feature
 
-### What's New in 1.9
+## What's New in 1.9
 
 Among other features:
 
 - [Raw Content Blocks]({% link _core_features/chat.md %}#raw-content-blocks) to pass content verbatim to an LLM, e.g. useful to enable Anthropic Prompt Caching.
 - Cached token tracking to accurately track costs given cache hits
 
-## Upgrade to 1.7
+# Upgrade to 1.7
 
 Upgrade to the DB-backed model registry for better data integrity and rich model metadata.
 
-### How to Upgrade
+## How to Upgrade
 
-#### From 1.6 to 1.7 (2 commands)
+### From 1.6 to 1.7 (2 commands)
 
-```sh
+```bash
 # Run the upgrade generator
 bin/rails generate ruby_llm:upgrade_to_v1_7
 
@@ -104,16 +164,16 @@ That's it! The generator:
 - Loads the models in the db
 - Preserves all your data (old string columns renamed to `model_id_string`)
 
-#### Custom Model Names
+### Custom Model Names
 
 If you're using custom model names:
 
-```sh
+```bash
 bin/rails generate ruby_llm:upgrade_to_v1_7 chat:Conversation message:ChatMessage tool_call:MyToolCall model:MyModel
 bin/rails db:migrate
 ```
 
-#### What happens without upgrading
+### What happens without upgrading
 
 Your existing 1.6 app continues working without any changes. You'll see a deprecation warning on Rails boot:
 
@@ -121,11 +181,19 @@ Your existing 1.6 app continues working without any changes. You'll see a deprec
 !!! RubyLLM's legacy acts_as API is deprecated and will be removed in RubyLLM 2.0.0.
 ```
 
-### What's New in 1.7
+You can silence or raise RubyLLM deprecations while upgrading:
+
+```ruby
+RubyLLM.configure do |config|
+  config.deprecation_behavior = :silence # or :raise
+end
+```
+
+## What's New in 1.7
 
 Among other features, the DB-backed model registry replaces simple string fields with proper ActiveRecord associations. Additionally, the `acts_as` helpers have been redesigned with a more Rails-like API.
 
-#### Available with DB-backed Model Registry
+### Available with DB-backed Model Registry
 {: .d-inline-block }
 
 v1.7.0+
@@ -133,7 +201,7 @@ v1.7.0+
 
 **New Rails-like `acts_as` API**
 ```ruby
-# New API uses association names as primary parameters
+# New API uses Rails association names as primary parameters
 acts_as_chat messages: :messages, model: :model
 acts_as_message chat: :chat, tool_calls: :tool_calls, model: :model
 
@@ -171,7 +239,7 @@ Chat.create!(model: "{{ site.models.default_chat }}", provider: "openrouter")  #
 Model.joins(:chats).group(:id).order('COUNT(chats.id) DESC')
 ```
 
-#### Available without Model Registry
+### Available without Model Registry
 {: .d-inline-block }
 
 Legacy mode
@@ -193,14 +261,14 @@ chat.model_id  # => "{{ site.models.openai_standard }}" (string only, no metadat
 - String-based model IDs only
 - Default provider routing
 
-### If You Have Custom Model Names
+## If You Have Custom Model Names
 
 If you're using custom model names (e.g., `Conversation` instead of `Chat`), you may need to update your `acts_as` declarations to the new API:
 
 **Before (1.6):**
 ```ruby
 class Conversation < ApplicationRecord
-  acts_as_chat message_class: 'ChatMessage', tool_call_class: 'AIToolCall'
+  acts_as_chat message_class: 'ChatMessage', tool_call_class: 'AiToolCall'
 end
 
 class ChatMessage < ApplicationRecord
@@ -211,19 +279,20 @@ end
 **After (1.7):**
 ```ruby
 class Conversation < ApplicationRecord
-  acts_as_chat messages: :chat_messages,  # Association name
-               message_class: 'ChatMessage'  # Class name if not inferrable
+  acts_as_chat messages: :chat_messages  # Association name
 end
 
 class ChatMessage < ApplicationRecord
   acts_as_message chat: :conversation,  # Association name
-                  chat_class: 'Conversation'  # Class name if not inferrable
+                  tool_calls: :ai_tool_calls
 end
 ```
 
-### New Chat UI Generator
+The new API follows Rails association inference. Association names determine default foreign keys; class options only change the class name. For example, `tool_calls: :ai_tool_calls` uses `ai_tool_call_id`, while `tool_call_class: 'AiToolCall'` by itself still uses `tool_call_id`.
 
-#### Instant Chat Interface
+## New Chat UI Generator
+
+### Instant Chat Interface
 {: .d-inline-block }
 
 v1.7.0+
@@ -231,7 +300,7 @@ v1.7.0+
 
 Add a fully-functional chat UI to your Rails app with Turbo streaming:
 
-```sh
+```bash
 # Default model names
 bin/rails generate ruby_llm:chat_ui
 
@@ -254,9 +323,9 @@ The chat UI works with your existing Chat and Message models and includes:
 - Code syntax highlighting
 - Responsive design
 
-### Troubleshooting
+## Troubleshooting
 
-#### Config must be set before models load
+### Config must be set before models load
 
 If you're setting `use_new_acts_as = true` in an initializer (like `config/initializers/ruby_llm.rb`), it won't work. Rails loads models before initializers run, causing various issues:
 
@@ -294,11 +363,11 @@ This ensures RubyLLM is configured before ActiveRecord loads your models. Other 
 
 See the [Configuration guide]({% link _introduction/configuration.md %}#initializer-load-timing-issue-with-use_new_acts_as) for more details.
 
-### New Applications
+## New Applications
 
 Fresh installs get the model registry automatically:
 
-```sh
+```bash
 bin/rails generate ruby_llm:install
 bin/rails db:migrate
 

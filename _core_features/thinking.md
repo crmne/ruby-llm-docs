@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Extended thinking
+title: Extended Thinking
 nav_order: 8
 description: Give reasoning models more time and budget to deliberate, with optional access to thinking output
 redirect_from:
@@ -86,6 +86,8 @@ response = chat_record.ask("Explain quantum entanglement")
 response.thinking&.text
 response.thinking_tokens
 ```
+
+`thinking_tokens` is usually a breakdown of generated output work. From v1.15 onward, RubyLLM normalizes `output_tokens` as the billable output bucket, so you should not add `thinking_tokens` to `output_tokens` for cost calculations. When a model has distinct reasoning-token pricing, the cost is exposed separately as `response.cost.thinking`.
 
 ### Upgrading Existing Installations
 

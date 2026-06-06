@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Scale with async
+title: Scale with Async
 nav_order: 2
 description: Handle hundreds of concurrent AI requests on modest hardware. Ruby's async ecosystem meets AI.
 redirect_from:
@@ -223,7 +223,7 @@ async_job: bundle exec async-job-adapter-active_job-server
 Then just run `bin/dev` to start everything.
 
 **Option 2: Separate terminals**
-```sh
+```bash
 # Terminal 1: Redis
 redis-server
 

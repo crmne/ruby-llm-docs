@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Error handling
+title: Error Handling
 nav_order: 3
 description: Learn how to handle errors gracefully when working with AI providers
 redirect_from:
@@ -212,7 +212,7 @@ end
 
 If you encounter unexpected errors or behavior, enable debug logging by setting the `RUBYLLM_DEBUG` environment variable:
 
-```sh
+```bash
 export RUBYLLM_DEBUG=true
 # Now run your Ruby script or Rails server
 ```
