@@ -5,6 +5,9 @@ nav_order: 6
 description: Define reusable AI assistants with class-based configuration, runtime context, and prompt conventions
 ---
 
+# {{ page.title }}
+{: .d-inline-block }
+
 New in 1.12
 {: .label .label-green }
 

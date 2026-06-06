@@ -8,6 +8,8 @@ redirect_from:
   - /upgrading-to-1-7/
 ---
 
+# {{ page.title }}
+
 {{ page.description }}
 {: .fs-6 .fw-300 }
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pathname'
-
 module RubyLLMDocs
   module VersionLabel
     module_function

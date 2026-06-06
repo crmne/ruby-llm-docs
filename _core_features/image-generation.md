@@ -7,6 +7,8 @@ redirect_from:
   - /guides/image-generation
 ---
 
+# {{ page.title }}
+
 {{ page.description }}
 {: .fs-6 .fw-300 }
 

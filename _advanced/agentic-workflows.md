@@ -5,6 +5,8 @@ nav_order: 6
 description: Build workflow-oriented AI systems with plain Ruby orchestration, from routing and parallelization to RAG
 ---
 
+# {{ page.title }}
+
 {{ page.description }}
 {: .fs-6 .fw-300 }
 

@@ -29,6 +29,8 @@ defaults:
     path: ''
   values:
     layout: default
+    jekyll_vitepress:
+      auto_title: false
 - scope:
     type: introduction
   values:

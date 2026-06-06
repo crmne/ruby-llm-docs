@@ -8,6 +8,9 @@ redirect_from:
   - /guides/transcription
 ---
 
+# {{ page.title }}
+{: .d-inline-block }
+
 v1.9.0+
 {: .label .label-green }
 

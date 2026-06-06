@@ -20,8 +20,8 @@
   --home-line: #E0D9D5;
   --home-grid-line: #EBE3DF;
   --home-grid:
-    linear-gradient(var(--home-grid-line) 1px, transparent 1px) 0 0 / 120px 120px,
-    linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px) 0 0 / 120px 120px;
+    linear-gradient(var(--home-grid-line) 1px, transparent 1px) 0 -1px / 120px 120px,
+    linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px) -1px 0 / 120px 120px;
   --home-red: #C9271E;
   --home-red-dark: #B30000;
   --home-shadow: 0 24px 56px rgba(66, 42, 34, 0.08);

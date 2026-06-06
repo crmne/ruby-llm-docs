@@ -8,6 +8,9 @@ redirect_from:
   - /guides/reasoning
 ---
 
+# {{ page.title }}
+{: .d-inline-block }
+
 New in 1.10
 {: .label .label-green }
 
