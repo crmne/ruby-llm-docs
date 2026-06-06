@@ -331,14 +331,14 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .VPHome .home-hero-star-count,
-.VPHome .VPHero .home-hero-downloads-count {
+.VPHome .VPHero .home-hero-badges .VPMetricButtonCount {
   display: inline;
   font-variant-numeric: tabular-nums;
 }
 
 .VPHome .home-hero-star-count[hidden],
-.VPHome .VPHero .home-hero-downloads-count[hidden],
-.VPHome .VPHero .home-hero-downloads-text[hidden] {
+.VPHome .VPHero .home-hero-badges .VPMetricButtonText[hidden],
+.VPHome .VPHero .home-hero-badges .VPMetricButtonCount[hidden] {
   display: none !important;
 }
 
@@ -353,7 +353,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin-top: 22px;
 }
 
-.VPHome .VPHero .home-hero-badge {
+.VPHome .VPHero .home-hero-badge,
+.VPHome .VPHero .home-hero-badges .VPMetricButton {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -372,18 +373,22 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   transition: border-color 0.18s ease, background-color 0.18s ease;
 }
 
-.VPHome .VPHero .home-hero-badge:hover {
+.VPHome .VPHero .home-hero-badge:hover,
+.VPHome .VPHero .home-hero-badges .VPMetricButton:hover {
   border-color: color-mix(in srgb, var(--home-muted) 42%, var(--home-line));
   background: var(--vp-c-bg-elv);
 }
 
 .VPHome .VPHero .home-hero-badge-label,
-.VPHome .VPHero .home-hero-badge-value {
+.VPHome .VPHero .home-hero-badge-value,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonText,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonCount {
   display: inline-flex;
   align-items: center;
 }
 
-.VPHome .VPHero .home-hero-badge-label {
+.VPHome .VPHero .home-hero-badge-label,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonText {
   gap: 6px;
   padding: 0;
   color: var(--home-muted);
@@ -391,7 +396,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   white-space: nowrap;
 }
 
-.VPHome .VPHero .home-hero-badge-value {
+.VPHome .VPHero .home-hero-badge-value,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonCount {
   padding: 0;
   background: transparent;
   color: var(--home-text);
@@ -400,7 +406,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   white-space: nowrap;
 }
 
-.VPHome .VPHero .home-hero-badge-icon {
+.VPHome .VPHero .home-hero-badge-icon,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonIcon {
   display: inline-flex;
   width: 13px;
   height: 13px;
@@ -408,7 +415,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   opacity: 0.72;
 }
 
-.VPHome .VPHero .home-hero-badge-icon svg {
+.VPHome .VPHero .home-hero-badge-icon svg,
+.VPHome .VPHero .home-hero-badges .VPMetricButtonIcon svg {
   display: block;
   width: 100%;
   height: 100%;

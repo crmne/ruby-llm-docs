@@ -437,7 +437,7 @@ bin/rails generate ruby_llm:schema Product
 
     <div class="home-ready-actions">
       <a class="home-button home-button--solid home-button--gem" href="{{ '/getting-started/' | relative_url }}#installation">Install the gem</a>
-      <a class="VPButton medium alt home-hero-metric-button home-hero-star-link" href="https://github.com/crmne/ruby_llm" aria-label="Star crmne/ruby_llm on GitHub" target="_blank" rel="noreferrer noopener" data-github-star-repo="crmne/ruby_llm" data-github-star-show-count="true">
+      <a class="VPButton medium alt home-hero-metric-button" href="https://github.com/crmne/ruby_llm" aria-label="View RubyLLM source on GitHub" target="_blank" rel="noreferrer noopener">
         <span class="vpi-social-github" aria-hidden="true"></span>
         <span>View source</span>
       </a>

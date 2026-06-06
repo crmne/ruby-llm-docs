@@ -26,23 +26,9 @@
 {% assign gem_downloads_config = theme.gem_downloads %}
 {% assign gem_downloads_enabled = false %}
 {% assign gem_downloads_gem = nil %}
-{% assign gem_downloads_url = nil %}
-{% assign gem_downloads_text = 'Downloads' %}
-{% assign gem_downloads_label = 'View gem downloads' %}
-{% assign gem_downloads_show_count = true %}
 {% if gem_downloads_config and gem_downloads_config != false %}
   {% assign gem_downloads_gem = gem_downloads_config.name | default: gem_downloads_config.gem %}
-  {% assign gem_downloads_url = gem_downloads_config.url %}
-  {% if gem_downloads_config.text %}
-    {% assign gem_downloads_text = gem_downloads_config.text %}
-  {% endif %}
-  {% if gem_downloads_config.label %}
-    {% assign gem_downloads_label = gem_downloads_config.label %}
-  {% endif %}
-  {% if gem_downloads_config.show_count == false %}
-    {% assign gem_downloads_show_count = false %}
-  {% endif %}
-  {% if gem_downloads_config.enabled != false and gem_downloads_gem and gem_downloads_url %}
+  {% if gem_downloads_config.enabled != false and gem_downloads_gem %}
     {% assign gem_downloads_enabled = true %}
   {% endif %}
 {% endif %}
@@ -180,10 +166,10 @@
               {% endif %}
               {% if github_star_enabled %}
                 <div class="action home-hero-metric-action">
-                  <a class="VPButton medium alt home-hero-metric-button home-hero-star-link" href="{{ github_star_url }}" aria-label="Star {{ github_star_repository }} on GitHub" target="_blank" rel="noreferrer noopener" data-github-star-repo="{{ github_star_repository | escape }}" data-github-star-show-count="{{ github_star_show_count }}">
-                    <span class="vpi-social-github" aria-hidden="true"></span>
+                  <a class="VPButton medium alt VPMetricButton home-hero-metric-button home-hero-star-link" href="{{ github_star_url }}" aria-label="Star {{ github_star_repository }} on GitHub" target="_blank" rel="noreferrer noopener" data-github-star-repo="{{ github_star_repository | escape }}" data-github-star-show-count="{{ github_star_show_count }}">
+                    <span class="VPMetricButtonIcon vpi-social-github" aria-hidden="true"></span>
                     <span>{{ github_star_text }}</span>
-                    <span class="home-hero-star-count" aria-hidden="true"{% unless github_star_show_count %} hidden{% endunless %}>{% if github_star_show_count %}...{% endif %}</span>
+                    <span class="home-hero-star-count VPMetricButtonCount" data-vp-github-star-count aria-hidden="true"{% unless github_star_show_count %} hidden{% endunless %}>{% if github_star_show_count %}...{% endif %}</span>
                   </a>
                 </div>
               {% endif %}
@@ -193,17 +179,7 @@
           {% if gem_downloads_enabled or github_trending_enabled %}
             <div class="home-hero-badges" aria-label="Project badges">
               {% if gem_downloads_enabled %}
-                <a class="home-hero-badge home-hero-downloads-badge home-hero-downloads-link" href="{{ gem_downloads_url }}" aria-label="{{ gem_downloads_label | escape }}" target="_blank" rel="noreferrer noopener" data-rubygems-downloads-gem="{{ gem_downloads_gem | escape }}" data-rubygems-downloads-show-count="{{ gem_downloads_show_count }}" data-rubygems-downloads-label="{{ gem_downloads_label | escape }}">
-                  <span class="home-hero-badge-label home-hero-downloads-badge-label">
-                    <span class="home-hero-badge-icon home-hero-downloads-icon" aria-hidden="true">
-                      <svg viewBox="0 0 16 16" focusable="false">
-                        <path d="M8 1.75a.75.75 0 0 1 .75.75v5.19l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 0 1 1.06-1.06l1.72 1.72V2.5A.75.75 0 0 1 8 1.75ZM3.75 11a.75.75 0 0 1 .75.75v1h7v-1a.75.75 0 0 1 1.5 0v1.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.5a.75.75 0 0 1 .75-.75Z"></path>
-                      </svg>
-                    </span>
-                    <span class="home-hero-downloads-text"{% if gem_downloads_show_count %} hidden{% endif %}>{{ gem_downloads_text }}</span>
-                  </span>
-                  <strong class="home-hero-badge-value home-hero-downloads-count"{% unless gem_downloads_show_count %} hidden{% endunless %}>{% if gem_downloads_show_count %}... downloads{% endif %}</strong>
-                </a>
+                {% include rubygems_downloads_button.html %}
               {% endif %}
               {% if github_trending_enabled %}
                 <a class="home-hero-badge home-hero-trending-badge" href="{{ github_trending_url }}" aria-label="{{ github_trending_label | escape }}{% if github_trending_value %}: {{ github_trending_value | escape }}{% endif %}" target="_blank" rel="noreferrer noopener">
