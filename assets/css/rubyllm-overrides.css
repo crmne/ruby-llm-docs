@@ -532,8 +532,16 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-demo-section {
   position: relative;
   z-index: 3;
+  --home-demo-band-start: min(322.5px, calc(27.95vw + 10.6px));
   padding-top: 24px;
   padding-bottom: 112px;
+  background:
+    var(--home-grid),
+    linear-gradient(
+      to bottom,
+      transparent 0 var(--home-demo-band-start),
+      var(--home-band-bg) var(--home-demo-band-start)
+    );
 }
 
 .home-down-icon {
@@ -1321,16 +1329,12 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin-top: -108px;
   padding-top: 116px;
   padding-bottom: 76px;
-  background: transparent;
+  background: var(--home-grid), var(--home-band-bg);
 }
 
 .home-models-section::before {
-  content: "";
-  position: absolute;
-  inset: -412px 0 0;
-  z-index: -1;
-  background: var(--home-grid), var(--home-band-bg);
-  pointer-events: none;
+  display: none;
+  content: none;
 }
 
 .home-models-note {
@@ -2278,7 +2282,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .VPHome .VPHero .hero-logo-cluster {
-    margin: 92px auto 36px;
+    margin: 32px auto 32px;
   }
 
   .VPHome .VPHero .hero-logo {
@@ -2306,6 +2310,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   .home-demo-section {
     padding-top: 0;
     z-index: 3;
+    --home-demo-band-start: min(298.5px, calc(27.95vw - 10px));
   }
 
   .home-models-section {
