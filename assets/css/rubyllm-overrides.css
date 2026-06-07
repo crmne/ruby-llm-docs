@@ -909,11 +909,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-code-grid > .vp-code-block-title .vp-code-block-title-text,
 .home-code-grid > .home-code-card:not(.has-title)::before {
-  min-height: 36px;
+  min-height: 42px;
   color: var(--home-code-comment);
-  font-family: var(--vp-font-family-mono);
-  font-size: 13px;
-  font-weight: 700;
+  font-family: var(--vp-font-family-base);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .home-code-grid > .home-code-card:not(.has-title)::before {
@@ -994,6 +994,26 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   line-height: 1.6 !important;
   white-space: pre-wrap !important;
   overflow-wrap: anywhere;
+}
+
+.VPHome .vp-doc .home-code-card > button.copy {
+  top: 9px;
+  right: 9px;
+  width: 28px;
+  height: 28px;
+  background-size: 15px;
+}
+
+.VPHome .vp-doc .home-code-card > button.copy.copied,
+.VPHome .vp-doc .home-code-card > button.copy:hover.copied {
+  border-radius: 0 4px 4px 0;
+}
+
+.VPHome .vp-doc .home-code-card > button.copy.copied::before,
+.VPHome .vp-doc .home-code-card > button.copy:hover.copied::before {
+  height: 28px;
+  padding: 0 8px;
+  font-size: 11px;
 }
 
 .home-code-card code span {
@@ -1095,7 +1115,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-code-cta p {
-  margin: 0;
+  max-width: 760px;
+  margin: 0 auto;
   color: var(--home-text);
   font-size: 18px;
   font-weight: 400;
@@ -1105,7 +1126,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-code-cta p a {
   color: var(--vp-c-brand-1);
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -1736,38 +1757,23 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-footer {
-  min-height: 148px;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  min-height: 132px;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
   padding: 34px 40px;
   border-top: 1px solid var(--home-line);
   background: var(--home-grid), var(--home-band-bg);
 }
 
 .home-footer-inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
   width: min(1360px, 100%);
   margin: 0 auto;
-}
-
-.home-footer-logo {
-  justify-self: start;
-}
-
-.home-footer-logo img {
-  display: block;
-  width: 286px;
-  height: auto;
-}
-
-.home-footer-logo-dark,
-.dark .home-footer-logo-light {
-  display: none !important;
-}
-
-.dark .home-footer-logo-dark {
-  display: block !important;
 }
 
 .home-footer-credit {
@@ -1810,24 +1816,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   font-weight: 400;
   line-height: 1.3;
   white-space: nowrap;
-}
-
-.home-footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 24px;
-  font-size: 13px;
-}
-
-.home-footer-nav a {
-  color: var(--home-muted);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.home-footer-nav a:hover {
-  color: var(--vp-c-brand-1);
 }
 
 .dark {
@@ -2162,11 +2150,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     font-size: 14px;
   }
 
-  .home-footer-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px 20px;
-  }
 }
 
 /* Guide chrome stays stock; custom model tables use the VitePress theme tokens. */
@@ -2510,37 +2493,17 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-footer {
-    min-height: 260px;
+    min-height: 168px;
     padding: 42px 18px 34px;
   }
 
   .home-footer-inner {
     display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .home-footer-logo {
-    order: 1;
-  }
-
-  .home-footer-logo img {
-    width: 214px;
   }
 
   .home-footer-credit {
-    order: 3;
     max-width: 340px;
     font-size: 14px;
     line-height: 1.45;
-  }
-
-  .home-footer-nav {
-    order: 2;
-    width: 100%;
-    justify-content: center;
-    gap: 12px 18px;
-    padding: 0;
-    font-size: 14px;
   }
 }

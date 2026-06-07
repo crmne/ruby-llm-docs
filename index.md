@@ -248,7 +248,7 @@ bin/rails generate ruby_llm:chat_ui # http://localhost:3000/chats
 {: .home-code-card data-title="Add the optional chat UI" data-href="{% link _advanced/rails.md %}#adding-a-chat-ui" data-doc-title="Generating a Chat UI" }
 
 ```ruby
-chat = Chat.create! model: "claude-sonnet-4"
+chat = Chat.create! model: "claude-opus-4-7"
 chat.ask "What's in this file?", with: "report.pdf"
 ```
 {: .home-code-card data-title="Persist chats with ActiveRecord, without changing the API" data-href="{% link _advanced/rails.md %}#core-models-and-acts_as-methods" data-doc-title="Core Models and acts_as Methods" }
@@ -447,11 +447,6 @@ bin/rails generate ruby_llm:schema Product
 
 <footer class="home-footer">
   <div class="home-footer-inner">
-    <a class="home-footer-logo" href="{{ '/' | relative_url }}" aria-label="RubyLLM home">
-      <img class="home-footer-logo-light" src="{{ '/assets/images/logotype.svg' | relative_url }}" alt="RubyLLM">
-      <img class="home-footer-logo-dark" src="{{ '/assets/images/logotype_dark.svg' | relative_url }}" alt="RubyLLM">
-    </a>
-
     <p class="home-footer-credit">
       Brought to you by <a href="https://paolino.me" target="_blank" rel="noreferrer">Carmine Paolino</a><br>
       maker of
@@ -460,12 +455,5 @@ bin/rails generate ruby_llm:schema Product
       </a>
       <small>Fully private work AI</small>
     </p>
-
-    <nav class="home-footer-nav" aria-label="Footer">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/getting-started/' | relative_url }}">Guide</a>
-      <a href="https://github.com/crmne/ruby_llm" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://paolino.me" target="_blank" rel="noreferrer">Blog</a>
-    </nav>
   </div>
 </footer>
