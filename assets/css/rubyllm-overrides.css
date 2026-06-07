@@ -51,15 +51,6 @@
   color: var(--vp-c-brand-1);
 }
 
-html:has(.VPHome) {
-  scrollbar-width: none;
-}
-
-html:has(.VPHome)::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
 .VPNav {
   position: sticky;
   top: var(--vp-layout-top-height, 0px);
