@@ -1,8 +1,10 @@
-- title: Guide
+- title: Guides
   url: /getting-started/
   collections:
     - introduction
     - core_features
     - advanced
+- title: Models
+  url: /available-models/
 - title: Blog
   url: https://paolino.me
