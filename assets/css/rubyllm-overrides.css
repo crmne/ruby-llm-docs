@@ -422,6 +422,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .home-button--guides::before,
 .home-button--gem::before,
+.home-button--rails::before,
 .home-button--examples::before {
   content: "";
   flex: 0 0 auto;
@@ -439,6 +440,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-button--gem::before {
   -webkit-mask: url("../images/home/icons/ruby-diamond.svg") center / contain no-repeat;
   mask: url("../images/home/icons/ruby-diamond.svg") center / contain no-repeat;
+}
+
+.home-button--rails::before {
+  -webkit-mask: url("../images/home/icons/rails.svg") center / contain no-repeat;
+  mask: url("../images/home/icons/rails.svg") center / contain no-repeat;
 }
 
 .home-button--examples::before {

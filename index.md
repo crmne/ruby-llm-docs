@@ -272,7 +272,7 @@ bin/rails generate ruby_llm:schema Product
       and more.
     </p>
     <div class="home-code-cta-actions">
-      <a class="home-button home-button--solid" href="{% link _advanced/rails.md %}">Read the Rails guide</a>
+      <a class="home-button home-button--solid home-button--rails" href="{% link _advanced/rails.md %}">Read the Rails guide</a>
     </div>
   </div>
 </section>
