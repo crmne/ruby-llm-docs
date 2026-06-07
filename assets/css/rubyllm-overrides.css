@@ -1971,7 +1971,6 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
     font-size: 38px;
   }
 
-  .home-code-grid,
   .home-love-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
