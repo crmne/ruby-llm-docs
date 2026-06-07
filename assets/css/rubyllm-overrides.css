@@ -890,6 +890,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   border: 1px solid var(--home-line);
   border-radius: 8px;
   background: var(--home-code-bg);
+  box-shadow: 0 10px 24px rgba(66, 42, 34, 0.045);
   text-align: left;
 }
 
@@ -1874,9 +1875,9 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .dark .home-demo-frame {
-  border: 1px solid #4A4947;
+  border-color: color-mix(in srgb, var(--home-red) 16%, var(--home-line));
   background: #232323;
-  box-shadow: 0 42px 110px rgba(0, 0, 0, 0.38);
+  box-shadow: 0 0 48px rgba(255, 67, 61, 0.12);
 }
 
 .dark .home-demo-poster {
@@ -1927,6 +1928,14 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .dark .home-love-card,
 .dark .home-compare-dialog {
   background: var(--home-card-bg);
+}
+
+.dark .home-code-grid > .home-code-card,
+.dark .home-code-grid > .vp-code-block-title {
+  border-color: color-mix(in srgb, var(--home-red) 16%, var(--home-line));
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(255, 67, 61, 0.11);
 }
 
 .dark .home-love-nav {
