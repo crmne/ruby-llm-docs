@@ -51,17 +51,6 @@
   color: var(--vp-c-brand-1);
 }
 
-.VPNav {
-  position: sticky;
-  top: var(--vp-layout-top-height, 0px);
-}
-
-@media (min-width: 960px) {
-  .VPNav {
-    position: fixed;
-  }
-}
-
 html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin-right: 0;
   padding-right: 0;
