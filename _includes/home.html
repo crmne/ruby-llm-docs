@@ -154,7 +154,7 @@
                 {% endif %}
                 <div class="action">
                   <a
-                    class="VPButton medium {{ action.theme | default: 'brand' }}"
+                    class="VPButton medium {{ action.theme | default: 'brand' }}{% if action.class %} {{ action.class }}{% endif %}"
                     href="{% if action_external %}{{ action_href }}{% else %}{{ action_href | relative_url }}{% endif %}"
                     {% if action_target %}target="{{ action_target }}"{% endif %}
                     {% if action_rel %}rel="{{ action_rel }}"{% endif %}

@@ -17,7 +17,8 @@ hero:
   tagline: 'A single, <em>beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every AI workflow you can think of.'
   actions:
     - theme: brand
-      text: Start coding
+      class: home-button--guides
+      text: Read the guides
       link: /getting-started/
 ---
 
@@ -63,7 +64,7 @@ Created sample hooks in .kamal/hooks
 
 <section class="home-section home-band home-models-section">
   <div class="home-section-inner">
-    <h2 class="home-heading">A single API for all providers</h2>
+    <h2 class="home-heading">A single interface for all providers</h2>
     <p class="home-lead">
       Integrate with 13 major providers and all OpenAI-compatible ones. Use local models through Ollama and GPUStack. Without changing your code.
     </p>
@@ -99,8 +100,7 @@ chat.say "Hello!"
       All with a comprehensive, refreshable
       <a href="{{ '/available-models/' | relative_url }}">model registry</a>,
       so you can
-      <a href="{{ '/chat/' | relative_url }}#tracking-token-usage">price your app</a>
-      before it reaches production.
+      <a href="{{ '/chat/' | relative_url }}#tracking-token-usage">track costs.</a>
     </p>
   </div>
 </section>
@@ -219,7 +219,7 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
       and much more.
     </p>
     <div class="home-code-cta-actions">
-      <a class="home-button home-button--solid" href="{% link _introduction/getting-started.md %}">Read the guides</a>
+      <a class="home-button home-button--solid home-button--guides" href="{% link _introduction/getting-started.md %}">Read the guides</a>
     </div>
   </div>
 </section>
@@ -228,7 +228,7 @@ response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "pr
   <div class="home-section-inner">
     <h2 class="home-heading">Feels at home in Rails</h2>
     <p class="home-lead">
-      Add database-backed conversations, model metadata, and an optional Hotwire chat UI with Rails generators, without changing the API.
+      Persist chats with ActiveRecord, generate a Hotwire chat UI, all without learning a new interface.
     </p>
   </div>
 
@@ -251,7 +251,7 @@ bin/rails generate ruby_llm:chat_ui # http://localhost:3000/chats
 chat = Chat.create! model: "claude-opus-4-7"
 chat.ask "What's in this file?", with: "report.pdf"
 ```
-{: .home-code-card data-title="Persist chats with ActiveRecord, without changing the API" data-href="{% link _advanced/rails.md %}#core-models-and-acts_as-methods" data-doc-title="Core Models and acts_as Methods" }
+{: .home-code-card data-title="Persist chats with ActiveRecord" data-href="{% link _advanced/rails.md %}#core-models-and-acts_as-methods" data-doc-title="Core Models and acts_as Methods" }
 
 ```sh
 bin/rails generate ruby_llm:agent Support
@@ -281,7 +281,7 @@ bin/rails generate ruby_llm:schema Product
   <div class="home-section-inner">
     <h2 class="home-heading">You're already using RubyLLM</h2>
     <p class="home-lead">
-      Used by hundreds of companies, serving millions of users
+      Trusted by hundreds of companies, serving millions of users
     </p>
 
     <div class="home-company-logos" aria-label="Companies using RubyLLM">
@@ -429,6 +429,12 @@ bin/rails generate ruby_llm:schema Product
       <button class="home-love-nav home-love-nav--next" type="button" data-love-next aria-label="Next quotes"><span aria-hidden="true"></span></button>
     </nav>
   </div>
+
+  <p class="home-small-note">
+    Using RubyLLM?
+    <a href="https://tally.so/r/3Na02p" target="_blank" rel="noreferrer">Share your story!</a>
+    Takes 5 minutes.
+  </p>
 </section>
 
 <section class="home-section home-ready-section">

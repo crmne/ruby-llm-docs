@@ -141,7 +141,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   position: relative;
   z-index: 1;
   overflow: visible;
-  padding: 144px 24px 104px;
+  padding: 120px 24px 84px;
 }
 
 .VPHome .VPHero::before {
@@ -420,6 +420,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   background: color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent);
 }
 
+.home-button--guides::before,
 .home-button--gem::before,
 .home-button--examples::before {
   content: "";
@@ -428,6 +429,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   height: 18px;
   margin-right: 8px;
   background: currentColor;
+}
+
+.home-button--guides::before {
+  -webkit-mask: url("../images/home/icons/book.svg") center / contain no-repeat;
+  mask: url("../images/home/icons/book.svg") center / contain no-repeat;
 }
 
 .home-button--gem::before {
@@ -1590,12 +1596,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-love-section .home-small-note {
-  position: absolute;
-  right: 24px;
-  bottom: 64px;
-  left: 24px;
-  z-index: 1;
-  margin-top: 0;
+  margin-top: 42px;
 }
 
 .home-love-card::before {
@@ -1959,7 +1960,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .VPHome .VPHero {
-    padding: 64px 18px 76px;
+    padding: 52px 18px 62px;
   }
 
   .VPHome .VPHero .hero-logo-cluster {
@@ -2276,8 +2277,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 @media (max-width: 760px) {
   .VPHome .VPHero {
-    padding-top: 68px;
-    padding-bottom: 72px;
+    padding-top: 54px;
+    padding-bottom: 60px;
     z-index: 4;
   }
 
@@ -2455,9 +2456,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-love-section .home-small-note {
-    right: 18px;
-    bottom: 42px;
-    left: 18px;
+    margin-top: 30px;
   }
 
   .home-footer {
