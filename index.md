@@ -13,7 +13,7 @@ hero:
     alt: RubyLLM
     width: 320
     height: 110
-  text: 'Build AI features <span class="home-hero-highlight">the Ruby way<span class="home-hero-caret" aria-hidden="true"></span></span>'
+  text: 'Build AI features <span class="home-hero-highlight">the Ruby way</span>'
   tagline: 'A single, <em>beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every AI workflow you can think of.'
   actions:
     - theme: brand
