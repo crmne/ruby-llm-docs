@@ -461,5 +461,6 @@ bin/rails generate ruby_llm:schema Product
       </a>
       <small>Fully private work AI</small>
     </p>
+    <p class="home-footer-credit">Docs built with <a href="https://jekyll-vitepress.dev">Jekyll Vitepress</a></p>
   </div>
 </footer>
