@@ -1,6 +1,7 @@
 ---
 - name: Chat with Work
-  src: "https://chatwithwork.com/logotype.svg"
+  light: "https://chatwithwork.com/logotype.svg"
+  dark: "https://chatwithwork.com/logotype-dark.svg"
 - name: Missive
   src: "/assets/images/companies/survey-2026/missive.svg"
 - name: Chatwoot

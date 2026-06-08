@@ -291,6 +291,19 @@ bin/rails generate ruby_llm:schema Product
           <img class="logo-layer-color" src="{{ company.mark | relative_url }}" alt="" aria-hidden="true">
           <img class="logo-layer-text" src="{{ company.text | relative_url }}" alt="{{ company.name }}">
         </div>
+        {% elsif company.light and company.dark %}
+        {% assign company_logo_light_external = false %}
+        {% if company.light contains '://' or company.light contains 'data:' %}
+          {% assign company_logo_light_external = true %}
+        {% endif %}
+        {% assign company_logo_dark_external = false %}
+        {% if company.dark contains '://' or company.dark contains 'data:' %}
+          {% assign company_logo_dark_external = true %}
+        {% endif %}
+        <div class="home-company-logo home-company-logo--theme-swap" data-company="{{ company.name | slugify }}">
+          <img class="logo-light" src="{% if company_logo_light_external %}{{ company.light }}{% else %}{{ company.light | relative_url }}{% endif %}" alt="{{ company.name }}">
+          <img class="logo-dark" src="{% if company_logo_dark_external %}{{ company.dark }}{% else %}{{ company.dark | relative_url }}{% endif %}" alt="{{ company.name }}">
+        </div>
         {% else %}
         <div class="home-company-logo" data-company="{{ company.name | slugify }}">
           <img src="{{ company.src | relative_url }}" alt="{{ company.name }}">
@@ -457,10 +470,8 @@ bin/rails generate ruby_llm:schema Product
       Brought to you by <a href="https://paolino.me" target="_blank" rel="noreferrer">Carmine Paolino</a><br>
       maker of
       <a class="home-footer-chat-with-work" href="https://chatwithwork.com" target="_blank" rel="noreferrer" aria-label="Chat with Work">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://chatwithwork.com/logotype-dark.svg">
-          <img src="https://chatwithwork.com/logotype.svg" alt="Chat with Work">
-        </picture>
+        <img class="home-footer-chat-with-work-logo-light" src="https://chatwithwork.com/logotype.svg" alt="Chat with Work">
+        <img class="home-footer-chat-with-work-logo-dark" src="https://chatwithwork.com/logotype-dark.svg" alt="Chat with Work">
       </a>
       <small>Fully private work AI</small>
     </p>

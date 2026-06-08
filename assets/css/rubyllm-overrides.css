@@ -788,11 +788,26 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   opacity: 0.7;
 }
 
+.home-company-logo--theme-swap {
+  position: relative;
+}
+
+.home-company-logo--theme-swap .logo-dark {
+  display: none;
+}
+
+.dark .home-company-logo--theme-swap .logo-light {
+  display: none;
+}
+
+.dark .home-company-logo--theme-swap .logo-dark {
+  display: block;
+}
+
 /* In dark mode, flip the monochrome/dark logos to white so they stay legible
    on the dark band — mirroring how the provider currentColor logos behave.
    Brand-colored logos (Shopify, Chatwoot, Hunter, Build Canada, OpenRegulatory,
    GrantHero, Intuition) are intentionally left in their brand colors. */
-.dark .home-company-logo[data-company="chat-with-work"] img,
 .dark .home-company-logo[data-company="37signals"] img,
 .dark .home-company-logo[data-company="serpapi"] img,
 .dark .home-company-logo[data-company="missive"] img,
@@ -1758,6 +1773,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   width: 148px;
   height: 28px;
   vertical-align: -9px;
+  line-height: 0;
+}
+
+.home-footer-chat-with-work-logo-dark {
+  display: none;
 }
 
 .home-footer-chat-with-work img {
@@ -1766,8 +1786,12 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   height: auto;
 }
 
-.dark .home-footer-chat-with-work img {
-  filter: brightness(0) invert(1);
+.dark .home-footer-chat-with-work-logo-light {
+  display: none;
+}
+
+.dark .home-footer-chat-with-work-logo-dark {
+  display: block;
 }
 
 .home-footer-credit small {
