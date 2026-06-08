@@ -457,7 +457,10 @@ bin/rails generate ruby_llm:schema Product
       Brought to you by <a href="https://paolino.me" target="_blank" rel="noreferrer">Carmine Paolino</a><br>
       maker of
       <a class="home-footer-chat-with-work" href="https://chatwithwork.com" target="_blank" rel="noreferrer" aria-label="Chat with Work">
-        <img src="{{ '/assets/images/chat-with-work/logotype.svg' | relative_url }}" alt="Chat with Work">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://chatwithwork.com/logotype-dark.svg">
+          <img src="https://chatwithwork.com/logotype.svg" alt="Chat with Work">
+        </picture>
       </a>
       <small>Fully private work AI</small>
     </p>
