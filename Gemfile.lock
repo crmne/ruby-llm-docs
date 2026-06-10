@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/crmne/jekyll-vitepress-theme
+  revision: e2e47753e7757c95ff65dd3c5fdfa6e9c038ff96
+  specs:
+    jekyll-vitepress-theme (1.6.0)
+      jekyll (>= 4.3, < 5.0)
+      rouge (>= 3.0, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,9 +86,6 @@ GEM
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
-    jekyll-vitepress-theme (1.6.0)
-      jekyll (>= 4.3, < 5.0)
-      rouge (>= 3.0, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     json (2.19.8)
@@ -190,7 +195,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.3)
   jekyll-redirect-from (~> 0.16)
-  jekyll-vitepress-theme
+  jekyll-vitepress-theme!
   rubocop
   webrick (~> 1.8)
 
@@ -230,7 +235,7 @@ CHECKSUMS
   jekyll (4.4.1) sha256=4c1144d857a5b2b80d45b8cf5138289579a9f8136aadfa6dd684b31fe2bc18c1
   jekyll-redirect-from (0.16.0) sha256=6635cae569ef9b0f90ffb71ec014ba977177fafb44d32a2b0526288d4d9be6db
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
-  jekyll-vitepress-theme (1.6.0) sha256=2436e73631012b59688597971cb65b2a0413ab310d6c8c5ab94bd38401810554
+  jekyll-vitepress-theme (1.6.0)
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1
   json (2.19.8) sha256=6354310fd76ef69b87d5bd1f38b40d730613baf90b6803d2d0a48f618d32dfaa
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
