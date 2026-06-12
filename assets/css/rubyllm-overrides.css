@@ -18,10 +18,14 @@
   --home-muted: #5C5353;
   --home-soft: #796B67;
   --home-line: #E0D9D5;
-  --home-grid-line: #EBE3DF;
+  --home-grid-line: #F0E9E5;
   --home-grid:
     linear-gradient(var(--home-grid-line) 1px, transparent 1px) 0 -1px / 120px 120px,
     linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px) -1px 0 / 120px 120px;
+  /* Band sections use a translucent tint instead of the opaque --home-band-bg so
+     the single page-level grid on .VPHome::before shows through and stays aligned
+     across sections. The tint must compose over --home-bg to ≈ --home-band-bg. */
+  --home-band-tint: rgba(240, 231, 224, 0.6);
   --home-red: #C9271E;
   --home-red-dark: #B30000;
   --home-shadow: 0 24px 56px rgba(66, 42, 34, 0.08);
@@ -108,8 +112,13 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 @media (min-width: 768px) {
   .VPNavBarSearchButton {
+    min-width: 180px;
     background-color: var(--vp-c-default-2);
     color: var(--vp-c-text-2);
+  }
+
+  .VPNavBarSearchButton .keys {
+    margin-left: auto;
   }
 
   .VPNavBarSearchButton:hover {
@@ -472,7 +481,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .home-band {
-  background: var(--home-grid), var(--home-band-bg);
+  background: var(--home-band-tint);
 }
 
 .home-heading,
@@ -535,13 +544,11 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   --home-demo-band-start: min(322.5px, calc(27.95vw + 10.6px));
   padding-top: 24px;
   padding-bottom: 112px;
-  background:
-    var(--home-grid),
-    linear-gradient(
-      to bottom,
-      transparent 0 var(--home-demo-band-start),
-      var(--home-band-bg) var(--home-demo-band-start)
-    );
+  background: linear-gradient(
+    to bottom,
+    transparent 0 var(--home-demo-band-start),
+    var(--home-band-tint) var(--home-demo-band-start)
+  );
 }
 
 .home-down-icon {
@@ -755,7 +762,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-companies-section {
   padding-top: 112px;
   padding-bottom: 130px;
-  background: var(--home-grid), var(--home-bg);
+  background: transparent;
 }
 
 .home-company-logos {
@@ -1341,10 +1348,18 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 .home-models-section {
   position: relative;
   z-index: 1;
-  margin-top: -108px;
+  --home-models-overlap: 108px;
+  margin-top: calc(-1 * var(--home-models-overlap));
   padding-top: 116px;
   padding-bottom: 76px;
-  background: var(--home-grid), var(--home-band-bg);
+  /* The strip pulled up under the demo section already gets the band tint from
+     the demo section's background; staying transparent there keeps the
+     translucent tints from stacking into a darker seam. */
+  background: linear-gradient(
+    to bottom,
+    transparent 0 var(--home-models-overlap),
+    var(--home-band-tint) var(--home-models-overlap)
+  );
 }
 
 .home-models-section::before {
@@ -1741,7 +1756,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   margin-left: calc(50% - 50vw);
   padding: 34px 40px;
   border-top: 1px solid var(--home-line);
-  background: var(--home-grid), var(--home-band-bg);
+  background: var(--home-band-tint);
 }
 
 .home-footer-inner {
@@ -1821,11 +1836,12 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   --home-code-string: #B8BB26;
   --home-code-symbol: #83A598;
   --home-text: #9E9995;
-  --home-heading: #D5D0CC;
+  --home-heading: #ECE9E6;
   --home-muted: #8F8A86;
   --home-soft: #7C7773;
   --home-line: #30302F;
-  --home-grid-line: #2A2A29;
+  --home-grid-line: #242423;
+  --home-band-tint: rgba(22, 22, 21, 0.6);
   --home-red: #FF433D;
   --home-red-dark: #D52E2A;
   --home-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
@@ -1861,9 +1877,9 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 .dark .home-demo-frame {
-  border-color: color-mix(in srgb, var(--home-red) 16%, var(--home-line));
+  border-color: color-mix(in srgb, var(--home-red) 8%, var(--home-line));
   background: #232323;
-  box-shadow: 0 0 48px rgba(255, 67, 61, 0.12);
+  box-shadow: 0 34px 78px rgba(0, 0, 0, 0.42);
 }
 
 .dark .home-demo-poster {
@@ -1900,6 +1916,23 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   color: var(--home-text);
 }
 
+.dark .VPHome .VPHero .text,
+.dark .home-compare-dialog h3,
+.dark .vp-doc .home-compare-dialog h3,
+.dark .home-love-card header strong {
+  color: var(--home-heading);
+}
+
+/* Docs headings inherit --vp-c-text-1, which is tuned for body copy and reads
+   muted at heading sizes in dark mode. h1 keeps its brand color. */
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4,
+.dark .vp-doc h5,
+.dark .vp-doc h6 {
+  color: var(--home-heading);
+}
+
 .dark .home-love-card header span {
   background: #232323;
 }
@@ -1918,10 +1951,8 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 
 .dark .home-code-grid > .home-code-card,
 .dark .home-code-grid > .vp-code-block-title {
-  border-color: color-mix(in srgb, var(--home-red) 16%, var(--home-line));
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.34),
-    0 0 34px rgba(255, 67, 61, 0.11);
+  border-color: color-mix(in srgb, var(--home-red) 8%, var(--home-line));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
 }
 
 .dark .home-love-nav {
@@ -1980,7 +2011,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
 }
 
 @media (max-width: 760px) {
-  .VPHome {
+  .VPHome::before {
     background-size: 74px 74px;
   }
 
@@ -2340,7 +2371,7 @@ html:has(.VPHome) .VPNavBar > .wrapper > .container > .content > .content-body {
   }
 
   .home-models-section {
-    margin-top: -36px;
+    --home-models-overlap: 36px;
   }
 
   .home-demo-desktop-break {
