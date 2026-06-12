@@ -1,7 +1,7 @@
 ---
 title: RubyLLM
-description: One beautiful API for ChatGPT, Claude, Gemini, and more. Chat, images,
-  embeddings, tools.
+description: Ruby's AI agent framework. One delightful API for OpenAI, Anthropic,
+  Gemini, Bedrock, and every major provider. Agents, chat, RAG, multimodal, Rails.
 lang: en-US
 timezone: Europe/Berlin
 markdown: kramdown

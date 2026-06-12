@@ -2,7 +2,7 @@
 layout: home
 title: Home
 nav_order: 1
-description: Build AI features the Ruby way
+description: Ruby's AI agent framework. One delightful API for OpenAI, Anthropic, Gemini, Bedrock, and every major provider. Agents, chat, RAG, multimodal, Rails.
 permalink: /
 redirect_from:
   - /guides/
@@ -14,7 +14,7 @@ hero:
     width: 320
     height: 110
   text: 'Build AI features <span class="home-hero-highlight">the Ruby way</span>'
-  tagline: 'A single, <em>beautiful</em> Ruby framework for all major AI providers. Easily build chatbots, AI agents, RAG applications, content generators, and every AI workflow you can think of.'
+  tagline: 'One <em>delightful</em> Ruby framework for every major AI provider. Build AI agents, chatbots, RAG apps, and multimodal workflows in beautiful, expressive code.'
   actions:
     - theme: brand
       class: home-button--guides
