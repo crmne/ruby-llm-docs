@@ -2,7 +2,7 @@
 layout: home
 title: Home
 nav_order: 1
-description: 'RubyLLM: a Ruby framework for AI across every major provider. Start with a one-line chat, grow into agents, tools, RAG, and agentic workflows in Ruby and Rails.'
+description: 'RubyLLM: a delightful Ruby framework for every major AI provider. Switch models without rewriting your code. Agents, Tools, RAG, Agentic Workflows, at home in Rails.'
 permalink: /
 redirect_from:
   - /guides/
@@ -14,16 +14,12 @@ hero:
     width: 320
     height: 110
   text: 'Build AI features <span class="home-hero-highlight">the Ruby way</span>'
-  tagline: 'Start with a one-line chat and grow into agents, tools, RAG, complex agentic workflows, and more. One AI framework across all major providers, <em>without rewriting your code</em>.'
+  tagline: 'RubyLLM is a delightful Ruby framework that talks to every major AI provider, letting you switch models <em>without rewriting your code</em>. Start with a single call and scale to production with Chats, Agents, Tools, RAG, and Agentic Workflows. Feels at home in Rails.'
   actions:
     - theme: brand
       class: home-button--guides
       text: Read the guides
       link: /getting-started/
-    - theme: alt
-      class: home-button--gem
-      text: gem install ruby_llm
-      link: '/getting-started/#installation'
 ---
 
 <section id="demo" class="home-section home-demo-section">

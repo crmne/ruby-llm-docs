@@ -1,7 +1,7 @@
 ---
-current: v1.15.0
+current: v2.0
 items:
-  - title: v1.15.0 (current)
+  - title: v2.0 (current)
     url: index.html
   - title: Changelog
     url: https://github.com/crmne/ruby_llm/releases
