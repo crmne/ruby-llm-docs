@@ -1,15 +1,11 @@
 ---
 layout: default
 title: Agents
-nav_order: 6
+nav_order: 2
 description: Define reusable AI assistants with class-based configuration, runtime context, and prompt conventions
 ---
 
 # {{ page.title }}
-{: .d-inline-block }
-
-New in 1.12
-{: .label .label-green }
 
 {{ page.description }}
 {: .fs-6 .fw-300 }
@@ -86,6 +82,7 @@ For example, `model` maps to `RubyLLM.chat(model:, provider:, ...)`, `tools` map
 * `instructions` (see [Chat Basics]({% link _core_features/chat.md %}))
 * `temperature` (see [Chat Basics]({% link _core_features/chat.md %}))
 * `thinking` (see [Thinking]({% link _core_features/thinking.md %}))
+* `citations` (see [Citations]({% link _core_features/citations.md %}))
 * `params` (see [Chat Basics]({% link _core_features/chat.md %}))
 * `headers` (see [Chat Basics]({% link _core_features/chat.md %}))
 * `schema` (see [Chat Basics]({% link _core_features/chat.md %}))
@@ -239,10 +236,9 @@ Delegated methods include:
 * `ask`, `say`, `complete`
 * `add_message`, `reset_messages!`, `each`
 * `with_tool`, `with_tools`
-* `with_model`, `with_temperature`, `with_thinking`, `with_context`
+* `with_model`, `with_temperature`, `with_thinking`, `with_citations`, `with_context`
 * `with_params`, `with_headers`, `with_schema`
-* `before_message`, `after_message`, `before_tool_call`, `after_tool_result` (v1.15+)
-* Deprecated replacing callbacks: `on_new_message`, `on_end_message`, `on_tool_call`, `on_tool_result`
+* `before_message`, `after_message`, `before_tool_call`, `after_tool_result`
 
 You can always access the wrapped chat object directly via `agent.chat`.
 
@@ -262,13 +258,10 @@ end
 Then you can:
 
 ```ruby
-# Create persisted chat with agent configuration applied
 chat = WorkAssistant.create!(user: current_user)
 
-# Load existing persisted chat with runtime config applied (no DB write)
 chat = WorkAssistant.find(params[:id])
 
-# Explicitly persist/sync the current agent instructions if you've modified them
 WorkAssistant.sync_instructions!(chat)
 ```
 

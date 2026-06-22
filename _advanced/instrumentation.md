@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Instrumentation
-nav_order: 5
+title: Instrumentation and Observability
+nav_order: 6
 description: Observe RubyLLM requests, chats, tool calls, embeddings, and model refreshes
 redirect_from:
   - /guides/instrumentation
@@ -22,10 +22,6 @@ After reading this guide, you will know:
 *   Which payload fields may contain sensitive application data.
 
 ## Rails
-{: .d-inline-block }
-
-v1.16.0+
-{: .label .label-green }
 
 Rails apps automatically emit RubyLLM events through `ActiveSupport::Notifications`. Subscribe to them the same way you would subscribe to Rails framework events:
 
@@ -71,7 +67,7 @@ RubyLLM.configure do |config|
 end
 ```
 
-You can also set `instrumenter` on a [context]({% link _introduction/configuration.md %}#contexts-isolated-configurations) when you only want instrumentation around a specific operation.
+You can also set `instrumenter` on a [context]({% link _introduction/configuration-connection.md %}#contexts-isolated-configurations) when you only want instrumentation around a specific operation.
 
 ## Events
 
@@ -81,6 +77,9 @@ RubyLLM emits these events:
 *   `chat.ruby_llm` - chat completion metadata including model, provider, messages, response, and token usage
 *   `tool_call.ruby_llm` - tool name, arguments, and result
 *   `embedding.ruby_llm` - embedding model, input, result, token usage, and vector dimensions
+*   `image.ruby_llm` - image generation model, prompt, size, and result
+*   `moderation.ruby_llm` - moderation model, input, result, and flagged status
+*   `transcription.ruby_llm` - transcription model, language, result, and token usage
 *   `models.refresh.ruby_llm` - model registry refresh metadata
 
 ## Payloads

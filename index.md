@@ -129,13 +129,13 @@ chat.ask "Describe this meeting", with: "meeting.wav"
 chat.ask "Summarize this document", with: "contract.pdf"
 chat.ask "Explain this code", with: "app.rb"
 ```
-{: .home-code-card data-title="Analyze any file type" data-href="{% link _core_features/chat.md %}#multi-modal-conversations" data-doc-title="Multi-modal Conversations" }
+{: .home-code-card data-title="Analyze any file type" data-href="{% link _core_features/attachments.md %}#attaching-files" data-doc-title="Multi-modal Conversations" }
 
 ```ruby
 chat = RubyLLM.chat
 chat.ask "Analyze these files", with: ["diagram.png", "report.pdf", "notes.txt"]
 ```
-{: .home-code-card data-title="Multiple files at once" data-href="{% link _core_features/chat.md %}#automatic-file-type-detection" data-doc-title="Automatic File Type Detection" }
+{: .home-code-card data-title="Multiple files at once" data-href="{% link _core_features/attachments.md %}#automatic-file-type-detection" data-doc-title="Automatic File Type Detection" }
 
 ```ruby
 chat = RubyLLM.chat
@@ -189,7 +189,7 @@ end
 
 WeatherAssistant.new.ask "What's the weather in Berlin?"
 ```
-{: .home-code-card data-title="Define an agent with instructions + tools" data-href="{% link _core_features/agents.md %}#defining-an-agent" data-doc-title="Defining an Agent" }
+{: .home-code-card data-title="Define an agent with instructions + tools" data-href="{% link _advanced/agents.md %}#defining-an-agent" data-doc-title="Defining an Agent" }
 
 ```ruby
 class ProductSchema < RubyLLM::Schema
@@ -203,19 +203,19 @@ end
 chat = RubyLLM.chat
 response = chat.with_schema(ProductSchema).ask "Analyze this product", with: "product.txt"
 ```
-{: .home-code-card data-title="Get structured output" data-href="{% link _core_features/chat.md %}#getting-structured-output" data-doc-title="Getting Structured Output" }
+{: .home-code-card data-title="Get structured output" data-href="{% link _core_features/structured-output.md %}#getting-structured-output" data-doc-title="Getting Structured Output" }
 
   </div>
 
   <div class="home-code-cta">
     <p>Plus
-      <a href="{% link _advanced/agentic-workflows.md %}#rag-as-a-workflow-step">RAG</a>,
+      <a href="{% link _advanced/rag.md %}">RAG</a>,
       <a href="{% link _advanced/agentic-workflows.md %}">agentic workflows</a>,
       <a href="{% link _advanced/async.md %}">Fiber support</a>,
       <a href="{% link _core_features/thinking.md %}">extended thinking</a>,
-      <a href="{% link _core_features/chat.md %}#anthropic-prompt-caching">prompt caching</a>,
-      <a href="{% link _introduction/configuration.md %}#openai-compatible-apis">custom endpoints</a>,
-      <a href="{% link _introduction/configuration.md %}#contexts-isolated-configurations">multi-tenant contexts</a>,
+      <a href="{% link _core_features/chat-request-control.md %}#anthropic-prompt-caching">prompt caching</a>,
+      <a href="{% link _introduction/configuration-providers.md %}#openai-compatible-apis">custom endpoints</a>,
+      <a href="{% link _introduction/configuration-connection.md %}#contexts-isolated-configurations">multi-tenant contexts</a>,
       <a href="{% link _reference/ecosystem.md %}#rubyllmmcp">MCP</a>,
       <a href="{% link _reference/ecosystem.md %}#rubyllminstrumentation">instrumentation</a>,
       <a href="{% link _reference/ecosystem.md %}#rubyllmmonitoring">monitoring</a>,
@@ -249,30 +249,30 @@ bin/rails ruby_llm:load_models
 ```sh
 bin/rails generate ruby_llm:chat_ui # http://localhost:3000/chats
 ```
-{: .home-code-card data-title="Add the optional chat UI" data-href="{% link _advanced/rails.md %}#adding-a-chat-ui" data-doc-title="Generating a Chat UI" }
+{: .home-code-card data-title="Add the optional chat UI" data-href="{% link _advanced/rails-generators.md %}#adding-a-chat-ui" data-doc-title="Generating a Chat UI" }
 
 ```ruby
 chat = Chat.create! model: "claude-opus-4-7"
 chat.ask "What's in this file?", with: "report.pdf"
 ```
-{: .home-code-card data-title="Persist chats with ActiveRecord" data-href="{% link _advanced/rails.md %}#core-models-and-acts_as-methods" data-doc-title="Core Models and acts_as Methods" }
+{: .home-code-card data-title="Persist chats with ActiveRecord" data-href="{% link _advanced/rails-persistence.md %}#setting-up-models-with-acts_as-helpers" data-doc-title="Core Models and acts_as Methods" }
 
 ```sh
 bin/rails generate ruby_llm:agent Support
 bin/rails generate ruby_llm:tool Weather
 bin/rails generate ruby_llm:schema Product
 ```
-{: .home-code-card data-title="Generate agents, tools, and schemas" data-href="{% link _advanced/rails.md %}#rails-generators-for-agents-tools-and-schemas" data-doc-title="Rails Generators for Agents, Tools, and Schemas" }
+{: .home-code-card data-title="Generate agents, tools, and schemas" data-href="{% link _advanced/rails-generators.md %}#rails-generators-for-agents-tools-and-schemas" data-doc-title="Rails Generators for Agents, Tools, and Schemas" }
 
   </div>
 
   <div class="home-code-cta">
     <p>Plus
-      <a href="{% link _advanced/rails.md %}#conventional-directory-structure">conventional directory structures</a>,
-      <a href="{% link _advanced/rails.md %}#setting-up-activestorage">ActiveStorage support</a>,
-      <a href="{% link _advanced/rails.md %}#file-attachments">attachment support</a>,
-      <a href="{% link _advanced/rails.md %}#streaming-responses-with-hotwireturbo">Hotwire/Turbo streaming</a>,
-      <a href="{% link _core_features/agents.md %}#prompt-management-and-conventions">prompt management</a>,
+      <a href="{% link _advanced/rails-generators.md %}#conventional-directory-structure">conventional directory structures</a>,
+      <a href="{% link _advanced/rails-generators.md %}#setting-up-activestorage">ActiveStorage support</a>,
+      <a href="{% link _advanced/rails-persistence.md %}#file-attachments">attachment support</a>,
+      <a href="{% link _advanced/rails-streaming.md %}#streaming-responses-with-hotwireturbo">Hotwire/Turbo streaming</a>,
+      <a href="{% link _advanced/agents.md %}#prompt-management-and-conventions">prompt management</a>,
       and more.
     </p>
     <div class="home-code-cta-actions">

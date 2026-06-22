@@ -26,7 +26,7 @@ RubyLLM.models.refresh!
 Model.refresh!
 ```
 
-See [model registry: refreshing the registry]({% link _advanced/models.md %}#refreshing-the-registry)
+See [model registry: refreshing the registry]({% link _reference/models.md %}#refreshing-the-registry)
 
 <div class="models-showcase">
   <section class="models-section" aria-labelledby="models-by-provider">
