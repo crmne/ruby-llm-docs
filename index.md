@@ -2,7 +2,7 @@
 layout: home
 title: Home
 nav_order: 1
-description: Ruby's AI agent framework. One delightful API for OpenAI, Anthropic, Gemini, Bedrock, and every major provider. Agents, chat, RAG, multimodal, Rails.
+description: 'RubyLLM: a Ruby framework for AI across every major provider. Start with a one-line chat, grow into agents, tools, RAG, and agentic workflows in Ruby and Rails.'
 permalink: /
 redirect_from:
   - /guides/
@@ -14,12 +14,16 @@ hero:
     width: 320
     height: 110
   text: 'Build AI features <span class="home-hero-highlight">the Ruby way</span>'
-  tagline: 'One <em>delightful</em> Ruby framework for every major AI provider. Build AI agents, chatbots, RAG apps, and multimodal workflows in beautiful, expressive code.'
+  tagline: 'Start with a one-line chat and grow into agents, tools, RAG, complex agentic workflows, and more. One AI framework across all major providers, <em>without rewriting your code</em>.'
   actions:
     - theme: brand
       class: home-button--guides
       text: Read the guides
       link: /getting-started/
+    - theme: alt
+      class: home-button--gem
+      text: gem install ruby_llm
+      link: '/getting-started/#installation'
 ---
 
 <section id="demo" class="home-section home-demo-section">
