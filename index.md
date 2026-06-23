@@ -14,7 +14,7 @@ hero:
     width: 320
     height: 110
   text: 'Build AI features <span class="home-hero-highlight">the Ruby way</span>'
-  tagline: 'A <em>delightful</em> Ruby AI framework for every major provider. Switch models without rewriting your code, then scale to production with Chats, Agents, Tools, RAG, Agentic Workflows, and more. Feels at home in Rails.'
+  tagline: 'A <em>delightful</em> Ruby AI framework that feels at home in Rails. Switch models without rewriting your code, then scale to production with everything from Chats and Tools to Agents, RAG, and Workflows.'
   actions:
     - theme: brand
       class: home-button--guides
