@@ -1,6 +1,6 @@
 ---
 title: RubyLLM
-description: 'RubyLLM: a delightful Ruby framework for every major AI provider. Switch models without rewriting your code. Agents, Tools, RAG, Agentic Workflows, at home in Rails.'
+description: 'RubyLLM: a delightful Ruby AI framework for every major provider. Switch models without rewriting your code. Agents, Tools, RAG, Agentic Workflows, at home in Rails.'
 lang: en-US
 timezone: Europe/Berlin
 markdown: kramdown
