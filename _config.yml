@@ -1,6 +1,8 @@
 ---
 title: RubyLLM
 description: 'RubyLLM: a delightful Ruby AI framework for every major provider. Switch models without rewriting your code. Agents, Tools, RAG, Agentic Workflows, at home in Rails.'
+url: https://rubyllm.com
+baseurl: ""
 lang: en-US
 timezone: Europe/Berlin
 markdown: kramdown
@@ -47,6 +49,32 @@ defaults:
   values:
     layout: default
 jekyll_vitepress:
+  seo:
+    page_type: TechArticle
+    image:
+      path: /assets/images/logotype.jpg
+      alt: RubyLLM
+      width: 579
+      height: 200
+    publisher:
+      type: Organization
+      name: RubyLLM
+      url: https://rubyllm.com
+      logo: /assets/images/favicon/web-app-manifest-512x512.png
+      same_as:
+        - https://github.com/crmne/ruby_llm
+        - https://rubygems.org/gems/ruby_llm
+        - https://github.com/sponsors/crmne
+  llms:
+    title: RubyLLM Documentation
+    description: >-
+      Developer documentation for RubyLLM, the Ruby-native AI framework for
+      chats, tools, agents, RAG, multimodal workflows, and Rails applications.
+    full: true
+    details: >-
+      The canonical docs cover installation, configuration, providers, core
+      features, agents, Rails integration, and the complete reference. Source
+      is on [GitHub](https://github.com/crmne/ruby_llm).
   branding:
     site_title: false
     logo:
@@ -164,6 +192,9 @@ jekyll_vitepress:
 plugins:
 - jekyll-redirect-from
 - jekyll-vitepress-theme
+twitter:
+  username: paolino
+  card: summary_large_image
 models:
   default_chat: gpt-5-nano
   default_embedding: text-embedding-3-small
